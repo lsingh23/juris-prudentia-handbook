@@ -63,6 +63,10 @@ a:hover .arrow.back,button:hover .arrow.back{transform:translateX(-3px)}
 .site-nav a{font-size:.85rem;font-weight:500;text-decoration:none;color:var(--ink-3);padding:.4rem .8rem;border-radius:999px;white-space:nowrap;transition:background .2s,color .2s}
 .site-nav a:hover{color:var(--ink);background:var(--surface)}
 .site-nav a[aria-current="page"]{color:var(--ink);background:var(--surface);box-shadow:var(--shadow)}
+.all-units{display:inline-flex;align-items:center;gap:.35rem;flex-shrink:0;margin-left:.75rem;padding:.42rem .9rem;border-radius:999px;background:var(--ink);color:var(--surface);font-size:.85rem;font-weight:600;text-decoration:none;white-space:nowrap;box-shadow:var(--shadow);transition:transform .15s,opacity .2s}
+.all-units:hover{opacity:.88;transform:translateX(-2px)}
+.all-units:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+@media (max-width:560px){.all-units{margin-left:.4rem;padding:.4rem .7rem}}
 .progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;overflow:hidden}
 .progress span{display:block;height:100%;background:var(--ink);transform-origin:left;transform:scaleX(0)}
 @media (max-width:540px){.brand-text{display:none}}
@@ -297,7 +301,7 @@ td:first-child{font-weight:600}
 </style>
 </head>
 <body>
-<header class="site-head"><div class="site-head-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">JP</span><span class="brand-text">Juris Prudentia</span></a><nav class="site-nav" aria-label="Chapters"><a href="../index.html">All units</a><a href="definition.html">Definition</a><a href="nature.html">Nature</a><a href="scope.html">Scope</a><a href="sources.html">Sources</a><a href="natural-law.html" aria-current="page">Natural law</a><a href="exam.html">Exam kit</a></nav></div><div class="progress" aria-hidden="true"><span></span></div></header><main class="wrap"><div class="layout rise"><article class="prose">
+<header class="site-head"><div class="site-head-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">JP</span><span class="brand-text">Juris Prudentia</span></a><a class="all-units" href="../index.html" title="Back to all four units"><span aria-hidden="true">&larr;</span> All units</a><nav class="site-nav" aria-label="Chapters"><a href="definition.html">Definition</a><a href="nature.html">Nature</a><a href="scope.html">Scope</a><a href="sources.html">Sources</a><a href="natural-law.html" aria-current="page">Natural law</a><a href="exam.html">Exam kit</a></nav></div><div class="progress" aria-hidden="true"><span></span></div></header><main class="wrap"><div class="layout rise"><article class="prose">
 <p class="eyebrow">Chapter 5 of 5 · Natural law</p>
 <h1>Natural law: the law above the law</h1>
 <p class="meta">About 24 minutes · 3 interactive widgets · 5-question check</p>
