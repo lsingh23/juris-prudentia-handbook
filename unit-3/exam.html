@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Exam Kit · Juris Prudentia</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Unit III exam kit: likely questions, answer skeletons, flashcards and a revision plan for rights and duties, ownership and possession, and legal personality.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+/* Layout: one quiet reading column on warm paper, white cards floating on a single soft shadow; contents rail on wide screens */
+:root{
+  --bg:#F2F2ED; --surface:#FFFFFF; --ink:#16211C; --ink-2:#3F4A44; --ink-3:#6B756F; --ink-4:#9AA29C;
+  --line:#E6E7E1; --line-2:#D7DAD3; --tint:#F6F6F2;
+  --violet:#6C5CE0; --violet-soft:#EFEDFC;
+  --good:#2E8B57; --good-soft:#E6F2EA; --warn:#B7791F; --warn-soft:#FAF0DE; --bad:#C0443A; --bad-soft:#FAE8E6;
+  --c1:#4774D1; --c2:#2A9187; --c3:#C08A23; --c4:#C24E78; --c5:#7A6CF0; --c6:#3E9A63;
+  --mark:#F4E3B0;
+  --shadow:0 1px 2px rgba(22,33,28,.04),0 14px 40px -16px rgba(22,33,28,.16);
+  --head-bg:rgba(242,242,237,.86);
+  /* aliases kept for page styles */
+  --muted:var(--ink-3); --accent:var(--ink); --accent-soft:var(--tint);
+  --gold:var(--warn); --gold-soft:var(--warn-soft); --rose:var(--bad); --rose-soft:var(--bad-soft);
+  --f-display:"Bricolage Grotesque","Avenir Next Condensed","Segoe UI",system-ui,sans-serif;
+  --f-body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --r-card:24px; --r-inner:16px;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+:root{color-scheme:light}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--bg)}
+img{max-width:100%}
+[hidden]{display:none!important}
+a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:.2em;text-decoration-thickness:1px;transition:text-decoration-color .2s}
+a:hover{text-decoration-color:var(--ink)}
+:focus-visible{outline:2px solid var(--violet);outline-offset:3px;border-radius:8px}
+button{font:inherit;color:inherit}
+mark{background:var(--mark);color:inherit;padding:.05em .2em;border-radius:4px}
+strong{font-weight:600}
+.ico{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.arrow{display:inline-block;transition:transform .25s var(--ease)}
+a:hover .arrow,button:hover .arrow{transform:translateX(3px)}
+a:hover .arrow.back,button:hover .arrow.back{transform:translateX(-3px)}
+
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--dot,var(--warn)) 45%,transparent)}70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.rise{animation:rise .6s var(--ease) both}
+.swap{animation:rise .4s var(--ease) both}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* ---------- top bar ---------- */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--head-bg);backdrop-filter:saturate(1.3) blur(14px);-webkit-backdrop-filter:saturate(1.3) blur(14px);border-bottom:1px solid var(--line)}
+.site-head-in{max-width:76rem;margin:0 auto;display:flex;align-items:center;gap:.75rem;padding-block:.7rem;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.brand{display:flex;align-items:center;gap:.55rem;font-family:var(--f-display);font-weight:700;font-size:1.05rem;color:var(--ink);text-decoration:none;white-space:nowrap;letter-spacing:-.02em;font-stretch:92%}
+.brand-mark{display:grid;place-items:center;width:1.85rem;height:1.85rem;border-radius:999px;background:var(--ink);color:var(--bg);font-family:var(--f-mono);font-size:.7rem;letter-spacing:.02em}
+.site-nav{display:flex;gap:.2rem;margin-left:auto;overflow-x:auto;scrollbar-width:none;min-width:0}
+.site-nav::-webkit-scrollbar{display:none}
+.site-nav a{font-size:.85rem;font-weight:500;text-decoration:none;color:var(--ink-3);padding:.4rem .8rem;border-radius:999px;white-space:nowrap;transition:background .2s,color .2s}
+.site-nav a:hover{color:var(--ink);background:var(--surface)}
+.site-nav a[aria-current="page"]{color:var(--ink);background:var(--surface);box-shadow:var(--shadow)}
+.progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;overflow:hidden}
+.progress span{display:block;height:100%;background:var(--ink);transform-origin:left;transform:scaleX(0)}
+@media (max-width:540px){.brand-text{display:none}}
+
+/* ---------- page frame ---------- */
+.wrap{max-width:76rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);gap:4rem;padding-block:3.5rem 5rem}
+@media (min-width:1100px){.layout{grid-template-columns:minmax(0,42rem) 13rem;justify-content:center}}
+.toc{display:none}
+@media (min-width:1100px){.toc{display:block;position:sticky;top:calc(env(safe-area-inset-top,0px) + 5.5rem);align-self:start;font-size:.85rem}}
+.toc-label{font-family:var(--f-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-4);margin:0 0 .9rem}
+.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:.1rem}
+.toc a{display:flex;gap:.6rem;align-items:center;padding:.35rem 0;color:var(--ink-3);text-decoration:none;line-height:1.35;transition:color .2s}
+.toc a::before{content:"";width:6px;height:6px;border-radius:999px;background:var(--line-2);flex:none;transition:background .2s,transform .2s}
+.toc a:hover{color:var(--ink)}
+.toc a.on{color:var(--ink);font-weight:500}
+.toc a.on::before{background:var(--violet);transform:scale(1.3)}
+
+/* ---------- prose ---------- */
+.prose{min-width:0}
+.prose > *{margin:0}
+.prose > * + *{margin-top:1.15em}
+.prose h1{font-family:var(--f-display);font-size:clamp(2.4rem,6.5vw,3.9rem);line-height:.98;letter-spacing:-.04em;font-weight:700;font-stretch:90%;text-wrap:balance}
+.prose h2{font-family:var(--f-display);font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.08;letter-spacing:-.035em;font-weight:700;font-stretch:90%;margin-top:3em;text-wrap:balance;scroll-margin-top:calc(env(safe-area-inset-top,0px) + 5.5rem);position:relative}
+.prose h3{font-family:var(--f-display);font-size:1.2rem;line-height:1.25;letter-spacing:-.02em;font-weight:600;margin-top:2.2em;text-wrap:balance}
+.prose h2 + *, .prose h3 + *{margin-top:.8em}
+.prose > .eyebrow + h1{margin-top:.9rem}
+.prose > h1 + .meta{margin-top:1.1rem}
+.anchor{position:absolute;left:-1.1em;top:.05em;color:var(--ink-4);text-decoration:none;font-weight:400;opacity:0;transition:opacity .2s}
+.prose h2:hover .anchor{opacity:1}
+@media (max-width:900px){.anchor{display:none}}
+.prose ul,.prose ol{padding-left:1.2em}
+.prose li + li{margin-top:.45em}
+.prose li::marker{color:var(--ink-4)}
+.eyebrow{font-family:var(--f-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);display:flex;align-items:center;gap:.55rem}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--dot,var(--violet));flex:none}
+.meta{font-family:var(--f-mono);font-size:.74rem;color:var(--ink-4);letter-spacing:.02em}
+.lead{font-size:1.18rem;line-height:1.6;color:var(--ink-2)}
+.prose code,.term{font-family:var(--f-mono);font-size:.82em;background:var(--surface);border:1px solid var(--line);padding:.08em .45em;border-radius:999px}
+.latin{font-style:italic;color:var(--ink-2)}
+.hand{font-family:var(--f-display);font-style:normal;font-weight:600;color:var(--violet);letter-spacing:-.01em}
+
+/* callouts: white cards with a coloured marker dot */
+.callout{--c:var(--good);background:var(--surface);border-radius:var(--r-card);padding:1.25rem 1.4rem 1.35rem;display:grid;gap:.55rem;box-shadow:var(--shadow)}
+.callout > *{margin:0}
+.callout .label{font-family:var(--f-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);display:flex;align-items:center;gap:.55rem}
+.callout .label::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--c)}
+.callout.exam{--c:var(--violet)}
+.callout.trap{--c:var(--bad)}
+.callout.keep{--c:var(--warn)}
+.prose > .callout{margin-top:2.2rem}
+.prose > .callout + *{margin-top:2.2rem}
+
+/* definition quote */
+.defq{margin-inline:0;padding:1.5rem 1.5rem 1.3rem;background:var(--surface);border-radius:var(--r-card);box-shadow:var(--shadow);display:grid;gap:.75rem}
+.defq p{margin:0;font-family:var(--f-display);font-size:1.3rem;line-height:1.3;font-weight:500;letter-spacing:-.02em;text-wrap:pretty}
+.defq cite{font-style:normal;font-family:var(--f-mono);font-size:.72rem;color:var(--ink-4);border-top:1px solid var(--line);padding-top:.75rem}
+
+/* big takeaway */
+.big-idea{font-family:var(--f-display);font-size:clamp(1.5rem,4vw,1.9rem);line-height:1.15;font-weight:600;letter-spacing:-.035em;font-stretch:92%;color:var(--ink);text-wrap:balance;padding-block:.75rem;border-block:1px solid var(--line-2)}
+
+/* tables */
+.table-wrap{overflow-x:auto;border-radius:var(--r-card);background:var(--surface);box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;font-size:.88rem;line-height:1.5;min-width:36rem}
+th,td{text-align:left;vertical-align:top;padding:.85rem 1rem;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-4);font-weight:500}
+td:first-child{font-weight:600}
+.dot{display:inline-block;width:7px;height:7px;border-radius:999px;background:var(--dot,var(--ink-4));margin-right:.45rem;vertical-align:.1em}
+
+/* ---------- widgets ---------- */
+.widget{background:var(--surface);border-radius:var(--r-card);padding:1.3rem;display:grid;gap:1.1rem;box-shadow:var(--shadow)}
+.prose > .widget{margin-top:2.4rem}
+.prose > .widget + *{margin-top:2.4rem}
+@media (min-width:700px){.widget{padding:1.6rem 1.7rem}}
+.widget > *{margin:0}
+.w-head{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .7rem;padding-bottom:1rem;border-bottom:1px solid var(--line)}
+.w-tag{font-family:var(--f-mono);font-size:.64rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);border:1px solid var(--line-2);padding:.18rem .55rem;border-radius:999px}
+.w-title{font-family:var(--f-display);font-weight:600;font-size:1.08rem;letter-spacing:-.02em}
+.w-hint{font-size:.82rem;color:var(--ink-4);margin-left:auto}
+.btn{appearance:none;border:1px solid var(--line-2);background:var(--surface);border-radius:999px;padding:.45rem 1rem;font-size:.85rem;font-weight:500;cursor:pointer;line-height:1.3;display:inline-flex;align-items:center;gap:.4rem;transition:border-color .2s,background .2s,color .2s}
+.btn:hover{border-color:var(--ink-3)}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:var(--surface)}
+.btn.primary:hover{background:var(--ink-2);border-color:var(--ink-2)}
+.btn[aria-pressed="true"],.btn.on{background:var(--violet-soft);border-color:var(--violet);color:var(--violet)}
+.btn:disabled{opacity:.4;cursor:default}
+.row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.chip{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.03em;padding:.22rem .6rem;border-radius:999px;background:var(--tint);color:var(--ink-3);white-space:nowrap;display:inline-flex;align-items:center;gap:.4rem}
+.chip .dot{margin:0}
+
+/* diagrams */
+.dia{width:100%;height:auto;display:block;margin-inline:auto}
+.dia .node rect{fill:var(--surface);stroke:var(--line-2);stroke-width:1;transition:opacity .35s,stroke .35s}
+.dia .code{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.08em;fill:var(--ink-4)}
+.dia .lab{font-family:var(--f-body);font-size:11px;font-weight:500;fill:var(--ink)}
+.dia .edge{fill:none;stroke:var(--line-2);stroke-width:1.2;stroke-dasharray:3 4;transition:stroke .35s,opacity .35s}
+.dia .edge.live{stroke-dasharray:none;stroke-width:1.6}
+.dia .off{opacity:.38}
+.dia .hub rect{fill:var(--ink);stroke:none}
+.dia .hub text{fill:var(--surface)}
+.dia .hub .code{fill:var(--surface);opacity:.6}
+.dia .cap{font-family:var(--f-mono);font-size:8px;letter-spacing:.12em;fill:var(--ink-4);text-transform:uppercase}
+.dia-cap{font-size:.8rem;color:var(--ink-4);line-height:1.5}
+.legend{display:flex;flex-wrap:wrap;gap:.35rem .9rem;font-size:.8rem;color:var(--ink-3)}
+.legend span{display:inline-flex;align-items:center;gap:.4rem}
+.steps{display:flex;gap:.35rem;align-items:center}
+.steps i{width:7px;height:7px;border-radius:999px;background:var(--line-2);transition:background .2s,width .25s var(--ease)}
+.steps i.on{background:var(--ink);width:20px}
+
+/* quiz */
+.quiz-q{border:0;padding:0;margin:0;display:grid;gap:.6rem}
+.quiz-q + .quiz-q{border-top:1px solid var(--line);padding-top:1.2rem}
+.quiz-q legend{font-weight:600;line-height:1.45;padding:0;margin-bottom:.6rem}
+.quiz-opts{display:grid;gap:.4rem}
+.quiz-opt{text-align:left;appearance:none;border:1px solid var(--line);background:var(--surface);border-radius:var(--r-inner);padding:.6rem .9rem;cursor:pointer;line-height:1.4;font-size:.92rem;display:flex;gap:.7rem;align-items:flex-start;transition:border-color .2s,background .2s}
+.quiz-opt:hover:not(:disabled){border-color:var(--ink-3)}
+.quiz-opt .k{font-family:var(--f-mono);font-size:.68rem;color:var(--ink-4);padding-top:.2rem}
+.quiz-opt.right{background:var(--good-soft);border-color:var(--good)}
+.quiz-opt.wrong{background:var(--bad-soft);border-color:var(--bad)}
+.quiz-opt:disabled{cursor:default}
+.quiz-why{font-size:.88rem;line-height:1.6;background:var(--tint);border-radius:var(--r-inner);padding:.75rem .95rem;display:flex;gap:.55rem;align-items:baseline}
+.quiz-why::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--good);flex:none;transform:translateY(-1px)}
+.quiz-why.miss::before{background:var(--bad)}
+.quiz-foot{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:1rem}
+.score{font-family:var(--f-mono);font-size:.74rem;color:var(--ink-3)}
+
+/* chapter end */
+.done-box{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;padding-block:1.2rem;border-block:1px solid var(--line-2)}
+.done-box p{margin:0;color:var(--ink-3);font-size:.88rem}
+.btn[data-done][aria-pressed="true"]{background:var(--good-soft);border-color:var(--good);color:var(--good)}
+.pager{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1rem}
+.prose > .pager{margin-top:3rem}
+.pager a{display:grid;gap:.25rem;padding:1.1rem 1.3rem;border-radius:var(--r-card);background:var(--surface);box-shadow:var(--shadow);text-decoration:none;color:var(--ink);transition:transform .3s var(--ease)}
+.pager a:hover{transform:translateY(-2px)}
+.pager .dir{font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-4)}
+.pager .t{font-family:var(--f-display);font-weight:600;font-size:1.1rem;letter-spacing:-.02em}
+.pager .next{text-align:right}
+.foot{border-top:1px solid var(--line);padding-block:1.6rem 2.6rem;color:var(--ink-4);font-size:.8rem}
+.foot p{margin:0;max-width:62ch}
+
+
+
+.qlist{display:grid;margin:0;padding:.4rem 1.3rem;list-style:none;background:var(--surface);border-radius:var(--r-card);box-shadow:var(--shadow)}
+.qlist li{display:grid;grid-template-columns:4.2rem 1fr;gap:.75rem;align-items:baseline;padding:.75rem 0;border-top:1px solid var(--line);font-size:.92rem}
+.qlist li:first-child{border-top:0}
+.qlist li + li{margin-top:0}
+.qtag{font-family:var(--f-mono);font-size:.64rem;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);display:inline-flex;align-items:center;gap:.4rem;white-space:nowrap}
+.qtag::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--d)}
+.qtag.long{--d:var(--violet)} .qtag.short{--d:var(--c2)}
+.skel{border-radius:var(--r-card);background:var(--surface);box-shadow:var(--shadow);overflow:hidden}
+.skel + .skel{margin-top:.75rem}
+.skel summary{cursor:pointer;list-style:none;padding:1.05rem 1.3rem;display:flex;gap:.8rem;align-items:center;font-weight:600;line-height:1.4;font-size:.95rem}
+.skel summary::-webkit-details-marker{display:none}
+.skel summary::after{content:"";margin-left:auto;width:8px;height:8px;border-right:1.5px solid var(--ink-3);border-bottom:1.5px solid var(--ink-3);transform:rotate(45deg) translateY(-3px);transition:transform .3s var(--ease);flex:none}
+.skel[open] summary::after{transform:rotate(225deg) translateY(-1px)}
+.skel[open] summary{border-bottom:1px solid var(--line)}
+.skel .body{padding:1rem 1.3rem 1.3rem;display:grid;gap:.75rem;font-size:.9rem}
+.skel[open] .body{animation:rise .45s var(--ease) both}
+.skel .body > *{margin:0}
+.skel ol{padding-left:1.4em;display:grid;gap:.55rem}
+.skel ol li{line-height:1.6;color:var(--ink-2)}
+.skel ol li + li{margin-top:0}
+.skel ol li::marker{color:var(--ink-4);font-family:var(--f-mono);font-size:.82em}
+.skel ol strong{color:var(--ink)}
+.skel .tip{font-size:.84rem;color:var(--ink-3)}
+.fc{display:grid;gap:1.1rem;justify-items:center}
+.fc-card{width:100%;max-width:32rem;aspect-ratio:8/5;perspective:1200px;cursor:pointer;border:0;background:none;padding:0}
+.fc-inner{position:relative;width:100%;height:100%;transition:transform .6s var(--ease);transform-style:preserve-3d}
+.fc-card.flip .fc-inner{transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;border-radius:var(--r-card);display:grid;place-content:center;gap:.6rem;padding:1.25rem 1.5rem;text-align:center;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.fc-front{background:var(--ink);color:var(--surface)}
+.fc-front .who{font-family:var(--f-display);font-weight:600;font-size:clamp(1.7rem,6vw,2.5rem);letter-spacing:-.04em;font-stretch:90%}
+.fc-front .hint{font-family:var(--f-mono);font-size:.66rem;opacity:.6;letter-spacing:.12em;text-transform:uppercase}
+.fc-back{background:var(--surface);border:1px solid var(--line-2);transform:rotateY(180deg)}
+.fc-back .def{font-family:var(--f-display);font-weight:500;font-size:clamp(1rem,3.6vw,1.2rem);line-height:1.38;letter-spacing:-.015em}
+.fc-back .crit{font-size:.8rem;color:var(--ink-3);line-height:1.45;display:inline-flex;gap:.45rem;align-items:baseline;justify-content:center}
+.fc-back .crit::before{content:"";width:6px;height:6px;border-radius:999px;background:var(--bad);flex:none;transform:translateY(-1px)}
+.fc-nav{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;align-items:center}
+.plan{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.75rem}
+.plan > div{border-radius:var(--r-card);padding:1.1rem 1.2rem;background:var(--surface);box-shadow:var(--shadow);display:grid;gap:.3rem;align-content:start}
+.plan .wk{font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-4)}
+.plan b{font-family:var(--f-display);font-weight:600;letter-spacing:-.02em;font-size:1.1rem}
+.plan p{margin:0;font-size:.86rem;line-height:1.55;color:var(--ink-3)}
+
+
+</style>
+</head>
+<body>
+<header class="site-head"><div class="site-head-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">JP</span><span class="brand-text">Juris Prudentia</span></a><nav class="site-nav" aria-label="Chapters"><a href="../index.html">All units</a><a href="rights-duties.html">Rights &amp; duties</a><a href="ownership-possession.html">Ownership &amp; possession</a><a href="legal-personality.html">Legal personality</a><a href="exam.html" aria-current="page">Exam kit</a></nav></div><div class="progress" aria-hidden="true"><span></span></div></header><main class="wrap"><div class="layout rise"><article class="prose">
+<p class="eyebrow" style="--dot:var(--warn)">Exam kit · Unit III</p>
+<h1>Turning the concepts into marks</h1>
+<p class="meta">9 answer skeletons · 24 flashcards · a 4-week plan</p>
+<p class="lead">Unit III is the most "technical" unit of the paper: definitions, classifications, tables and cases. That is good news. Examiners reward precision here, and precision can be practised. This page gives you the questions, the shapes of the answers, and the facts to drill.</p>
+
+<h2 id="questions" data-toc="Likely questions">Questions that keep coming back</h2>
+<p>These are the standard forms Unit III questions take in Indian university papers. If you only have time for four full practice answers, write the rights-and-elements question, Hohfeld, the possession theories question, and the theories of corporate personality.</p>
+<ul class="qlist">
+  <li><span class="qtag long">Long</span><span>Define a legal right. Explain its essential elements, with reference to Salmond.</span></li>
+  <li><span class="qtag long">Long</span><span>Discuss the various kinds of legal rights.</span></li>
+  <li><span class="qtag long">Long</span><span>Explain Hohfeld's analysis of jural relations. How far does it help in understanding the concept of right?</span></li>
+  <li><span class="qtag long">Long</span><span>"Rights and duties are correlative." Discuss.</span></li>
+  <li><span class="qtag short">Short</span><span>Will theory and interest theory of rights.</span></li>
+  <li><span class="qtag short">Short</span><span>Jus in rem and jus in personam.</span></li>
+  <li><span class="qtag short">Short</span><span>Perfect and imperfect rights.</span></li>
+  <li><span class="qtag short">Short</span><span>Austin's absolute and relative duties.</span></li>
+  <li><span class="qtag short">Short</span><span>Fundamental duties under Article 51A.</span></li>
+  <li><span class="qtag long">Long</span><span>Define ownership. Discuss its incidents and kinds.</span></li>
+  <li><span class="qtag long">Long</span><span>What is possession? Examine the theories of Savigny, Ihering and Salmond.</span></li>
+  <li><span class="qtag long">Long</span><span>"Possession is nine points of the law." Discuss, with the finders cases.</span></li>
+  <li><span class="qtag short">Short</span><span>Corpus possessionis and animus possidendi.</span></li>
+  <li><span class="qtag short">Short</span><span>Mediate and immediate possession.</span></li>
+  <li><span class="qtag short">Short</span><span>Trust and beneficial ownership; vested and contingent ownership.</span></li>
+  <li><span class="qtag short">Short</span><span>Distinguish ownership from possession.</span></li>
+  <li><span class="qtag short">Short</span><span>Adverse possession.</span></li>
+  <li><span class="qtag long">Long</span><span>What is legal personality? Discuss the theories of corporate personality.</span></li>
+  <li><span class="qtag long">Long</span><span>Explain the legal status of the unborn, the dead, animals and idols.</span></li>
+  <li><span class="qtag short">Short</span><span>Salomon v. Salomon and the lifting of the corporate veil.</span></li>
+  <li><span class="qtag short">Short</span><span>Idol as a juristic person.</span></li>
+  <li><span class="qtag short">Short</span><span>Corporate criminal liability.</span></li>
+</ul>
+
+<h2 id="skeletons" data-toc="Answer skeletons">Answer skeletons</h2>
+<p>Open one, then try writing the answer from the skeleton alone. If you get stuck on a step, that's the part of the chapter to reread.</p>
+
+<details class="skel" open>
+  <summary>Define a legal right. Explain its essential elements.</summary>
+  <div class="body">
+    <ol>
+      <li><strong>Introduction.</strong> Moral versus legal right; a legal right is recognised <em>and</em> protected by the State.</li>
+      <li><strong>Definitions, grouped.</strong> Austin (through duty), Holland (capacity of controlling, with the State's assistance), Salmond (interest recognised and protected by a rule of right), Gray (the power protecting an interest). One-line criticism each.</li>
+      <li><strong>Theories.</strong> Will (Holland, Hart) versus interest (Ihering, Salmond) in four lines.</li>
+      <li><strong>Salmond's five elements</strong>, each with a line: person of inherence, person of incidence, content, object, title.</li>
+      <li><strong>Worked example.</strong> A buys land from B: A, the world, forbearance, the land, the sale deed. <em>Set it out as a table.</em></li>
+      <li><strong>Conclusion.</strong> Every right is a right against persons; the title is what makes it <em>this</em> person's right.</li>
+    </ol>
+    <p class="tip">The worked example is what turns a list into an answer. Choose an Indian one.</p>
+  </div>
+</details>
+
+<details class="skel">
+  <summary>Discuss the various kinds of legal rights.</summary>
+  <div class="body">
+    <ol>
+      <li><strong>Introduction.</strong> Salmond's definition of a right in one line; the kinds come in pairs.</li>
+      <li><strong>Perfect / imperfect</strong>: time-barred debt; Limitation Act s. 3 bars the remedy, not the right; Contract Act s. 25(3).</li>
+      <li><strong>Positive / negative</strong> and <strong>real / personal</strong> (in rem / in personam), with a contrast table.</li>
+      <li><strong>Proprietary / personal</strong>: estate versus status; don't confuse with in rem / in personam.</li>
+      <li><strong>In re propria / in re aliena</strong>: the four encumbrances (lease, servitude, security, trust).</li>
+      <li><strong>Principal / accessory; primary / sanctioning; legal / equitable; vested / contingent; inheritable / uninheritable; public / private</strong>: one line and example each.</li>
+      <li><strong>Indian illustration.</strong> Fundamental rights as rights in rem or against the State (Arts. 12, 15(2), 17, 23); Directive Principles as near-imperfect rights (Art. 37).</li>
+    </ol>
+  </div>
+</details>
+
+<details class="skel">
+  <summary>Hohfeld's analysis of jural relations.</summary>
+  <div class="body">
+    <ol>
+      <li><strong>The problem.</strong> Judges use "right" loosely for four different ideas (Hohfeld, 1913 and 1917).</li>
+      <li><strong>Draw the table</strong>: right, privilege, power, immunity; correlatives duty, no-right, liability, disability; opposites no-right, duty, disability, liability.</li>
+      <li><strong>Explain correlatives</strong> (two persons, one relation) and <strong>opposites</strong> (one person, negation).</li>
+      <li><strong>One example per pair</strong>: rent (claim), walking on own land (privilege), making a will or accepting an offer (power), Article 20(3) (immunity).</li>
+      <li><strong>Value.</strong> Precision; every relation is between persons; ownership as a bundle of Hohfeldian relations; fundamental rights as immunities (Art. 13(2)).</li>
+      <li><strong>Criticism.</strong> Too abstract; only bilateral relations; privilege and immunity are negative ideas (Dias).</li>
+    </ol>
+  </div>
+</details>
+
+<details class="skel">
+  <summary>"Rights and duties are correlative." Discuss.</summary>
+  <div class="body">
+    <ol>
+      <li><strong>Define both.</strong> Salmond's right; Salmond's duty (an act the opposite of which would be a wrong).</li>
+      <li><strong>The correlative view.</strong> Salmond's "husband and wife, father and child"; Hohfeld's right–duty pair.</li>
+      <li><strong>Austin's absolute duties</strong>: towards God and animals, self-regarding, towards the public, towards the sovereign. Breach of absolute duty usually a crime.</li>
+      <li><strong>Salmond's reply</strong>: duties to the public are owed to society; modern States owe duties to citizens (Art. 32).</li>
+      <li><strong>Duguit</strong>: only duties, as social functions; <strong>Kelsen</strong>: right as reflex of duty.</li>
+      <li><strong>Indian position.</strong> Part III and Art. 51A; <em>Bijoe Emmanuel</em> (1986), <em>AIIMS Students' Union</em> (2002); <em>A. Nagaraja</em> (2014) turning a duty regarding animals into the animals' right.</li>
+      <li><strong>Conclusion.</strong> Every claim has a duty; not every duty has a claimant; privileges, powers and immunities pair with no-rights, liabilities and disabilities.</li>
+    </ol>
+  </div>
+</details>
+
+<details class="skel">
+  <summary>Define ownership. Discuss its incidents and kinds.</summary>
+  <div class="body">
+    <ol>
+      <li><strong>Definitions.</strong> Austin (indefinite user, unrestricted disposition, unlimited duration), Holland (plenary control), Salmond (relation between a person and a right). Thing versus right in one line.</li>
+      <li><strong>Modern view.</strong> Bundle of rights (Dias); Honoré's eleven incidents in a line.</li>
+      <li><strong>Incidents.</strong> Possess, use, exclude, destroy, alienate, indeterminate duration, residuary character. Stress the last, with the landlord example.</li>
+      <li><strong>Kinds</strong> in a table: corporeal/incorporeal, sole/co-, co-/joint (survivorship), trust/beneficial (Indian Trusts Act s. 3), legal/equitable, vested/contingent (TPA ss. 19, 21), absolute/limited.</li>
+      <li><strong>India.</strong> Article 300A after the 44th Amendment; <em>Vidya Devi</em> (2020).</li>
+      <li><strong>Conclusion.</strong> Ownership is never absolute; it is the residue left after the law and other people's rights have taken their share.</li>
+    </ol>
+  </div>
+</details>
+
+<details class="skel">
+  <summary>What is possession? The theories of Savigny, Ihering, Salmond and Pollock.</summary>
+  <div class="body">
+    <ol>
+      <li><strong>Importance.</strong> Evidence of ownership; protected in itself; mode of acquiring rights.</li>
+      <li><strong>Definition.</strong> Salmond: the continuing exercise of a claim to the exclusive use of a material object.</li>
+      <li><strong>Corpus and animus.</strong> Salmond's two relations; his four features of animus (not rightful, not ownership, not own behalf, may be general).</li>
+      <li><strong>Theories in a table</strong>: Savigny (animus domini; subjective), Ihering (outward visibility of ownership; objective; outwork of ownership), Salmond (animus possidendi), Pollock and Wright (effective physical control; possession in fact, in law, right to possess).</li>
+      <li><strong>Criticism</strong> of each in a line: Savigny's "derivative possession"; Ihering ties possession to ownership; Pollock cannot explain the servant.</li>
+      <li><strong>Conclusion.</strong> Salmond's balance: both elements, but the animus is the intent to exclude, not to own.</li>
+    </ol>
+  </div>
+</details>
+
+<details class="skel">
+  <summary>"Possession is nine points of the law." Discuss, with the finders cases.</summary>
+  <div class="body">
+    <ol>
+      <li><strong>Meaning of the maxim.</strong> The possessor starts ahead; the challenger must prove a better title.</li>
+      <li><strong>Why.</strong> Presumption of ownership (s. 110 Evidence Act); good title against all but the true owner (<em>Armory v. Delamirie</em>); s. 6 Specific Relief Act; <em>Rame Gowda</em> (2004); adverse possession (Arts. 65 and 112, Limitation Act; s. 27).</li>
+      <li><strong>Finder versus occupier.</strong> <em>Bridges</em> (1851), <em>Elwes</em> (1886), <em>Sharman</em> (1896), <em>Hannah v. Peel</em> (1945), <em>Parker</em> (1982). Facts and outcome, one line each.</li>
+      <li><strong>Donaldson LJ's rules</strong>: in or attached to land, occupier; on the surface, finder unless the occupier manifested control; trespassers and employees.</li>
+      <li><strong>India.</strong> Contract Act ss. 71, 168, 169; dishonest misappropriation; Treasure Trove Act, 1878.</li>
+      <li><strong>Conclusion.</strong> An exaggeration, since the true owner always wins, but it captures how strongly the law protects the fact of possession.</li>
+    </ol>
+  </div>
+</details>
+
+<details class="skel">
+  <summary>What is legal personality? Discuss the theories of corporate personality.</summary>
+  <div class="body">
+    <ol>
+      <li><strong>Meaning.</strong> <em>Persona</em>, the mask; Salmond's definition; natural and legal persons; Salmond's three classes (corporations, institutions, funds).</li>
+      <li><strong>Corporations.</strong> Aggregate and sole; Companies Act s. 9; <em>Salomon</em> (1897) in four lines.</li>
+      <li><strong>Theories</strong>, each with proponents and one criticism: fiction (Savigny, Salmond), concession (Dicey), realist (Gierke, Maitland), bracket (Ihering), purpose (Brinz), Kelsen.</li>
+      <li><strong>Test them on the cases.</strong> Idols fit purpose and fiction; corporate crime (<em>Standard Chartered</em>, 2005; <em>Iridium</em>, 2011) fits the realist theory.</li>
+      <li><strong>Conclusion.</strong> No one theory explains every case; Hart's advice to look at how "person" works in legal rules.</li>
+    </ol>
+    <p class="tip">A short table of the six theories (name, jurist, idea, criticism) saves time and scores well.</p>
+  </div>
+</details>
+
+<details class="skel">
+  <summary>Legal status of the unborn, the dead, animals and idols.</summary>
+  <div class="body">
+    <ol>
+      <li><strong>Frame.</strong> Personality is a legal status, not a biological fact (Salmond).</li>
+      <li><strong>Unborn.</strong> Treated as born when for its benefit, if born alive: TPA ss. 13, 20; HSA s. 20; offences of causing miscarriage; MTP Act limits.</li>
+      <li><strong>Dead.</strong> No personality, but body, reputation and will are protected: <em>Parmanand Katara</em> (1995); <em>Ashray Adhikar Abhiyan</em> (2002); defamation of the deceased.</li>
+      <li><strong>Animals.</strong> Traditionally things; Salmond's duties owed to the public; <em>A. Nagaraja</em> (2014); <em>Narayan Dutt Bhatt</em> (2018).</li>
+      <li><strong>Idols and religious entities.</strong> <em>Pramatha Nath Mullick</em> (1925); <em>Yogendra Nath Naskar</em> (1969); <em>SGPC v. Som Nath Dass</em> (2000); mosque not a person (1940); Ram Lalla yes, land no (2019).</li>
+      <li><strong>Rivers.</strong> <em>Mohd. Salim</em> (2017), stayed by the Supreme Court.</li>
+      <li><strong>Conclusion.</strong> Indian courts use personality as a tool to protect interests through guardians.</li>
+    </ol>
+  </div>
+</details>
+
+<h2 id="flashcards" data-toc="Flashcards">Flashcards</h2>
+<p>Tap a card to flip it. Say the answer out loud <em>before</em> you flip. Recall beats rereading. The first eight cover rights and duties; the next eight ownership and possession; the last eight legal personality.</p>
+<div class="widget fc" id="fc">
+  <div class="w-head" style="justify-self:stretch"><span class="w-tag">Drill</span><span class="w-title">Who said it? What was held?</span><span class="w-hint" id="fc-count"></span></div>
+  <button class="fc-card" type="button" id="fc-card" aria-label="Flip card">
+    <div class="fc-inner">
+      <div class="fc-face fc-front"><span class="who" id="fc-who"></span><span class="hint">Tap to reveal</span></div>
+      <div class="fc-face fc-back"><span class="def" id="fc-def"></span><span class="crit" id="fc-crit"></span></div>
+    </div>
+  </button>
+  <div class="fc-nav">
+    <button class="btn" type="button" id="fc-prev"><span class="arrow back">←</span> Previous</button>
+    <button class="btn" type="button" id="fc-shuffle">Shuffle</button>
+    <button class="btn primary" type="button" id="fc-next">Next <span class="arrow">→</span></button>
+  </div>
+</div>
+
+<h2 id="writing" data-toc="Writing tips">Small things that earn marks</h2>
+<ul>
+  <li><strong>Name the jurist every time.</strong> "Salmond defines a right as…" beats "a right is defined as…".</li>
+  <li><strong>Draw Hohfeld's table.</strong> It takes a minute and is the single most reliable mark-earner in this unit.</li>
+  <li><strong>Use tables for every classification.</strong> Kinds of rights, kinds of ownership, kinds of possession, the theories of possession and of personality: a pair, a meaning and an example per row.</li>
+  <li><strong>Give a worked example for Salmond's five elements.</strong> Asha buying land is better than an abstract list.</li>
+  <li><strong>Get case facts right in one line.</strong> Who found what, where, and who won. Examiners check the outcome of the finders cases.</li>
+  <li><strong>Use the Indian cases.</strong> <em>Pramatha Nath Mullick</em>, <em>Som Nath Dass</em>, <em>Mohd. Salim</em> and <em>A. Nagaraja</em> make a personality answer stand out; Article 51A and Article 300A do the same for rights and ownership.</li>
+  <li><strong>Mention the stay.</strong> If you cite <em>Mohd. Salim</em>, add that the Supreme Court stayed it. Leaving that out is a factual error.</li>
+  <li><strong>End with your own synthesis,</strong> not the last definition you wrote.</li>
+</ul>
+
+<aside class="callout keep">
+  <p class="label">Check your edition</p>
+  <p>Definitions here follow their standard textbook wording; phrasing differs a little between editions and teachers' notes. Statutory references are to the IPC, CrPC and Evidence Act as Paranjape cites them; from 1 July 2024 these were replaced by the BNS, BNSS and BSA. Citing the old section with "now the BNS" shows you are up to date.</p>
+</aside>
+
+<h2 id="plan" data-toc="Four-week plan">A four-week plan for this unit</h2>
+<p>Three chapters, each dense with classifications and cases. Spread them out, and spend the extra time on the tables, which carry the marks.</p>
+<div class="plan">
+  <div><span class="wk">Week 1</span><b>Understand</b><p>Read the three chapters here alongside Paranjape. Use every widget, especially Hohfeld's square and the finders sorter. Don't memorise yet.</p></div>
+  <div><span class="wk">Week 2</span><b>Write</b><p>Four timed long answers from the skeletons: elements of a right, Hohfeld, possession theories, corporate personality. Patch the gaps.</p></div>
+  <div><span class="wk">Week 3</span><b>Recall</b><p>Flashcards five minutes a day. Write the kinds-of-rights and kinds-of-ownership tables from memory.</p></div>
+  <div><span class="wk">Week 4</span><b>Rehearse</b><p>One timed long answer every other day. Draw Hohfeld's table and the possession theories table until they are automatic.</p></div>
+</div>
+<nav class="pager" aria-label="Chapter navigation"><a href="legal-personality.html"><span class="dir"><span class="arrow back">←</span> Previous</span><span class="t">Chapter 3 · Legal personality</span></a><a class="next" href="index.html"><span class="dir">Next <span class="arrow">→</span></span><span class="t">Back to Unit III</span></a></nav></article><aside class="toc" aria-label="On this page"><p class="toc-label">On this page</p><ol></ol></aside></div><footer class="foot"><p>Juris Prudentia · a study companion to Dr N.V. Paranjape, <em>Studies in Jurisprudence &amp; Legal Theory</em>, Unit III. Definitions follow standard textbook wording; check against your edition.</p></footer></main>
+
+<script>
+(function(){
+  var JP = window.JP = {};
+
+  JP.store = {
+    get: function(k){ try { return window.localStorage.getItem(k); } catch(e){ return null; } },
+    set: function(k,v){ try { window.localStorage.setItem(k,v); } catch(e){} },
+    del: function(k){ try { window.localStorage.removeItem(k); } catch(e){} }
+  };
+
+  JP.swap = function(el){ if(!el) return; el.classList.remove('swap'); void el.offsetWidth; el.classList.add('swap'); };
+
+  /* reading progress */
+  var bar = document.querySelector('.progress span');
+  function onScroll(){
+    if(!bar) return;
+    var h = document.documentElement, max = h.scrollHeight - h.clientHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, h.scrollTop / max) : 0) + ')';
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* heading anchors + on-this-page list */
+  var art = document.querySelector('article.prose');
+  var toc = document.querySelector('.toc ol');
+  if(art){
+    var heads = art.querySelectorAll('h2[id]');
+    var links = [];
+    heads.forEach(function(h){
+      var label = h.getAttribute('data-toc') || h.textContent;
+      var a = document.createElement('a');
+      a.href = '#' + h.id; a.className = 'anchor'; a.setAttribute('aria-label','Link to this section'); a.textContent = '#';
+      h.insertBefore(a, h.firstChild);
+      if(toc){
+        var li = document.createElement('li'), l = document.createElement('a');
+        l.href = '#' + h.id; l.textContent = label; li.appendChild(l); toc.appendChild(li); links.push(l);
+      }
+    });
+    if(toc && 'IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if(e.isIntersecting){
+            links.forEach(function(l){ l.classList.toggle('on', l.getAttribute('href') === '#' + e.target.id); });
+          }
+        });
+      }, {rootMargin:'0px 0px -70% 0px'});
+      heads.forEach(function(h){ io.observe(h); });
+    }
+  }
+
+  /* quiz */
+  JP.quiz = function(el, qs){
+    if(!el) return;
+    var letters = 'ABCD', right = 0, answered = 0;
+    var form = document.createElement('div'); form.style.display='grid'; form.style.gap='1.1rem';
+    var foot = document.createElement('div'); foot.className = 'quiz-foot';
+    var score = document.createElement('span'); score.className = 'score';
+    var reset = document.createElement('button'); reset.className = 'btn'; reset.type = 'button'; reset.textContent = 'Reset quiz';
+    foot.appendChild(score); foot.appendChild(reset);
+    function upd(){ score.textContent = answered === 0 ? qs.length + ' questions · pick an answer' : right + ' of ' + answered + ' correct' + (answered === qs.length ? (right === qs.length ? ' · full marks' : ' · reset to try again') : ''); }
+    function build(){
+      form.innerHTML = ''; right = 0; answered = 0;
+      qs.forEach(function(q, qi){
+        var fs = document.createElement('fieldset'); fs.className = 'quiz-q';
+        var lg = document.createElement('legend'); lg.textContent = (qi+1) + '. ' + q.q; fs.appendChild(lg);
+        var opts = document.createElement('div'); opts.className = 'quiz-opts';
+        var why = document.createElement('p'); why.className = 'quiz-why'; why.hidden = true;
+        var btns = [];
+        q.o.forEach(function(t, oi){
+          var b = document.createElement('button'); b.type = 'button'; b.className = 'quiz-opt';
+          b.innerHTML = '<span class="k">' + letters[oi] + '</span><span></span>';
+          b.lastChild.textContent = t;
+          b.addEventListener('click', function(){
+            btns.forEach(function(x){ x.disabled = true; });
+            btns[q.a].classList.add('right');
+            answered++;
+            if(oi === q.a){ right++; why.className = 'quiz-why'; why.innerHTML = '<b>Correct.</b> '; }
+            else { b.classList.add('wrong'); why.className = 'quiz-why miss'; why.innerHTML = '<b>Not quite.</b> '; }
+            why.appendChild(document.createTextNode(q.why)); why.hidden = false; upd();
+          });
+          btns.push(b); opts.appendChild(b);
+        });
+        fs.appendChild(opts); fs.appendChild(why); form.appendChild(fs);
+      });
+      upd();
+    }
+    reset.addEventListener('click', build);
+    el.appendChild(form); el.appendChild(foot); build();
+  };
+
+  /* chapter done toggle */
+  var done = document.querySelector('[data-done]');
+  if(done){
+    var key = 'jp-done-' + done.getAttribute('data-done');
+    function paint(){ var on = JP.store.get(key) === '1'; done.setAttribute('aria-pressed', on ? 'true' : 'false'); done.textContent = on ? 'Marked as read' : 'Mark chapter as read'; }
+    done.addEventListener('click', function(){ if(JP.store.get(key) === '1') JP.store.del(key); else JP.store.set(key,'1'); paint(); });
+    paint();
+  }
+})();
+
+</script>
+<script>
+(function(){
+var C = [
+ ['Austin on right','A party has a right when another or others are bound or obliged by law to do or forbear towards or in regard of him.','Defines right through duty.'],
+ ['Holland on right','A capacity residing in one man of controlling, with the assent and assistance of the State, the actions of others.','Will theory.'],
+ ['Salmond on right','An interest recognised and protected by a rule of right; any interest respect for which is a duty, and the disregard of which is a wrong.','Interest theory, after Ihering.'],
+ ['Gray on right','The power a man has to make others do or refrain from acts, so far as it arises from society imposing a legal duty on them.','The right is the means; the interest is the end.'],
+ ['Salmond’s five elements','Person of inherence, person of incidence, content, object, title.','Owner, Bound, Act, Thing, Title.'],
+ ['Hohfeld’s correlatives','Right–duty; privilege–no-right; power–liability; immunity–disability.','Two persons, one relation.'],
+ ['Hohfeld’s opposites','Right–no-right; privilege–duty; power–disability; immunity–liability.','One person, a negation.'],
+ ['Article 51A','Fundamental duties: ten added by the 42nd Amendment (1976), the eleventh, clause (k), by the 86th (2002).','AIIMS Students’ Union (2002): an aid to interpretation.'],
+ ['Austin on ownership','A right indefinite in point of user, unrestricted in point of disposition, and unlimited in point of duration over a determinate thing.','No modern owner is unrestricted.'],
+ ['Holland on ownership','Plenary control over an object: possession, enjoyment and disposition.','An ideal, not a description.'],
+ ['Salmond on ownership','The relation between a person and any right that is vested in him. That which a man owns is in all cases a right.','Fits incorporeal property; called circular.'],
+ ['Salmond on possession','The continuing exercise of a claim to the exclusive use of a material object.','Corpus + animus possidendi.'],
+ ['Savigny · Ihering','Corpus + animus domini (subjective) · possession is the outward visibility of ownership, its outwork (objective).','Das Recht des Besitzes, 1803.'],
+ ['Pollock & Wright','Possession in fact is effective physical control; distinguish possession in fact, possession in law, and the right to possess.','An Essay on Possession in the Common Law, 1888.'],
+ ['Parker v. British Airways Board (1982)','Finder of a bracelet in an airport lounge wins: the occupier had not manifested an intention to control lost things.','Donaldson LJ’s rules.'],
+ ['Elwes · Sharman · Hannah v. Peel','Buried boat: landowner · rings in pool mud: occupier · brooch in an unoccupied house: finder.','1886 · 1896 · 1945.'],
+ ['Salmond on person','Any being whom the law regards as capable of rights and duties, whether a human being or not.','“…even though he be a man.”'],
+ ['Salomon v. Salomon (1897)','A company is at law a different person from its members, even a one-man company.','House of Lords; the corporate veil.'],
+ ['Pramatha Nath Mullick (1925)','A Hindu idol is a juristic entity, with a will of its own as to its location; a next friend may represent it.','Privy Council.'],
+ ['SGPC v. Som Nath Dass (2000)','The Guru Granth Sahib is a juristic person.','Personality is elastic, shaped by need.'],
+ ['Mohd. Salim (2017)','Ganga and Yamuna declared legal and living entities, with officials in loco parentis.','Uttarakhand HC; stayed by the Supreme Court.'],
+ ['AWBI v. A. Nagaraja (2014)','Jallikattu banned; animals have a right to live with dignity; the five freedoms; Arts. 21, 51A(g), (h).','Rights, not full personhood.'],
+ ['Fiction · concession · realist','Savigny, Salmond · Dicey · Gierke, Maitland.','Created by law · granted by State · real group will.'],
+ ['Bracket · purpose · Kelsen','Ihering · Brinz, Bekker · personification of a complex of norms.','Symbol for members · Zweckvermögen · pure theory.']
+];
+var order = C.map(function(_,k){ return k; }), pos = 0;
+var card = document.getElementById('fc-card');
+function paintCard(){
+  var c = C[order[pos]];
+  card.classList.remove('flip');
+  document.getElementById('fc-who').textContent = c[0];
+  document.getElementById('fc-def').textContent = '“' + c[1] + '”';
+  document.getElementById('fc-crit').textContent = c[2];
+  document.getElementById('fc-count').textContent = 'Card ' + (pos+1) + ' of ' + C.length;
+}
+card.addEventListener('click', function(){ card.classList.toggle('flip'); });
+document.getElementById('fc-next').addEventListener('click', function(){ pos = (pos + 1) % C.length; paintCard(); });
+document.getElementById('fc-prev').addEventListener('click', function(){ pos = (pos - 1 + C.length) % C.length; paintCard(); });
+document.getElementById('fc-shuffle').addEventListener('click', function(){
+  for(var k = order.length - 1; k > 0; k--){ var j = Math.floor(Math.random() * (k+1)); var t = order[k]; order[k] = order[j]; order[j] = t; }
+  pos = 0; paintCard();
+});
+paintCard();
+
+})();
+</script>
+</body>
+</html>

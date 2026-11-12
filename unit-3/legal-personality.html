@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Legal Personality · Juris Prudentia</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Legal personality: natural and legal persons, corporations and the corporate veil, idols, rivers, animals, the unborn and the dead, and the theories of corporate personality, explained interactively.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+/* Layout: one quiet reading column on warm paper, white cards floating on a single soft shadow; contents rail on wide screens */
+:root{
+  --bg:#F2F2ED; --surface:#FFFFFF; --ink:#16211C; --ink-2:#3F4A44; --ink-3:#6B756F; --ink-4:#9AA29C;
+  --line:#E6E7E1; --line-2:#D7DAD3; --tint:#F6F6F2;
+  --violet:#6C5CE0; --violet-soft:#EFEDFC;
+  --good:#2E8B57; --good-soft:#E6F2EA; --warn:#B7791F; --warn-soft:#FAF0DE; --bad:#C0443A; --bad-soft:#FAE8E6;
+  --c1:#4774D1; --c2:#2A9187; --c3:#C08A23; --c4:#C24E78; --c5:#7A6CF0; --c6:#3E9A63;
+  --mark:#F4E3B0;
+  --shadow:0 1px 2px rgba(22,33,28,.04),0 14px 40px -16px rgba(22,33,28,.16);
+  --head-bg:rgba(242,242,237,.86);
+  /* aliases kept for page styles */
+  --muted:var(--ink-3); --accent:var(--ink); --accent-soft:var(--tint);
+  --gold:var(--warn); --gold-soft:var(--warn-soft); --rose:var(--bad); --rose-soft:var(--bad-soft);
+  --f-display:"Bricolage Grotesque","Avenir Next Condensed","Segoe UI",system-ui,sans-serif;
+  --f-body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --r-card:24px; --r-inner:16px;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+:root{color-scheme:light}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--bg)}
+img{max-width:100%}
+[hidden]{display:none!important}
+a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:.2em;text-decoration-thickness:1px;transition:text-decoration-color .2s}
+a:hover{text-decoration-color:var(--ink)}
+:focus-visible{outline:2px solid var(--violet);outline-offset:3px;border-radius:8px}
+button{font:inherit;color:inherit}
+mark{background:var(--mark);color:inherit;padding:.05em .2em;border-radius:4px}
+strong{font-weight:600}
+.ico{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.arrow{display:inline-block;transition:transform .25s var(--ease)}
+a:hover .arrow,button:hover .arrow{transform:translateX(3px)}
+a:hover .arrow.back,button:hover .arrow.back{transform:translateX(-3px)}
+
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--dot,var(--warn)) 45%,transparent)}70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.rise{animation:rise .6s var(--ease) both}
+.swap{animation:rise .4s var(--ease) both}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* ---------- top bar ---------- */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--head-bg);backdrop-filter:saturate(1.3) blur(14px);-webkit-backdrop-filter:saturate(1.3) blur(14px);border-bottom:1px solid var(--line)}
+.site-head-in{max-width:76rem;margin:0 auto;display:flex;align-items:center;gap:.75rem;padding-block:.7rem;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.brand{display:flex;align-items:center;gap:.55rem;font-family:var(--f-display);font-weight:700;font-size:1.05rem;color:var(--ink);text-decoration:none;white-space:nowrap;letter-spacing:-.02em;font-stretch:92%}
+.brand-mark{display:grid;place-items:center;width:1.85rem;height:1.85rem;border-radius:999px;background:var(--ink);color:var(--bg);font-family:var(--f-mono);font-size:.7rem;letter-spacing:.02em}
+.site-nav{display:flex;gap:.2rem;margin-left:auto;overflow-x:auto;scrollbar-width:none;min-width:0}
+.site-nav::-webkit-scrollbar{display:none}
+.site-nav a{font-size:.85rem;font-weight:500;text-decoration:none;color:var(--ink-3);padding:.4rem .8rem;border-radius:999px;white-space:nowrap;transition:background .2s,color .2s}
+.site-nav a:hover{color:var(--ink);background:var(--surface)}
+.site-nav a[aria-current="page"]{color:var(--ink);background:var(--surface);box-shadow:var(--shadow)}
+.progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;overflow:hidden}
+.progress span{display:block;height:100%;background:var(--ink);transform-origin:left;transform:scaleX(0)}
+@media (max-width:540px){.brand-text{display:none}}
+
+/* ---------- page frame ---------- */
+.wrap{max-width:76rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);gap:4rem;padding-block:3.5rem 5rem}
+@media (min-width:1100px){.layout{grid-template-columns:minmax(0,42rem) 13rem;justify-content:center}}
+.toc{display:none}
+@media (min-width:1100px){.toc{display:block;position:sticky;top:calc(env(safe-area-inset-top,0px) + 5.5rem);align-self:start;font-size:.85rem}}
+.toc-label{font-family:var(--f-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-4);margin:0 0 .9rem}
+.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:.1rem}
+.toc a{display:flex;gap:.6rem;align-items:center;padding:.35rem 0;color:var(--ink-3);text-decoration:none;line-height:1.35;transition:color .2s}
+.toc a::before{content:"";width:6px;height:6px;border-radius:999px;background:var(--line-2);flex:none;transition:background .2s,transform .2s}
+.toc a:hover{color:var(--ink)}
+.toc a.on{color:var(--ink);font-weight:500}
+.toc a.on::before{background:var(--violet);transform:scale(1.3)}
+
+/* ---------- prose ---------- */
+.prose{min-width:0}
+.prose > *{margin:0}
+.prose > * + *{margin-top:1.15em}
+.prose h1{font-family:var(--f-display);font-size:clamp(2.4rem,6.5vw,3.9rem);line-height:.98;letter-spacing:-.04em;font-weight:700;font-stretch:90%;text-wrap:balance}
+.prose h2{font-family:var(--f-display);font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.08;letter-spacing:-.035em;font-weight:700;font-stretch:90%;margin-top:3em;text-wrap:balance;scroll-margin-top:calc(env(safe-area-inset-top,0px) + 5.5rem);position:relative}
+.prose h3{font-family:var(--f-display);font-size:1.2rem;line-height:1.25;letter-spacing:-.02em;font-weight:600;margin-top:2.2em;text-wrap:balance}
+.prose h2 + *, .prose h3 + *{margin-top:.8em}
+.prose > .eyebrow + h1{margin-top:.9rem}
+.prose > h1 + .meta{margin-top:1.1rem}
+.anchor{position:absolute;left:-1.1em;top:.05em;color:var(--ink-4);text-decoration:none;font-weight:400;opacity:0;transition:opacity .2s}
+.prose h2:hover .anchor{opacity:1}
+@media (max-width:900px){.anchor{display:none}}
+.prose ul,.prose ol{padding-left:1.2em}
+.prose li + li{margin-top:.45em}
+.prose li::marker{color:var(--ink-4)}
+.eyebrow{font-family:var(--f-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);display:flex;align-items:center;gap:.55rem}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--dot,var(--violet));flex:none}
+.meta{font-family:var(--f-mono);font-size:.74rem;color:var(--ink-4);letter-spacing:.02em}
+.lead{font-size:1.18rem;line-height:1.6;color:var(--ink-2)}
+.prose code,.term{font-family:var(--f-mono);font-size:.82em;background:var(--surface);border:1px solid var(--line);padding:.08em .45em;border-radius:999px}
+.latin{font-style:italic;color:var(--ink-2)}
+.hand{font-family:var(--f-display);font-style:normal;font-weight:600;color:var(--violet);letter-spacing:-.01em}
+
+/* callouts: white cards with a coloured marker dot */
+.callout{--c:var(--good);background:var(--surface);border-radius:var(--r-card);padding:1.25rem 1.4rem 1.35rem;display:grid;gap:.55rem;box-shadow:var(--shadow)}
+.callout > *{margin:0}
+.callout .label{font-family:var(--f-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);display:flex;align-items:center;gap:.55rem}
+.callout .label::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--c)}
+.callout.exam{--c:var(--violet)}
+.callout.trap{--c:var(--bad)}
+.callout.keep{--c:var(--warn)}
+.prose > .callout{margin-top:2.2rem}
+.prose > .callout + *{margin-top:2.2rem}
+
+/* definition quote */
+.defq{margin-inline:0;padding:1.5rem 1.5rem 1.3rem;background:var(--surface);border-radius:var(--r-card);box-shadow:var(--shadow);display:grid;gap:.75rem}
+.defq p{margin:0;font-family:var(--f-display);font-size:1.3rem;line-height:1.3;font-weight:500;letter-spacing:-.02em;text-wrap:pretty}
+.defq cite{font-style:normal;font-family:var(--f-mono);font-size:.72rem;color:var(--ink-4);border-top:1px solid var(--line);padding-top:.75rem}
+
+/* big takeaway */
+.big-idea{font-family:var(--f-display);font-size:clamp(1.5rem,4vw,1.9rem);line-height:1.15;font-weight:600;letter-spacing:-.035em;font-stretch:92%;color:var(--ink);text-wrap:balance;padding-block:.75rem;border-block:1px solid var(--line-2)}
+
+/* tables */
+.table-wrap{overflow-x:auto;border-radius:var(--r-card);background:var(--surface);box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;font-size:.88rem;line-height:1.5;min-width:36rem}
+th,td{text-align:left;vertical-align:top;padding:.85rem 1rem;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-4);font-weight:500}
+td:first-child{font-weight:600}
+.dot{display:inline-block;width:7px;height:7px;border-radius:999px;background:var(--dot,var(--ink-4));margin-right:.45rem;vertical-align:.1em}
+
+/* ---------- widgets ---------- */
+.widget{background:var(--surface);border-radius:var(--r-card);padding:1.3rem;display:grid;gap:1.1rem;box-shadow:var(--shadow)}
+.prose > .widget{margin-top:2.4rem}
+.prose > .widget + *{margin-top:2.4rem}
+@media (min-width:700px){.widget{padding:1.6rem 1.7rem}}
+.widget > *{margin:0}
+.w-head{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .7rem;padding-bottom:1rem;border-bottom:1px solid var(--line)}
+.w-tag{font-family:var(--f-mono);font-size:.64rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);border:1px solid var(--line-2);padding:.18rem .55rem;border-radius:999px}
+.w-title{font-family:var(--f-display);font-weight:600;font-size:1.08rem;letter-spacing:-.02em}
+.w-hint{font-size:.82rem;color:var(--ink-4);margin-left:auto}
+.btn{appearance:none;border:1px solid var(--line-2);background:var(--surface);border-radius:999px;padding:.45rem 1rem;font-size:.85rem;font-weight:500;cursor:pointer;line-height:1.3;display:inline-flex;align-items:center;gap:.4rem;transition:border-color .2s,background .2s,color .2s}
+.btn:hover{border-color:var(--ink-3)}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:var(--surface)}
+.btn.primary:hover{background:var(--ink-2);border-color:var(--ink-2)}
+.btn[aria-pressed="true"],.btn.on{background:var(--violet-soft);border-color:var(--violet);color:var(--violet)}
+.btn:disabled{opacity:.4;cursor:default}
+.row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.chip{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.03em;padding:.22rem .6rem;border-radius:999px;background:var(--tint);color:var(--ink-3);white-space:nowrap;display:inline-flex;align-items:center;gap:.4rem}
+.chip .dot{margin:0}
+
+/* diagrams */
+.dia{width:100%;height:auto;display:block;margin-inline:auto}
+.dia .node rect{fill:var(--surface);stroke:var(--line-2);stroke-width:1;transition:opacity .35s,stroke .35s}
+.dia .code{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.08em;fill:var(--ink-4)}
+.dia .lab{font-family:var(--f-body);font-size:11px;font-weight:500;fill:var(--ink)}
+.dia .edge{fill:none;stroke:var(--line-2);stroke-width:1.2;stroke-dasharray:3 4;transition:stroke .35s,opacity .35s}
+.dia .edge.live{stroke-dasharray:none;stroke-width:1.6}
+.dia .off{opacity:.38}
+.dia .hub rect{fill:var(--ink);stroke:none}
+.dia .hub text{fill:var(--surface)}
+.dia .hub .code{fill:var(--surface);opacity:.6}
+.dia .cap{font-family:var(--f-mono);font-size:8px;letter-spacing:.12em;fill:var(--ink-4);text-transform:uppercase}
+.dia-cap{font-size:.8rem;color:var(--ink-4);line-height:1.5}
+.legend{display:flex;flex-wrap:wrap;gap:.35rem .9rem;font-size:.8rem;color:var(--ink-3)}
+.legend span{display:inline-flex;align-items:center;gap:.4rem}
+.steps{display:flex;gap:.35rem;align-items:center}
+.steps i{width:7px;height:7px;border-radius:999px;background:var(--line-2);transition:background .2s,width .25s var(--ease)}
+.steps i.on{background:var(--ink);width:20px}
+
+/* quiz */
+.quiz-q{border:0;padding:0;margin:0;display:grid;gap:.6rem}
+.quiz-q + .quiz-q{border-top:1px solid var(--line);padding-top:1.2rem}
+.quiz-q legend{font-weight:600;line-height:1.45;padding:0;margin-bottom:.6rem}
+.quiz-opts{display:grid;gap:.4rem}
+.quiz-opt{text-align:left;appearance:none;border:1px solid var(--line);background:var(--surface);border-radius:var(--r-inner);padding:.6rem .9rem;cursor:pointer;line-height:1.4;font-size:.92rem;display:flex;gap:.7rem;align-items:flex-start;transition:border-color .2s,background .2s}
+.quiz-opt:hover:not(:disabled){border-color:var(--ink-3)}
+.quiz-opt .k{font-family:var(--f-mono);font-size:.68rem;color:var(--ink-4);padding-top:.2rem}
+.quiz-opt.right{background:var(--good-soft);border-color:var(--good)}
+.quiz-opt.wrong{background:var(--bad-soft);border-color:var(--bad)}
+.quiz-opt:disabled{cursor:default}
+.quiz-why{font-size:.88rem;line-height:1.6;background:var(--tint);border-radius:var(--r-inner);padding:.75rem .95rem;display:flex;gap:.55rem;align-items:baseline}
+.quiz-why::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--good);flex:none;transform:translateY(-1px)}
+.quiz-why.miss::before{background:var(--bad)}
+.quiz-foot{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:1rem}
+.score{font-family:var(--f-mono);font-size:.74rem;color:var(--ink-3)}
+
+/* chapter end */
+.done-box{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;padding-block:1.2rem;border-block:1px solid var(--line-2)}
+.done-box p{margin:0;color:var(--ink-3);font-size:.88rem}
+.btn[data-done][aria-pressed="true"]{background:var(--good-soft);border-color:var(--good);color:var(--good)}
+.pager{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1rem}
+.prose > .pager{margin-top:3rem}
+.pager a{display:grid;gap:.25rem;padding:1.1rem 1.3rem;border-radius:var(--r-card);background:var(--surface);box-shadow:var(--shadow);text-decoration:none;color:var(--ink);transition:transform .3s var(--ease)}
+.pager a:hover{transform:translateY(-2px)}
+.pager .dir{font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-4)}
+.pager .t{font-family:var(--f-display);font-weight:600;font-size:1.1rem;letter-spacing:-.02em}
+.pager .next{text-align:right}
+.foot{border-top:1px solid var(--line);padding-block:1.6rem 2.6rem;color:var(--ink-4);font-size:.8rem}
+.foot p{margin:0;max-width:62ch}
+
+
+
+.contrast{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.75rem}
+.contrast > div{border-radius:var(--r-card);padding:1.15rem 1.3rem;background:var(--surface);box-shadow:var(--shadow);display:grid;gap:.45rem;align-content:start}
+.contrast h4{margin:0;font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-4);font-weight:500;display:flex;align-items:center;gap:.5rem}
+.contrast h4::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--ink-4)}
+.contrast p{margin:0;font-size:.92rem;line-height:1.6;color:var(--ink-2)}
+.contrast .them{background:var(--ink)}
+.contrast .them h4{color:var(--surface);opacity:.7}
+.contrast .them h4::before{background:var(--violet)}
+.contrast .them p{color:var(--surface)}
+@media (max-width:520px){.ladder li:nth-child(n){margin-left:0!important}}
+.sc-tabs{display:flex;gap:.3rem;flex-wrap:wrap}
+.sc-panel{display:grid;gap:.85rem}
+.sc-panel > *{margin:0}
+.sc-head{display:flex;flex-wrap:wrap;gap:.3rem .7rem;align-items:center}
+.sc-head b{font-family:var(--f-display);font-size:1.45rem;font-weight:600;letter-spacing:-.03em}
+.sc-quote{font-family:var(--f-display);font-size:1.1rem;line-height:1.4;font-weight:500;letter-spacing:-.015em;padding:.9rem 1.05rem;background:var(--tint);border-radius:var(--r-inner)}
+.sc-flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));gap:.5rem}
+.sc-flow > div{border:1px solid var(--line);border-radius:var(--r-inner);padding:.75rem .85rem;display:grid;gap:.2rem;align-content:start}
+.sc-flow .k{font-family:var(--f-mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.11em;color:var(--ink-4);display:flex;align-items:center;gap:.4rem}
+.sc-flow .k::before{content:"";width:6px;height:6px;border-radius:999px;background:var(--d,var(--ink-4))}
+.sc-flow p{margin:0;font-size:.86rem;line-height:1.5;color:var(--ink-2)}
+.meter{display:grid;gap:.35rem}
+.meter .h{font-family:var(--f-mono);font-size:.64rem;text-transform:uppercase;letter-spacing:.11em;color:var(--ink-4);display:flex;justify-content:space-between}
+.meter .bar{height:8px;border-radius:999px;background:var(--tint);border:1px solid var(--line);position:relative;overflow:hidden}
+.meter .bar span{position:absolute;inset:0 auto 0 0;background:var(--violet);border-radius:999px;transition:width .6s var(--ease)}
+.rex{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.5rem}
+.rex button{text-align:left;appearance:none;border:1px solid var(--line);border-radius:var(--r-inner);padding:.7rem .85rem;background:var(--surface);cursor:pointer;font-size:.86rem;line-height:1.5;color:var(--ink-2);display:grid;gap:.3rem;transition:background .2s,border-color .2s}
+.rex button:hover{border-color:var(--ink-4)}
+.rex button .n{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.1em;color:var(--ink-4);text-transform:uppercase}
+.rex button .p{display:none;font-family:var(--f-display);font-weight:600;font-size:1rem;letter-spacing:-.02em;color:var(--ink)}
+.rex button[aria-pressed="true"]{background:var(--violet-soft);border-color:var(--violet)}
+.rex button[aria-pressed="true"] .p{display:block}
+.rex-foot{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:1rem}
+.case{display:grid;gap:.75rem}
+.case-card{border-radius:var(--r-card);padding:1.15rem 1.3rem;background:var(--surface);box-shadow:var(--shadow);display:grid;gap:.4rem}
+.case-card > *{margin:0}
+.case-card .cn{font-family:var(--f-display);font-weight:600;font-size:1.12rem;letter-spacing:-.025em}
+.case-card .cy{font-family:var(--f-mono);font-size:.7rem;color:var(--ink-4)}
+.case-card p{font-size:.9rem;line-height:1.65;color:var(--ink-2)}
+.case-card .tag{font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.11em;color:var(--ink-3);display:flex;align-items:center;gap:.5rem}
+.case-card .tag::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--d,var(--ink-4))}
+.etym{display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:.75rem}
+.etym > div{background:var(--surface);box-shadow:var(--shadow);border-radius:var(--r-card);padding:1.1rem 1.25rem;display:grid;gap:.3rem;align-content:start}
+.etym .w{font-family:var(--f-display);font-weight:600;font-size:1.5rem;letter-spacing:-.035em;font-style:italic;line-height:1.1}
+.etym .m{font-size:.86rem;color:var(--ink-3);line-height:1.5}
+.etym .eq{background:var(--ink)}
+.etym .eq .w{color:var(--surface);font-style:normal}
+.etym .eq .m{color:var(--surface);opacity:.65}
+.sort-card{display:grid;gap:.85rem;min-width:0}
+.sort-card > *{margin:0}
+.sort-n{font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.11em;color:var(--ink-4)}
+.sort-q{font-family:var(--f-display);font-size:1.15rem;line-height:1.4;font-weight:500;letter-spacing:-.015em;padding:.9rem 1.05rem;background:var(--tint);border-radius:var(--r-inner)}
+.sort-card .btn.right{background:var(--good-soft);border-color:var(--good);color:var(--good)}
+.sort-card .btn.wrong{background:var(--bad-soft);border-color:var(--bad);color:var(--bad)}
+.sort-card .btn:disabled{opacity:1}
+.sort-card .btn:disabled:not(.right):not(.wrong){opacity:.45}
+
+
+</style>
+</head>
+<body>
+<header class="site-head"><div class="site-head-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">JP</span><span class="brand-text">Juris Prudentia</span></a><nav class="site-nav" aria-label="Chapters"><a href="../index.html">All units</a><a href="rights-duties.html">Rights &amp; duties</a><a href="ownership-possession.html">Ownership &amp; possession</a><a href="legal-personality.html" aria-current="page">Legal personality</a><a href="exam.html">Exam kit</a></nav></div><div class="progress" aria-hidden="true"><span></span></div></header><main class="wrap"><div class="layout rise"><article class="prose">
+<p class="eyebrow">Chapter 3 of 3 · Legal personality</p>
+<h1>Legal personality: who counts as a person?</h1>
+<p class="meta">About 25 minutes · 3 interactive widgets · 5-question check</p>
+<p class="lead">On 20 March 2017, the Uttarakhand High Court declared the Ganga and the Yamuna to be legal persons, "living entities" with the rights, duties and liabilities of a living person. Three officials were appointed to act as their guardians. Four months later, the Supreme Court stayed the order. Can a river really be a person?</p>
+<p>The question sounds strange until you notice how many non-humans the law already treats as persons. A company can own land and be sued. A Hindu idol can hold property. The Guru Granth Sahib is a juristic person. Meanwhile, for most of history, slaves were not legal persons at all. This chapter explains what "person" means in law, who gets the status, and the theories jurists have built to explain why.</p>
+
+<h2 id="meaning" data-toc="What a person is">What a person is in law</h2>
+<p>The word comes from the Latin <span class="latin">persona</span>, the mask an actor wore on the Roman stage. It came to mean the <em>role</em> a person plays, and then, in law, the role of being a bearer of rights and duties. That origin is a useful clue: <mark>legal personality is a role the law assigns, not a biological fact.</mark></p>
+<blockquote class="defq"><p>A person is any being whom the law regards as capable of rights and duties. Any being that is so capable is a person, whether a human being or not, and no being that is not so capable is a person, even though he be a man.</p><cite>Sir John Salmond, Jurisprudence</cite></blockquote>
+<p><strong>Salmond</strong>'s definition makes two points at once: non-humans can be persons, and humans can fail to be (the slave in Roman law; the "civilly dead" sanyasi in classical Hindu law, who on renouncing the world was treated as dead for purposes of property). <strong>Gray</strong> says the technical legal meaning of a person is simply "a subject of legal rights and duties". <strong>Kelsen</strong> goes further: even a human being is a person only as "the personification of a complex of legal norms".</p>
+<div class="contrast">
+  <div><h4>Natural persons</h4><p>Human beings, who are persons because the law recognises them as such. Personality normally begins at birth and ends at death. Minors and persons of unsound mind are full persons, though with limited capacity.</p></div>
+  <div class="them"><h4>Legal (juristic, artificial, fictitious) persons</h4><p>Beings, real or imaginary, other than humans, to whom the law attributes personality: companies, universities, the State, idols, trusts in some systems, and, in recent Indian cases, rivers and animals.</p></div>
+</div>
+<p>Salmond divides legal persons into three classes, according to what is personified:</p>
+<div class="etym">
+  <div><span class="w">corporations</span><span class="m">A group or series of persons: a company, a municipality, a university, a registered trade union.</span></div>
+  <div><span class="w">institutions</span><span class="m">An institution as such: a church, a hospital, a library, a temple. English law incorporates them; Hindu law personifies the idol.</span></div>
+  <div class="eq"><span class="w">funds or estates</span><span class="m">Property devoted to a purpose: a charitable fund, a deceased's estate, an insolvent's estate.</span></div>
+</div>
+<p>Legal personality matters for one practical reason above all: it lets the law treat a thing or group as a <strong>single unit</strong> that can own property, make contracts, sue and be sued, and bear liability, separately from the human beings involved.</p>
+
+<h2 id="natural" data-toc="The unborn, the dead, animals">The edges of natural personality: the unborn, the dead, animals</h2>
+<p>Salmond's chapter on persons spends time on three borderline cases. Each is a short-note favourite.</p>
+<h3>The unborn child</h3>
+<p>A child in the womb is not yet a person, but the law makes it one by anticipation for certain purposes, provided it is later <strong>born alive</strong>. This is the rule summed up as <span class="latin">nasciturus pro iam nato habetur</span>: the unborn is treated as born whenever that is for its benefit. In Indian law:</p>
+<ul>
+  <li><strong>Property.</strong> Under section 13 of the Transfer of Property Act, 1882, property may be transferred for the benefit of an unborn person, subject to a prior interest, and the interest must extend to the whole remaining interest. Under section 20, such a person acquires a vested interest on birth.</li>
+  <li><strong>Succession.</strong> Section 20 of the Hindu Succession Act, 1956: a child in the womb at the intestate's death, later born alive, inherits as if born before the death.</li>
+  <li><strong>Criminal law.</strong> Causing miscarriage, and acts done to prevent a child being born alive, are offences (sections 312–316 IPC; now sections 88–92 of the BNS, 2023). A death sentence on a pregnant woman must be postponed or commuted.</li>
+  <li><strong>Limits.</strong> The Medical Termination of Pregnancy Act, 1971 permits termination within statutory limits. The foetus's interests are protected, but it is not a full person able to override the mother's rights.</li>
+</ul>
+<h3>The dead</h3>
+<p>Personality ends at death: <mark>dead persons are no longer persons in the eye of the law</mark>, and they cannot own property or bear duties. But Salmond notes that the law still protects three things connected with them:</p>
+<ol>
+  <li><strong>The body</strong>: indignity to a corpse and trespass on burial places are offences (section 297 IPC; now section 301 BNS). In <em>Parmanand Katara v. Union of India</em> (1995), the Supreme Court held that the right to dignity and fair treatment under Article 21 extends to a person's dead body; in <em>Ashray Adhikar Abhiyan v. Union of India</em> (2002) it ordered a decent burial for the homeless dead.</li>
+  <li><strong>The reputation</strong>: an imputation against a deceased person can be defamation if it would harm the person's reputation if living and hurt the family (Explanation 1 to section 499 IPC; now section 356 BNS).</li>
+  <li><strong>The last wishes</strong>: a valid will is carried out, so the dead person's intention continues to govern his property.</li>
+</ol>
+<p>Strictly, these protect the <em>interests of the living</em> (the family, the public's sense of decency), which is how Salmond explains them without giving the dead personality.</p>
+<h3>Animals</h3>
+<p>Traditionally, animals are <strong>things, not persons</strong>. They can be owned, and their owners are liable for the harm they do. In medieval Europe, animals were sometimes tried and executed, but modern law treats this as a curiosity. Salmond's view was that the law imposes duties <em>regarding</em> animals (not to be cruel) but that those duties are owed to the public, not to the animal. Indian law has moved away from that view; see the cases below.</p>
+
+<h2 id="corporations" data-toc="Corporations">Corporations and Salomon's case</h2>
+<p>A <strong>corporation</strong> is a group or succession of persons that the law treats as a single person. Salmond distinguishes two kinds:</p>
+<div class="contrast">
+  <div><h4>Corporation aggregate</h4><p>A group of persons co-existing at the same time, incorporated as one: a company, a university, a municipal corporation, a co-operative society, a registered trade union (section 13, Trade Unions Act, 1926).</p></div>
+  <div class="them"><h4>Corporation sole</h4><p>A succession of single persons holding an office, incorporated so that the office continues: the Crown in English law, a bishop. In India: the Treasurer of Charitable Endowments, the Administrator-General, the Official Trustee.</p></div>
+</div>
+<p>Under <strong>section 9 of the Companies Act, 2013</strong>, from the date of incorporation a company is a body corporate with <strong>perpetual succession</strong>, able to acquire, hold and dispose of property, contract, and sue and be sued in its own name. A <strong>partnership firm</strong> in India is not a legal person: it is only a compendious name for the partners (<em>Dulichand Laxminarayan v. CIT</em>, 1956), though tax law treats it as a unit for assessment.</p>
+
+<h3>Salomon v. A. Salomon &amp; Co. Ltd (1897)</h3>
+<p>This House of Lords case is the foundation of company law and the most important case in this chapter. Aron Salomon, a leather and boot manufacturer, turned his business into a company. He held 20,001 of its 20,007 shares; his wife and five children held one each. The company paid him partly in debentures (secured loans) worth £10,000. When the company went into liquidation, unsecured creditors argued that the company was just Salomon under another name, and that he should not be paid ahead of them.</p>
+<p>The House of Lords disagreed. Once validly incorporated, <strong>the company is a different person from its members</strong>, even if one man holds almost all the shares. It was not Salomon's agent or trustee; Salomon was its secured creditor and was entitled to be paid first. As Lord Macnaghten put it, the company is at law a different person altogether from the subscribers.</p>
+<div class="case">
+  <div class="case-card"><p class="tag" style="--d:var(--c1)">Separate person, separate employee</p><p class="cn">Lee v. Lee's Air Farming Ltd</p><p class="cy">1961 (Privy Council)</p><p>Lee was the controlling shareholder and sole governing director of a crop-spraying company, and also its pilot. When he was killed flying for it, his widow was entitled to workers' compensation: Lee could be an employee of a company he controlled.</p></div>
+  <div class="case-card"><p class="tag" style="--d:var(--c3)">Company property is not shareholders' property</p><p class="cn">Macaura v. Northern Assurance Co.</p><p class="cy">1925</p><p>Macaura sold his timber to a company he owned, but insured it in his own name. When it burned, he could not claim: he had no insurable interest in property belonging to the company.</p></div>
+  <div class="case-card"><p class="tag" style="--d:var(--c6)">The Indian position</p><p class="cn">Bacha F. Guzdar v. CIT, Bombay</p><p class="cy">1955</p><p>A shareholder is not a part-owner of the company's property. Dividends from a tea company were not "agricultural income" in the shareholder's hands, because the land belonged to the company, not to her.</p></div>
+</div>
+
+<aside class="callout trap">
+  <p class="label">Common mix-up</p>
+  <p>"Separate personality" and "limited liability" are different things. Separate personality means the company, not its members, owns its property and owes its debts. Limited liability means the members' obligation to contribute is capped at the unpaid amount on their shares. An unlimited company has separate personality without limited liability.</p>
+</aside>
+
+<h2 id="veil" data-toc="Lifting the corporate veil">Lifting the corporate veil</h2>
+<p>Salomon puts a "veil" between the company and the people behind it. Courts will sometimes <strong>lift</strong> (or pierce) the veil: ignore the separate personality and look at the people in control. They do this sparingly. The usual grounds, collected in Paranjape and in <em>LIC v. Escorts Ltd</em> (1986), where Chinnappa Reddy J. said the veil may be lifted where a statute requires it, where fraud or improper conduct is intended, or where the company is used to evade taxes or a beneficial statute:</p>
+<ul>
+  <li><strong>Fraud or sham</strong>: the company is a mere façade to evade an existing legal obligation.</li>
+  <li><strong>Enemy character</strong>: in wartime, to find out who really controls a company.</li>
+  <li><strong>Tax evasion</strong> or the avoidance of welfare legislation.</li>
+  <li><strong>Statute</strong>: the Companies Act itself makes directors personally liable in some cases (fraudulent conduct of business, for example).</li>
+  <li><strong>Agency or single economic unit</strong>, in limited circumstances, though courts are cautious about treating groups of companies as one.</li>
+</ul>
+<p>Test yourself on the leading cases.</p>
+<div class="widget" id="veilw">
+  <div class="w-head"><span class="w-tag">Try it</span><span class="w-title">Lifted or upheld?</span><span class="w-hint">Did the court look behind the company?</span></div>
+  <div class="sort-card" id="vl-card" aria-live="polite">
+    <p class="sort-n" id="vl-n"></p>
+    <p class="sort-q" id="vl-q"></p>
+    <div class="row" id="vl-opts"></div>
+    <p class="quiz-why" id="vl-why" hidden></p>
+  </div>
+  <div class="rex-foot"><span class="score" id="vl-score"></span><div class="row"><button class="btn" type="button" id="vl-reset">Start again</button><button class="btn primary" type="button" id="vl-next">Next <span class="arrow">→</span></button></div></div>
+</div>
+<p>Two constitutional cases show the veil working in the other direction. In <em>State Trading Corporation of India v. CTO</em> (1963), a nine-judge bench held that a company is not a <strong>citizen</strong> and cannot claim Article 19 rights. In <em>Tata Engineering &amp; Locomotive Co. v. State of Bihar</em> (1965), the Court refused to lift the veil so that the company could claim them through its citizen shareholders. Later, in <em>R.C. Cooper v. Union of India</em> (1970, the Bank Nationalisation case), the Court allowed shareholders to challenge a law that affected their own rights through the company.</p>
+
+<h2 id="beyond" data-toc="Idols, rivers, animals">Beyond humans and companies: idols, scripture, rivers, animals</h2>
+<p>Indian law has stretched legal personality further than almost any other system. The reasoning in each case is worth knowing, because it shows which theory the court was using.</p>
+<div class="case">
+  <div class="case-card"><p class="tag" style="--d:var(--c3)">Idol as juristic person</p><p class="cn">Pramatha Nath Mullick v. Pradyumna Kumar Mullick</p><p class="cy">1925 (Privy Council)</p><p>Family members disputed whether a family idol could be moved to another place. The Privy Council held that a Hindu idol is a <strong>juristic entity</strong> with the capacity to sue and be sued, whose interests are looked after by the <em>shebait</em>. The idol has a "will" of its own about its location, and since the shebaits were the disputing parties, the court appointed a disinterested next friend to represent the idol.</p></div>
+  <div class="case-card"><p class="tag" style="--d:var(--c3)">Idol holds property, and pays tax</p><p class="cn">Yogendra Nath Naskar v. CIT</p><p class="cy">1969</p><p>The Supreme Court held that a Hindu idol is a juristic person capable of holding property and of being taxed through its shebait. The idol is the embodiment of the founder's pious purpose.</p></div>
+  <div class="case-card"><p class="tag" style="--d:var(--c5)">Scripture as juristic person</p><p class="cn">Shiromani Gurdwara Prabandhak Committee v. Som Nath Dass</p><p class="cy">2000</p><p>The Supreme Court held that the <strong>Guru Granth Sahib</strong> is a juristic person and can hold property. It is revered as the living Guru, and personality is conferred to meet the needs of the faith. The Court stressed that the concept of a juristic person is elastic, and comparing it with an idol was beside the point.</p></div>
+  <div class="case-card"><p class="tag" style="--d:var(--c4)">Where the line was drawn</p><p class="cn">Masjid Shahid Ganj v. SGPC; M. Siddiq v. Mahant Suresh Das</p><p class="cy">1940 (Privy Council); 2019</p><p>The Privy Council held that a mosque was not a juristic person able to sue. In the Ayodhya case, the Supreme Court held that the deity Bhagwan Shri Ram Lalla Virajman is a juristic person, but that the land, Asthan Shri Ram Janam Bhumi, is not: personifying land would make it immune from the ordinary law of possession.</p></div>
+  <div class="case-card"><p class="tag" style="--d:var(--c2)">Rivers as living entities</p><p class="cn">Mohd. Salim v. State of Uttarakhand</p><p class="cy">2017 (Uttarakhand High Court)</p><p>The High Court declared the Ganga and Yamuna and their tributaries legal and living entities with the status of a legal person, and named the Director of the Namami Gange project, the Chief Secretary and the Advocate General of Uttarakhand as persons <span class="latin">in loco parentis</span>. Days later, <em>Lalit Miglani</em> (2017) extended this to the Gangotri and Yamunotri glaciers, forests and lakes. The Supreme Court <strong>stayed</strong> the Mohd. Salim order in July 2017 on the State's appeal; the State had argued, among other things, that it could not be made answerable for harm the rivers cause, such as floods.</p></div>
+  <div class="case-card"><p class="tag" style="--d:var(--c6)">Animals' rights</p><p class="cn">Animal Welfare Board of India v. A. Nagaraja</p><p class="cy">2014</p><p>The Supreme Court banned jallikattu and bullock-cart races. It held that animals have a right to live in a healthy environment, free from unnecessary pain, and with dignity, recognised the "five freedoms", and read the Prevention of Cruelty to Animals Act, 1960 with Articles 21, 51A(g) and 51A(h). It did not declare animals legal persons. That step was taken by the Uttarakhand High Court in <em>Narayan Dutt Bhatt v. Union of India</em> (2018) and the Punjab and Haryana High Court in <em>Karnail Singh v. State of Haryana</em> (2019), which declared the entire animal kingdom legal entities with citizens in loco parentis.</p></div>
+</div>
+
+<aside class="callout exam">
+  <p class="label">Exam lens</p>
+  <p>Use these cases to answer the theory question. The idol cases fit the <strong>purpose theory</strong> (property dedicated to a pious purpose) and the <strong>fiction theory</strong> (personality conferred by law). The river and animal cases show legal personality as a <strong>tool</strong>: the court gives personality to something so that its interests can be represented by a guardian. That is the strongest argument that personality is a legal device, not a natural fact.</p>
+</aside>
+
+<div class="widget" id="whow">
+  <div class="w-head"><span class="w-tag">Try it</span><span class="w-title">Person or not?</span><span class="w-hint">Under Indian law, as the cases stand</span></div>
+  <div class="sort-card" id="wp-card" aria-live="polite">
+    <p class="sort-n" id="wp-n"></p>
+    <p class="sort-q" id="wp-q"></p>
+    <div class="row" id="wp-opts"></div>
+    <p class="quiz-why" id="wp-why" hidden></p>
+  </div>
+  <div class="rex-foot"><span class="score" id="wp-score"></span><div class="row"><button class="btn" type="button" id="wp-reset">Start again</button><button class="btn primary" type="button" id="wp-next">Next <span class="arrow">→</span></button></div></div>
+</div>
+
+<h2 id="theories" data-toc="Theories of personality">Theories of corporate personality</h2>
+<p>What <em>is</em> a corporation? A creation of the law, a real social being, a shorthand for its members, or a fund with a purpose? Each answer is a theory, and you need all six for a long answer. Step through them.</p>
+
+<div class="widget" id="thw">
+  <div class="w-head"><span class="w-tag">Compare</span><span class="w-title">Six theories of legal personality</span><span class="w-hint">Pick a theory</span></div>
+  <div class="sc-tabs" role="tablist" aria-label="Theories" id="tp-tabs"></div>
+  <div class="sc-panel" id="tp-panel" aria-live="polite">
+    <p class="sc-head"><b id="tp-name"></b><span class="chip" id="tp-who"></span></p>
+    <p class="sc-quote" id="tp-quote"></p>
+    <div class="sc-flow" id="tp-flow"></div>
+    <div class="meter"><p class="h"><span>A creation of law</span><span>A real social being</span></p><div class="bar"><span id="tp-bar"></span></div></div>
+  </div>
+</div>
+
+<h3>1. The fiction theory</h3>
+<p>Associated with <strong>Savigny</strong>, and followed in England by <strong>Salmond</strong>, Coke and Blackstone. Only human beings are real persons. The personality of a corporation is a <strong>fiction</strong>: the law pretends that a group is a person, for convenience. The corporation has no real will or mind of its own. Criticism: if the corporation is fictitious, so is the State; the theory struggles to explain how a fiction can commit a crime or a tort.</p>
+<h3>2. The concession theory</h3>
+<p>An offshoot of the fiction theory, associated with Savigny, <strong>Dicey</strong> and Salmond. A corporation has legal personality only because, and only to the extent that, <strong>the State concedes it</strong>. Its importance is political: it puts all associations at the mercy of the State. Hobbes compared corporations to "worms in the entrails of a natural man". Criticism: groups such as families, churches and clubs exist and act before the State recognises them.</p>
+<h3>3. The realist (organic) theory</h3>
+<p>Developed by the German jurist <strong>Otto von Gierke</strong> and introduced to English readers by <strong>F.W. Maitland</strong>. A corporation is a <strong>real person</strong>, with a real collective will (<span class="latin">Gesamtwille</span>) distinct from its members' wills. The law does not create it; it merely recognises an existing social reality, as it recognises a human being. Criticism: the "group will" is a metaphor, if not a mystical idea; and the theory cannot explain a corporation sole or a one-person company, where there is no group.</p>
+<h3>4. The bracket (symbolist) theory</h3>
+<p>Associated with <strong>Ihering</strong>. The members are the real holders of the rights; the corporation is only a <strong>bracket</strong> or symbol put round them for convenience, a short way of referring to the members collectively. The personality is useful but not real. Criticism: it ignores the cases where the corporation's rights and duties plainly differ from its members' (Salomon, Macaura), and it cannot explain institutions with no members, such as an idol.</p>
+<h3>5. The purpose theory</h3>
+<p>Developed by <strong>Brinz</strong> and <strong>Bekker</strong> (the theory of <span class="latin">Zweckvermögen</span>, "purpose property"). Only human beings can be persons. Corporate property is not owned by anyone; it is property <strong>dedicated to a purpose</strong>, and the law protects it for that purpose. Criticism: rights without a subject are hard to imagine; the theory says little about corporate duties. But it fits endowments, charitable trusts and Hindu idols remarkably well.</p>
+<h3>6. Kelsen's pure theory</h3>
+<p><strong>Hans Kelsen</strong> dissolves the debate. There is no difference in kind between natural and legal persons: both are <strong>constructs of legal thought</strong>. A "physical person" is the personification of the norms governing one individual's behaviour; a "juristic person" is the personification of a set of norms governing a group. "Person" is just a technical tool for describing rights and duties. Criticism: it is formally neat but ignores the social reality of groups, which is exactly what the realists wanted to capture.</p>
+
+<aside class="callout keep">
+  <p class="label">How to write it up</p>
+  <p>Meaning (persona; Salmond's definition); natural and legal persons; Salmond's three classes; the unborn, the dead and animals in a paragraph each. Then corporations: aggregate and sole, <em>Salomon</em>, the veil. Then the six theories with a criticism each, and the Indian cases as illustrations. Conclude with H.L.A. Hart's point in "Definition and Theory in Jurisprudence" (1953): we should ask how the word "person" works in legal rules, not search for a hidden entity behind it.</p>
+</aside>
+
+<h2 id="liability" data-toc="Corporate liability">Corporate liability: can a company be guilty?</h2>
+<p>If a company is a person, it should be liable like one. Civil liability was accepted early: a company is liable on its contracts and vicariously liable for the torts of its servants in the course of employment. Two harder questions remain.</p>
+<h3>The ultra vires rule</h3>
+<p>In <em>Ashbury Railway Carriage &amp; Iron Co. v. Riche</em> (1875), the House of Lords held that a contract beyond the objects in a company's memorandum is <strong>void</strong>, and cannot be ratified even by all the shareholders. The fiction and concession theories explain this neatly: a creature of statute can do only what its constitution allows.</p>
+<h3>Criminal liability and mens rea</h3>
+<p>A company has no body to imprison and no mind of its own. English courts answered the mind problem with the <strong>identification (alter ego) doctrine</strong>: the state of mind of those who are the company's "directing mind and will" is the company's own (Viscount Haldane in <em>Lennard's Carrying Co. v. Asiatic Petroleum</em>, 1915; Lord Denning's "brain and nerve centre" in <em>H.L. Bolton v. T.J. Graham</em>, 1957). In <em>Tesco Supermarkets v. Nattrass</em> (1972), a store manager was held not to be part of that directing mind, so the company escaped liability.</p>
+<div class="case">
+  <div class="case-card"><p class="tag" style="--d:var(--c1)">Companies can be prosecuted</p><p class="cn">Standard Chartered Bank v. Directorate of Enforcement</p><p class="cy">2005</p><p>A Constitution Bench held that a company can be prosecuted even for an offence punishable with mandatory imprisonment and fine. Since it cannot be imprisoned, the court may impose a fine alone. This overruled the contrary view in <em>Velliappa Textiles</em> (2003).</p></div>
+  <div class="case-card"><p class="tag" style="--d:var(--c5)">Companies can have mens rea</p><p class="cn">Iridium India Telecom Ltd v. Motorola Inc.</p><p class="cy">2011</p><p>The Supreme Court adopted the identification doctrine: a company can be guilty of offences requiring a guilty mind, such as cheating, through the mind of the persons who control it.</p></div>
+  <div class="case-card"><p class="tag" style="--d:var(--c4)">But not the other way round</p><p class="cn">Sunil Bharti Mittal v. CBI</p><p class="cy">2015</p><p>A company's directors cannot be made accused merely because of their position. A director is liable only for his own active role with criminal intent, or where a statute expressly makes him vicariously liable (as section 141 of the Negotiable Instruments Act does).</p></div>
+</div>
+<p>This is the realist theory winning in practice. Modern courts treat the company as an entity that acts, intends and answers for what it does, even though they still use the language of fiction when it suits them.</p>
+<p class="big-idea">Personality is the law's way of saying: this, whatever it is, can hold rights and answer for wrongs.</p>
+
+<h2 id="check" data-toc="Check yourself">Check yourself</h2>
+<div class="widget" id="quiz"><div class="w-head"><span class="w-tag">Quiz</span><span class="w-title">Legal personality</span></div></div>
+
+<div class="done-box"><p>Finished? Tick it off. Your progress shows on the unit page (saved only in this browser).</p><button class="btn" type="button" data-done="legal-personality" aria-pressed="false">Mark chapter as read</button></div>
+<nav class="pager" aria-label="Chapter navigation"><a href="ownership-possession.html"><span class="dir"><span class="arrow back">←</span> Previous</span><span class="t">Chapter 2 · Ownership &amp; possession</span></a><a class="next" href="exam.html"><span class="dir">Next <span class="arrow">→</span></span><span class="t">Exam kit</span></a></nav></article><aside class="toc" aria-label="On this page"><p class="toc-label">On this page</p><ol></ol></aside></div><footer class="foot"><p>Juris Prudentia · a study companion to Dr N.V. Paranjape, <em>Studies in Jurisprudence &amp; Legal Theory</em>, Unit III. Case facts are summarised; check against your edition and the reported judgments.</p></footer></main>
+
+<script>
+(function(){
+  var JP = window.JP = {};
+
+  JP.store = {
+    get: function(k){ try { return window.localStorage.getItem(k); } catch(e){ return null; } },
+    set: function(k,v){ try { window.localStorage.setItem(k,v); } catch(e){} },
+    del: function(k){ try { window.localStorage.removeItem(k); } catch(e){} }
+  };
+
+  JP.swap = function(el){ if(!el) return; el.classList.remove('swap'); void el.offsetWidth; el.classList.add('swap'); };
+
+  /* reading progress */
+  var bar = document.querySelector('.progress span');
+  function onScroll(){
+    if(!bar) return;
+    var h = document.documentElement, max = h.scrollHeight - h.clientHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, h.scrollTop / max) : 0) + ')';
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* heading anchors + on-this-page list */
+  var art = document.querySelector('article.prose');
+  var toc = document.querySelector('.toc ol');
+  if(art){
+    var heads = art.querySelectorAll('h2[id]');
+    var links = [];
+    heads.forEach(function(h){
+      var label = h.getAttribute('data-toc') || h.textContent;
+      var a = document.createElement('a');
+      a.href = '#' + h.id; a.className = 'anchor'; a.setAttribute('aria-label','Link to this section'); a.textContent = '#';
+      h.insertBefore(a, h.firstChild);
+      if(toc){
+        var li = document.createElement('li'), l = document.createElement('a');
+        l.href = '#' + h.id; l.textContent = label; li.appendChild(l); toc.appendChild(li); links.push(l);
+      }
+    });
+    if(toc && 'IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if(e.isIntersecting){
+            links.forEach(function(l){ l.classList.toggle('on', l.getAttribute('href') === '#' + e.target.id); });
+          }
+        });
+      }, {rootMargin:'0px 0px -70% 0px'});
+      heads.forEach(function(h){ io.observe(h); });
+    }
+  }
+
+  /* quiz */
+  JP.quiz = function(el, qs){
+    if(!el) return;
+    var letters = 'ABCD', right = 0, answered = 0;
+    var form = document.createElement('div'); form.style.display='grid'; form.style.gap='1.1rem';
+    var foot = document.createElement('div'); foot.className = 'quiz-foot';
+    var score = document.createElement('span'); score.className = 'score';
+    var reset = document.createElement('button'); reset.className = 'btn'; reset.type = 'button'; reset.textContent = 'Reset quiz';
+    foot.appendChild(score); foot.appendChild(reset);
+    function upd(){ score.textContent = answered === 0 ? qs.length + ' questions · pick an answer' : right + ' of ' + answered + ' correct' + (answered === qs.length ? (right === qs.length ? ' · full marks' : ' · reset to try again') : ''); }
+    function build(){
+      form.innerHTML = ''; right = 0; answered = 0;
+      qs.forEach(function(q, qi){
+        var fs = document.createElement('fieldset'); fs.className = 'quiz-q';
+        var lg = document.createElement('legend'); lg.textContent = (qi+1) + '. ' + q.q; fs.appendChild(lg);
+        var opts = document.createElement('div'); opts.className = 'quiz-opts';
+        var why = document.createElement('p'); why.className = 'quiz-why'; why.hidden = true;
+        var btns = [];
+        q.o.forEach(function(t, oi){
+          var b = document.createElement('button'); b.type = 'button'; b.className = 'quiz-opt';
+          b.innerHTML = '<span class="k">' + letters[oi] + '</span><span></span>';
+          b.lastChild.textContent = t;
+          b.addEventListener('click', function(){
+            btns.forEach(function(x){ x.disabled = true; });
+            btns[q.a].classList.add('right');
+            answered++;
+            if(oi === q.a){ right++; why.className = 'quiz-why'; why.innerHTML = '<b>Correct.</b> '; }
+            else { b.classList.add('wrong'); why.className = 'quiz-why miss'; why.innerHTML = '<b>Not quite.</b> '; }
+            why.appendChild(document.createTextNode(q.why)); why.hidden = false; upd();
+          });
+          btns.push(b); opts.appendChild(b);
+        });
+        fs.appendChild(opts); fs.appendChild(why); form.appendChild(fs);
+      });
+      upd();
+    }
+    reset.addEventListener('click', build);
+    el.appendChild(form); el.appendChild(foot); build();
+  };
+
+  /* chapter done toggle */
+  var done = document.querySelector('[data-done]');
+  if(done){
+    var key = 'jp-done-' + done.getAttribute('data-done');
+    function paint(){ var on = JP.store.get(key) === '1'; done.setAttribute('aria-pressed', on ? 'true' : 'false'); done.textContent = on ? 'Marked as read' : 'Mark chapter as read'; }
+    done.addEventListener('click', function(){ if(JP.store.get(key) === '1') JP.store.del(key); else JP.store.set(key,'1'); paint(); });
+    paint();
+  }
+})();
+
+</script>
+<script>
+(function(){
+/* generic one-at-a-time sorter */
+function sorter(pfx, items, labels){
+  var i = 0, right = 0, done = 0;
+  var n = document.getElementById(pfx+'-n'), q = document.getElementById(pfx+'-q'), opts = document.getElementById(pfx+'-opts'), why = document.getElementById(pfx+'-why'), sc = document.getElementById(pfx+'-score'), nx = document.getElementById(pfx+'-next');
+  function paint(){
+    var it = items[i], ls = it.l || labels;
+    n.textContent = 'Statement ' + (i+1) + ' of ' + items.length;
+    q.textContent = it.s; why.hidden = true; opts.innerHTML = '';
+    ls.forEach(function(lb, k){
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'btn'; b.textContent = lb;
+      b.addEventListener('click', function(){
+        Array.prototype.forEach.call(opts.children, function(x){ x.disabled = true; });
+        opts.children[it.a].classList.add('right'); done++;
+        if(k === it.a){ right++; why.className = 'quiz-why'; why.innerHTML = '<b>Yes.</b> '; }
+        else { b.classList.add('wrong'); why.className = 'quiz-why miss'; why.innerHTML = '<b>Not quite.</b> '; }
+        why.appendChild(document.createTextNode(it.w)); why.hidden = false; upd();
+      });
+      opts.appendChild(b);
+    });
+    nx.disabled = i === items.length - 1; upd();
+  }
+  function upd(){ sc.textContent = right + ' of ' + done + ' right' + (done === items.length ? ' · all done' : ' · ' + (items.length - done) + ' to go'); }
+  nx.addEventListener('click', function(){ if(i < items.length - 1){ i++; paint(); JP.swap(document.getElementById(pfx+'-card')); } });
+  document.getElementById(pfx+'-reset').addEventListener('click', function(){ i = 0; right = 0; done = 0; paint(); JP.swap(document.getElementById(pfx+'-card')); });
+  paint();
+}
+
+/* veil */
+sorter('vl', [
+ {s:'Salomon v. A. Salomon & Co. (1897): one man holds 20,001 of 20,007 shares and is the company’s secured creditor.', a:1, w:'The foundation case. The company is a separate person even if one member controls it; Salomon was paid as a secured creditor.'},
+ {s:'Gilford Motor Co. v. Horne (1933): a former managing director, bound not to solicit customers, sets up a company to do the soliciting.', a:0, w:'Lifted. The company was “a mere cloak or sham” to evade his own covenant; the injunction bound both him and the company.'},
+ {s:'Jones v. Lipman (1962): a seller who has agreed to sell land transfers it to a company he controls, to escape the sale.', a:0, w:'Lifted. Specific performance was ordered against both him and the company, a “device and a sham”.'},
+ {s:'Daimler Co. v. Continental Tyre & Rubber Co. (1916): a company registered in England, during the First World War, is controlled by German nationals.', a:0, w:'Lifted, to find enemy character. A company can be an enemy if those in de facto control are enemies.'},
+ {s:'Workmen of Associated Rubber Industry v. Associated Rubber Industry (1985): a company creates a subsidiary to divert its income and reduce the bonus payable to workers.', a:0, w:'Lifted. The Supreme Court looked through a device meant to defeat a welfare statute.'},
+ {s:'DDA v. Skipper Construction Co. (1996): companies are floated by one man to defraud the public and evade court orders.', a:0, w:'Lifted. The companies were creatures of one person; their assets were treated as his.'},
+ {s:'Adams v. Cape Industries plc (1990): claimants want an English parent company to answer for its American subsidiary’s liabilities.', a:1, w:'Upheld. A group is not one entity just because it is convenient; the veil cannot be lifted merely because justice seems to require it.'},
+ {s:'Vodafone International Holdings v. Union of India (2012): an offshore share transfer between foreign companies indirectly transfers control of an Indian company.', a:1, w:'Upheld. The Court looked at the transaction as a whole and found it was not a sham or a colourable tax-avoidance device.'},
+ {s:'Tata Engineering & Locomotive Co. v. State of Bihar (1965): a company argues that, as its shareholders are citizens, it should enjoy their Article 19 rights.', a:1, w:'Upheld. The Court refused to lift the veil to let the company claim citizens’ fundamental rights.'}
+], ['Veil lifted','Veil upheld']);
+
+/* person or not */
+sorter('wp', [
+ {s:'A private limited company registered under the Companies Act, 2013.', a:0, w:'Yes: a body corporate with perpetual succession (s. 9), able to own property and sue and be sued.'},
+ {s:'A partnership firm registered under the Indian Partnership Act, 1932.', a:1, w:'No: a firm is only a compendious name for the partners (Dulichand Laxminarayan v. CIT, 1956), though it is a unit for income tax.'},
+ {s:'A Hindu idol, duly consecrated, with property dedicated to it.', a:0, w:'Yes: a juristic entity (Pramatha Nath Mullick, 1925; Yogendra Nath Naskar, 1969), acting through its shebait.'},
+ {s:'The Guru Granth Sahib in a gurdwara.', a:0, w:'Yes: Shiromani Gurdwara Prabandhak Committee v. Som Nath Dass (2000).'},
+ {s:'The disputed land at Ayodhya, Asthan Shri Ram Janam Bhumi.', a:1, w:'No: M. Siddiq (2019) held the deity Ram Lalla a juristic person but refused personality to the land itself.'},
+ {s:'A child in the womb, for the purpose of inheriting from a father who dies before the birth.', a:0, w:'Yes, by anticipation, if later born alive (Hindu Succession Act, s. 20; TPA, ss. 13 and 20).'},
+ {s:'A person who has died, for the purpose of owning property.', a:1, w:'No: personality ends at death. The law protects the body, reputation and will only for the sake of the living.'},
+ {s:'The river Ganga, after the Supreme Court’s order of July 2017.', a:1, w:'Not at present: the Uttarakhand High Court’s declaration in Mohd. Salim (2017) was stayed by the Supreme Court.'},
+ {s:'A registered trade union.', a:0, w:'Yes: a body corporate with perpetual succession under s. 13 of the Trade Unions Act, 1926.'}
+], ['Legal person','Not a legal person']);
+
+/* theories */
+var TP = [
+ {n:'Fiction', w:'Savigny · Salmond · Coke · Blackstone', p:10,
+  q:'Only human beings are real persons. The personality of a corporation is a fiction the law creates for convenience.',
+  f:[['Core idea','The law pretends a group is a person. The corporation has no real mind or will.','--c1'],['Explains well','Why the law can create and dissolve corporations; the ultra vires rule.','--c6'],['Criticism','If the corporation is a fiction, so is the State. How can a fiction commit a crime?','--c4']]},
+ {n:'Concession', w:'Savigny · Dicey · Salmond', p:15,
+  q:'A corporation has legal personality only because, and only so far as, the State concedes it.',
+  f:[['Core idea','Personality is a grant from the sovereign; the State can give it and take it away.','--c1'],['Explains well','Incorporation by statute or registration; State control of associations.','--c6'],['Criticism','Groups (families, churches, clubs) exist and act before any concession; it favours State absolutism.','--c4']]},
+ {n:'Purpose', w:'Brinz · Bekker', p:20,
+  q:'Corporate property belongs to no one; it is property dedicated to a purpose, protected by law for that purpose.',
+  f:[['Core idea','Zweckvermögen: purpose property. Only humans are persons; the rest is ownerless but purpose-bound.','--c1'],['Explains well','Endowments, charitable funds, and above all Hindu idols and religious trusts.','--c6'],['Criticism','Rights without a subject are hard to imagine; says little about corporate duties.','--c4']]},
+ {n:'Bracket', w:'Ihering', p:35,
+  q:'The members are the real bearers of the rights; the corporation is a bracket, a symbol drawn round them for convenience.',
+  f:[['Core idea','Personality is a shorthand for the members collectively.','--c1'],['Explains well','Why, in substance, the benefits of corporate property reach the members.','--c6'],['Criticism','Ignores cases where company and members differ (Salomon, Macaura); fails for memberless institutions.','--c4']]},
+ {n:'Kelsen', w:'Hans Kelsen · pure theory of law', p:50,
+  q:'The physical person and the juristic person alike are personifications of complexes of legal norms.',
+  f:[['Core idea','No difference in kind between natural and legal persons; both are constructs of legal thought.','--c1'],['Explains well','Why law can personify anything it chooses: an idol, a river, a fund.','--c6'],['Criticism','Formally neat, but ignores the social reality of groups.','--c4']]},
+ {n:'Realist', w:'Gierke · Maitland', p:92,
+  q:'A corporation is a real person with a real collective will; the law recognises it, it does not create it.',
+  f:[['Core idea','The group has a real will (Gesamtwille) and a real life of its own, like a human organism.','--c1'],['Explains well','Corporate crimes and torts; the identification doctrine; groups existing before the State.','--c6'],['Criticism','The “group will” is a metaphor; it cannot explain a corporation sole or a one-person company.','--c4']]}
+];
+var tpT = document.getElementById('tp-tabs');
+var tpB = TP.map(function(s, k){
+  var b = document.createElement('button'); b.type = 'button'; b.className = 'btn'; b.setAttribute('role','tab'); b.textContent = s.n;
+  b.addEventListener('click', function(){ showP(k, true); }); tpT.appendChild(b); return b;
+});
+function showP(k, user){
+  var s = TP[k];
+  tpB.forEach(function(b,j){ b.classList.toggle('on', j===k); b.setAttribute('aria-selected', j===k ? 'true' : 'false'); });
+  document.getElementById('tp-name').textContent = s.n + ' theory';
+  document.getElementById('tp-who').textContent = s.w;
+  document.getElementById('tp-quote').textContent = s.q;
+  var fl = document.getElementById('tp-flow'); fl.innerHTML = '';
+  s.f.forEach(function(x){
+    var d = document.createElement('div'); d.style.setProperty('--d', 'var(' + x[2] + ')');
+    var h = document.createElement('span'); h.className = 'k'; h.textContent = x[0];
+    var p = document.createElement('p'); p.textContent = x[1];
+    d.appendChild(h); d.appendChild(p); fl.appendChild(d);
+  });
+  document.getElementById('tp-bar').style.width = s.p + '%';
+  if(user) JP.swap(document.getElementById('tp-panel'));
+}
+showP(0);
+
+JP.quiz(document.getElementById('quiz'), [
+ {q:'“A person is any being whom the law regards as capable of rights and duties.” Whose definition?', o:['Gray','Salmond','Kelsen','Gierke'], a:1, why:'Salmond, who adds that a being not so capable is not a person “even though he be a man”.'},
+ {q:'Salomon v. A. Salomon & Co. (1897) established that…', o:['A one-man company is the agent of its controller','A company is a legal person separate from its members','Shareholders own the company’s property','The veil must always be lifted in insolvency'], a:1, why:'The House of Lords held that a validly incorporated company is a different person from its members, however few or dominant.'},
+ {q:'The realist (organic) theory of corporate personality is associated with…', o:['Savigny and Salmond','Brinz and Bekker','Gierke and Maitland','Ihering'], a:2, why:'Gierke, popularised in English by Maitland. Savigny and Salmond hold the fiction theory; Brinz the purpose theory; Ihering the bracket theory.'},
+ {q:'In Shiromani Gurdwara Prabandhak Committee v. Som Nath Dass (2000), the Supreme Court held that…', o:['A mosque is a juristic person','The Guru Granth Sahib is a juristic person','Rivers are legal persons','A partnership firm is a legal person'], a:1, why:'The Guru Granth Sahib was held to be a juristic person capable of holding property.'},
+ {q:'Which statement about Mohd. Salim v. State of Uttarakhand (2017) is correct?', o:['It was decided by the Supreme Court','It declared animals legal persons','It declared the Ganga and Yamuna legal persons, but was stayed by the Supreme Court','It held idols are not juristic persons'], a:2, why:'The Uttarakhand High Court declared the rivers legal and living entities; the Supreme Court stayed the order in July 2017.'}
+]);
+
+})();
+</script>
+</body>
+</html>

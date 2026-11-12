@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Law and Morality · Juris Prudentia</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="The relation between law and morality: its history, the Hart–Devlin and Hart–Fuller debates, the enforcement of morals, and constitutional morality in Navtej, Joseph Shine and Sabarimala, explained interactively.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+/* Layout: one quiet reading column on warm paper, white cards floating on a single soft shadow; contents rail on wide screens */
+:root{
+  --bg:#F2F2ED; --surface:#FFFFFF; --ink:#16211C; --ink-2:#3F4A44; --ink-3:#6B756F; --ink-4:#9AA29C;
+  --line:#E6E7E1; --line-2:#D7DAD3; --tint:#F6F6F2;
+  --violet:#6C5CE0; --violet-soft:#EFEDFC;
+  --good:#2E8B57; --good-soft:#E6F2EA; --warn:#B7791F; --warn-soft:#FAF0DE; --bad:#C0443A; --bad-soft:#FAE8E6;
+  --c1:#4774D1; --c2:#2A9187; --c3:#C08A23; --c4:#C24E78; --c5:#7A6CF0; --c6:#3E9A63;
+  --mark:#F4E3B0;
+  --shadow:0 1px 2px rgba(22,33,28,.04),0 14px 40px -16px rgba(22,33,28,.16);
+  --head-bg:rgba(242,242,237,.86);
+  /* aliases kept for page styles */
+  --muted:var(--ink-3); --accent:var(--ink); --accent-soft:var(--tint);
+  --gold:var(--warn); --gold-soft:var(--warn-soft); --rose:var(--bad); --rose-soft:var(--bad-soft);
+  --f-display:"Bricolage Grotesque","Avenir Next Condensed","Segoe UI",system-ui,sans-serif;
+  --f-body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --r-card:24px; --r-inner:16px;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+:root{color-scheme:light}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--bg)}
+img{max-width:100%}
+[hidden]{display:none!important}
+a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:.2em;text-decoration-thickness:1px;transition:text-decoration-color .2s}
+a:hover{text-decoration-color:var(--ink)}
+:focus-visible{outline:2px solid var(--violet);outline-offset:3px;border-radius:8px}
+button{font:inherit;color:inherit}
+mark{background:var(--mark);color:inherit;padding:.05em .2em;border-radius:4px}
+strong{font-weight:600}
+.ico{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.arrow{display:inline-block;transition:transform .25s var(--ease)}
+a:hover .arrow,button:hover .arrow{transform:translateX(3px)}
+a:hover .arrow.back,button:hover .arrow.back{transform:translateX(-3px)}
+
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--dot,var(--warn)) 45%,transparent)}70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.rise{animation:rise .6s var(--ease) both}
+.swap{animation:rise .4s var(--ease) both}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* ---------- top bar ---------- */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--head-bg);backdrop-filter:saturate(1.3) blur(14px);-webkit-backdrop-filter:saturate(1.3) blur(14px);border-bottom:1px solid var(--line)}
+.site-head-in{max-width:76rem;margin:0 auto;display:flex;align-items:center;gap:.75rem;padding-block:.7rem;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.brand{display:flex;align-items:center;gap:.55rem;font-family:var(--f-display);font-weight:700;font-size:1.05rem;color:var(--ink);text-decoration:none;white-space:nowrap;letter-spacing:-.02em;font-stretch:92%}
+.brand-mark{display:grid;place-items:center;width:1.85rem;height:1.85rem;border-radius:999px;background:var(--ink);color:var(--bg);font-family:var(--f-mono);font-size:.7rem;letter-spacing:.02em}
+.site-nav{display:flex;gap:.2rem;margin-left:auto;overflow-x:auto;scrollbar-width:none;min-width:0}
+.site-nav::-webkit-scrollbar{display:none}
+.site-nav a{font-size:.85rem;font-weight:500;text-decoration:none;color:var(--ink-3);padding:.4rem .8rem;border-radius:999px;white-space:nowrap;transition:background .2s,color .2s}
+.site-nav a:hover{color:var(--ink);background:var(--surface)}
+.site-nav a[aria-current="page"]{color:var(--ink);background:var(--surface);box-shadow:var(--shadow)}
+.progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;overflow:hidden}
+.progress span{display:block;height:100%;background:var(--ink);transform-origin:left;transform:scaleX(0)}
+@media (max-width:540px){.brand-text{display:none}}
+
+/* ---------- page frame ---------- */
+.wrap{max-width:76rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);gap:4rem;padding-block:3.5rem 5rem}
+@media (min-width:1100px){.layout{grid-template-columns:minmax(0,42rem) 13rem;justify-content:center}}
+.toc{display:none}
+@media (min-width:1100px){.toc{display:block;position:sticky;top:calc(env(safe-area-inset-top,0px) + 5.5rem);align-self:start;font-size:.85rem}}
+.toc-label{font-family:var(--f-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-4);margin:0 0 .9rem}
+.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:.1rem}
+.toc a{display:flex;gap:.6rem;align-items:center;padding:.35rem 0;color:var(--ink-3);text-decoration:none;line-height:1.35;transition:color .2s}
+.toc a::before{content:"";width:6px;height:6px;border-radius:999px;background:var(--line-2);flex:none;transition:background .2s,transform .2s}
+.toc a:hover{color:var(--ink)}
+.toc a.on{color:var(--ink);font-weight:500}
+.toc a.on::before{background:var(--violet);transform:scale(1.3)}
+
+/* ---------- prose ---------- */
+.prose{min-width:0}
+.prose > *{margin:0}
+.prose > * + *{margin-top:1.15em}
+.prose h1{font-family:var(--f-display);font-size:clamp(2.4rem,6.5vw,3.9rem);line-height:.98;letter-spacing:-.04em;font-weight:700;font-stretch:90%;text-wrap:balance}
+.prose h2{font-family:var(--f-display);font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.08;letter-spacing:-.035em;font-weight:700;font-stretch:90%;margin-top:3em;text-wrap:balance;scroll-margin-top:calc(env(safe-area-inset-top,0px) + 5.5rem);position:relative}
+.prose h3{font-family:var(--f-display);font-size:1.2rem;line-height:1.25;letter-spacing:-.02em;font-weight:600;margin-top:2.2em;text-wrap:balance}
+.prose h2 + *, .prose h3 + *{margin-top:.8em}
+.prose > .eyebrow + h1{margin-top:.9rem}
+.prose > h1 + .meta{margin-top:1.1rem}
+.anchor{position:absolute;left:-1.1em;top:.05em;color:var(--ink-4);text-decoration:none;font-weight:400;opacity:0;transition:opacity .2s}
+.prose h2:hover .anchor{opacity:1}
+@media (max-width:900px){.anchor{display:none}}
+.prose ul,.prose ol{padding-left:1.2em}
+.prose li + li{margin-top:.45em}
+.prose li::marker{color:var(--ink-4)}
+.eyebrow{font-family:var(--f-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);display:flex;align-items:center;gap:.55rem}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--dot,var(--violet));flex:none}
+.meta{font-family:var(--f-mono);font-size:.74rem;color:var(--ink-4);letter-spacing:.02em}
+.lead{font-size:1.18rem;line-height:1.6;color:var(--ink-2)}
+.prose code,.term{font-family:var(--f-mono);font-size:.82em;background:var(--surface);border:1px solid var(--line);padding:.08em .45em;border-radius:999px}
+.latin{font-style:italic;color:var(--ink-2)}
+.hand{font-family:var(--f-display);font-style:normal;font-weight:600;color:var(--violet);letter-spacing:-.01em}
+
+/* callouts: white cards with a coloured marker dot */
+.callout{--c:var(--good);background:var(--surface);border-radius:var(--r-card);padding:1.25rem 1.4rem 1.35rem;display:grid;gap:.55rem;box-shadow:var(--shadow)}
+.callout > *{margin:0}
+.callout .label{font-family:var(--f-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);display:flex;align-items:center;gap:.55rem}
+.callout .label::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--c)}
+.callout.exam{--c:var(--violet)}
+.callout.trap{--c:var(--bad)}
+.callout.keep{--c:var(--warn)}
+.prose > .callout{margin-top:2.2rem}
+.prose > .callout + *{margin-top:2.2rem}
+
+/* definition quote */
+.defq{margin-inline:0;padding:1.5rem 1.5rem 1.3rem;background:var(--surface);border-radius:var(--r-card);box-shadow:var(--shadow);display:grid;gap:.75rem}
+.defq p{margin:0;font-family:var(--f-display);font-size:1.3rem;line-height:1.3;font-weight:500;letter-spacing:-.02em;text-wrap:pretty}
+.defq cite{font-style:normal;font-family:var(--f-mono);font-size:.72rem;color:var(--ink-4);border-top:1px solid var(--line);padding-top:.75rem}
+
+/* big takeaway */
+.big-idea{font-family:var(--f-display);font-size:clamp(1.5rem,4vw,1.9rem);line-height:1.15;font-weight:600;letter-spacing:-.035em;font-stretch:92%;color:var(--ink);text-wrap:balance;padding-block:.75rem;border-block:1px solid var(--line-2)}
+
+/* tables */
+.table-wrap{overflow-x:auto;border-radius:var(--r-card);background:var(--surface);box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;font-size:.88rem;line-height:1.5;min-width:36rem}
+th,td{text-align:left;vertical-align:top;padding:.85rem 1rem;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-4);font-weight:500}
+td:first-child{font-weight:600}
+.dot{display:inline-block;width:7px;height:7px;border-radius:999px;background:var(--dot,var(--ink-4));margin-right:.45rem;vertical-align:.1em}
+
+/* ---------- widgets ---------- */
+.widget{background:var(--surface);border-radius:var(--r-card);padding:1.3rem;display:grid;gap:1.1rem;box-shadow:var(--shadow)}
+.prose > .widget{margin-top:2.4rem}
+.prose > .widget + *{margin-top:2.4rem}
+@media (min-width:700px){.widget{padding:1.6rem 1.7rem}}
+.widget > *{margin:0}
+.w-head{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .7rem;padding-bottom:1rem;border-bottom:1px solid var(--line)}
+.w-tag{font-family:var(--f-mono);font-size:.64rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);border:1px solid var(--line-2);padding:.18rem .55rem;border-radius:999px}
+.w-title{font-family:var(--f-display);font-weight:600;font-size:1.08rem;letter-spacing:-.02em}
+.w-hint{font-size:.82rem;color:var(--ink-4);margin-left:auto}
+.btn{appearance:none;border:1px solid var(--line-2);background:var(--surface);border-radius:999px;padding:.45rem 1rem;font-size:.85rem;font-weight:500;cursor:pointer;line-height:1.3;display:inline-flex;align-items:center;gap:.4rem;transition:border-color .2s,background .2s,color .2s}
+.btn:hover{border-color:var(--ink-3)}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:var(--surface)}
+.btn.primary:hover{background:var(--ink-2);border-color:var(--ink-2)}
+.btn[aria-pressed="true"],.btn.on{background:var(--violet-soft);border-color:var(--violet);color:var(--violet)}
+.btn:disabled{opacity:.4;cursor:default}
+.row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.chip{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.03em;padding:.22rem .6rem;border-radius:999px;background:var(--tint);color:var(--ink-3);white-space:nowrap;display:inline-flex;align-items:center;gap:.4rem}
+.chip .dot{margin:0}
+
+/* diagrams */
+.dia{width:100%;height:auto;display:block;margin-inline:auto}
+.dia .node rect{fill:var(--surface);stroke:var(--line-2);stroke-width:1;transition:opacity .35s,stroke .35s}
+.dia .code{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.08em;fill:var(--ink-4)}
+.dia .lab{font-family:var(--f-body);font-size:11px;font-weight:500;fill:var(--ink)}
+.dia .edge{fill:none;stroke:var(--line-2);stroke-width:1.2;stroke-dasharray:3 4;transition:stroke .35s,opacity .35s}
+.dia .edge.live{stroke-dasharray:none;stroke-width:1.6}
+.dia .off{opacity:.38}
+.dia .hub rect{fill:var(--ink);stroke:none}
+.dia .hub text{fill:var(--surface)}
+.dia .hub .code{fill:var(--surface);opacity:.6}
+.dia .cap{font-family:var(--f-mono);font-size:8px;letter-spacing:.12em;fill:var(--ink-4);text-transform:uppercase}
+.dia-cap{font-size:.8rem;color:var(--ink-4);line-height:1.5}
+.legend{display:flex;flex-wrap:wrap;gap:.35rem .9rem;font-size:.8rem;color:var(--ink-3)}
+.legend span{display:inline-flex;align-items:center;gap:.4rem}
+.steps{display:flex;gap:.35rem;align-items:center}
+.steps i{width:7px;height:7px;border-radius:999px;background:var(--line-2);transition:background .2s,width .25s var(--ease)}
+.steps i.on{background:var(--ink);width:20px}
+
+/* quiz */
+.quiz-q{border:0;padding:0;margin:0;display:grid;gap:.6rem}
+.quiz-q + .quiz-q{border-top:1px solid var(--line);padding-top:1.2rem}
+.quiz-q legend{font-weight:600;line-height:1.45;padding:0;margin-bottom:.6rem}
+.quiz-opts{display:grid;gap:.4rem}
+.quiz-opt{text-align:left;appearance:none;border:1px solid var(--line);background:var(--surface);border-radius:var(--r-inner);padding:.6rem .9rem;cursor:pointer;line-height:1.4;font-size:.92rem;display:flex;gap:.7rem;align-items:flex-start;transition:border-color .2s,background .2s}
+.quiz-opt:hover:not(:disabled){border-color:var(--ink-3)}
+.quiz-opt .k{font-family:var(--f-mono);font-size:.68rem;color:var(--ink-4);padding-top:.2rem}
+.quiz-opt.right{background:var(--good-soft);border-color:var(--good)}
+.quiz-opt.wrong{background:var(--bad-soft);border-color:var(--bad)}
+.quiz-opt:disabled{cursor:default}
+.quiz-why{font-size:.88rem;line-height:1.6;background:var(--tint);border-radius:var(--r-inner);padding:.75rem .95rem;display:flex;gap:.55rem;align-items:baseline}
+.quiz-why::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--good);flex:none;transform:translateY(-1px)}
+.quiz-why.miss::before{background:var(--bad)}
+.quiz-foot{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:1rem}
+.score{font-family:var(--f-mono);font-size:.74rem;color:var(--ink-3)}
+
+/* chapter end */
+.done-box{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;padding-block:1.2rem;border-block:1px solid var(--line-2)}
+.done-box p{margin:0;color:var(--ink-3);font-size:.88rem}
+.btn[data-done][aria-pressed="true"]{background:var(--good-soft);border-color:var(--good);color:var(--good)}
+.pager{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1rem}
+.prose > .pager{margin-top:3rem}
+.pager a{display:grid;gap:.25rem;padding:1.1rem 1.3rem;border-radius:var(--r-card);background:var(--surface);box-shadow:var(--shadow);text-decoration:none;color:var(--ink);transition:transform .3s var(--ease)}
+.pager a:hover{transform:translateY(-2px)}
+.pager .dir{font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-4)}
+.pager .t{font-family:var(--f-display);font-weight:600;font-size:1.1rem;letter-spacing:-.02em}
+.pager .next{text-align:right}
+.foot{border-top:1px solid var(--line);padding-block:1.6rem 2.6rem;color:var(--ink-4);font-size:.8rem}
+.foot p{margin:0;max-width:62ch}
+
+
+.contrast{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.75rem}
+.contrast > div{border-radius:var(--r-card);padding:1.15rem 1.3rem;background:var(--surface);box-shadow:var(--shadow);display:grid;gap:.45rem;align-content:start}
+.contrast h4{margin:0;font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-4);font-weight:500;display:flex;align-items:center;gap:.5rem}
+.contrast h4::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--ink-4)}
+.contrast p{margin:0;font-size:.92rem;line-height:1.6;color:var(--ink-2)}
+.contrast .them{background:var(--ink)}
+.contrast .them h4{color:var(--surface);opacity:.7}
+.contrast .them h4::before{background:var(--violet)}
+.contrast .them p{color:var(--surface)}
+.era-strip{display:flex;gap:.3rem;overflow-x:auto;padding-bottom:.25rem;scrollbar-width:none}
+.era-strip::-webkit-scrollbar{display:none}
+.era-strip .btn{white-space:nowrap;font-size:.8rem;padding:.35rem .8rem}
+.era-text{display:grid;gap:.8rem;min-width:0;border-top:1px solid var(--line);padding-top:1.1rem}
+.era-text > *{margin:0}
+.era-who{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem .7rem}
+.era-who b{font-family:var(--f-display);font-size:1.45rem;font-weight:600;letter-spacing:-.03em}
+.era-quote{font-family:var(--f-display);font-size:1.1rem;line-height:1.4;font-weight:500;letter-spacing:-.015em;padding:.9rem 1.05rem;background:var(--tint);border-radius:var(--r-inner)}
+.era-dl{display:grid;margin:0}
+.era-dl div{display:grid;gap:.15rem;padding-block:.65rem;border-top:1px solid var(--line)}
+.era-dl div:first-child{border-top:0;padding-top:0}
+.era-dl dt{font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.11em;color:var(--ink-4);display:flex;align-items:center;gap:.45rem}
+.era-dl dd{margin:0;font-size:.92rem;line-height:1.6;color:var(--ink-2)}
+.era-dl .src dt::before{content:"";width:6px;height:6px;border-radius:999px;background:var(--violet)}
+.era-nav{display:flex;justify-content:space-between;gap:.5rem}
+.ladder{display:grid;gap:.5rem;margin:0;padding:0;list-style:none}
+.ladder li{margin:0!important;display:grid;grid-template-columns:auto 1fr;gap:.25rem 1rem;align-items:baseline;border-radius:var(--r-card);padding:1rem 1.25rem;background:var(--surface);box-shadow:var(--shadow)}
+.ladder .n{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.1em;color:var(--ink-4);text-transform:uppercase;grid-row:span 2}
+.ladder b{font-family:var(--f-display);font-weight:600;font-size:1.1rem;letter-spacing:-.02em}
+.ladder b i{font-weight:500;color:var(--ink-3);font-size:.9rem}
+.ladder p{margin:0;font-size:.9rem;line-height:1.55;color:var(--ink-2)}
+.ladder li:nth-child(1){margin-inline:0}
+.ladder li:nth-child(2){margin-left:1.2rem!important}
+.ladder li:nth-child(3){margin-left:2.4rem!important}
+.ladder li:nth-child(4){margin-left:3.6rem!important;background:var(--ink)}
+.ladder li:nth-child(4) b,.ladder li:nth-child(4) p{color:var(--surface)}
+.ladder li:nth-child(4) b i,.ladder li:nth-child(4) .n{color:var(--surface);opacity:.65}
+@media (max-width:520px){.ladder li:nth-child(n){margin-left:0!important}}
+.sc-tabs{display:flex;gap:.3rem;flex-wrap:wrap}
+.sc-panel{display:grid;gap:.85rem}
+.sc-panel > *{margin:0}
+.sc-quote{font-family:var(--f-display);font-size:1.1rem;line-height:1.4;font-weight:500;letter-spacing:-.015em;padding:.9rem 1.05rem;background:var(--tint);border-radius:var(--r-inner)}
+.goods{display:flex;flex-wrap:wrap;gap:.45rem;margin:0;padding:0;list-style:none}
+.goods li{margin:0!important;padding:.4rem .85rem;border-radius:999px;background:var(--surface);box-shadow:var(--shadow);font-size:.88rem;display:inline-flex;align-items:center;gap:.45rem}
+.goods li::before{content:"";width:6px;height:6px;border-radius:999px;background:var(--c6)}
+.case{display:grid;gap:.75rem}
+.etym{display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:.75rem}
+.etym > div{background:var(--surface);box-shadow:var(--shadow);border-radius:var(--r-card);padding:1.1rem 1.25rem;display:grid;gap:.3rem;align-content:start}
+.etym .w{font-family:var(--f-display);font-weight:600;font-size:1.5rem;letter-spacing:-.035em;font-style:italic;line-height:1.1}
+.etym .m{font-size:.86rem;color:var(--ink-3);line-height:1.5}
+.etym .eq{background:var(--ink)}
+.etym .eq .w{color:var(--surface);font-style:normal}
+.etym .eq .m{color:var(--surface);opacity:.65}
+.verdict{display:grid;grid-template-columns:repeat(auto-fit,minmax(10.5rem,1fr));gap:.5rem}
+.verdict > div{border:1px solid var(--line);border-radius:var(--r-inner);padding:.75rem .85rem;display:grid;gap:.25rem;align-content:start}
+.verdict .k{font-family:var(--f-mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.11em;color:var(--ink-4);display:flex;align-items:center;gap:.4rem}
+.verdict .k::before{content:"";width:6px;height:6px;border-radius:999px;background:var(--d,var(--ink-4))}
+.verdict b{font-family:var(--f-display);font-weight:600;font-size:1.05rem;letter-spacing:-.02em}
+.verdict p{margin:0;font-size:.85rem;line-height:1.5;color:var(--ink-2)}
+.verdict .yes b{color:var(--bad)} .verdict .no b{color:var(--good)} .verdict .mid b{color:var(--warn)}
+.fact{background:var(--tint);border-radius:var(--r-inner);padding:.9rem 1.05rem;font-size:.9rem;line-height:1.6;color:var(--ink-2);margin:0}
+.opts{display:grid;gap:.5rem}
+.opts button{text-align:left;appearance:none;border:1px solid var(--line);border-radius:var(--r-inner);padding:.7rem .9rem;background:var(--surface);cursor:pointer;font-size:.9rem;line-height:1.45;display:flex;gap:.7rem;align-items:flex-start;transition:border-color .2s,background .2s}
+.opts button:hover{border-color:var(--ink-4)}
+.opts button .k{font-family:var(--f-mono);font-size:.68rem;color:var(--ink-4);padding-top:.15rem}
+.opts button[aria-pressed="true"]{background:var(--violet-soft);border-color:var(--violet)}
+.opt-out{display:grid;gap:.6rem;border-top:1px solid var(--line);padding-top:1rem}
+.opt-out > *{margin:0}
+.opt-out .who{font-family:var(--f-display);font-weight:600;font-size:1.15rem;letter-spacing:-.02em}
+.opt-out p{font-size:.9rem;line-height:1.6;color:var(--ink-2)}
+.chip.pop{background:var(--bad-soft);color:var(--bad)}
+.chip.con{background:var(--good-soft);color:var(--good)}
+.chip.mix{background:var(--warn-soft);color:var(--warn)}
+
+</style>
+</head>
+<body>
+<header class="site-head"><div class="site-head-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">JP</span><span class="brand-text">Juris Prudentia</span></a><nav class="site-nav" aria-label="Chapters"><a href="../index.html">All units</a><a href="theories-of-justice.html">Theories of justice</a><a href="modernism-postmodernism.html">Modern &amp; postmodern</a><a href="law-morality.html" aria-current="page">Law &amp; morality</a><a href="exam.html">Exam kit</a></nav></div><div class="progress" aria-hidden="true"><span></span></div></header><main class="wrap"><div class="layout rise"><article class="prose">
+<p class="eyebrow">Chapter 3 of 3 · Law and morality</p>
+<h1>Law and morality: where the State should stop</h1>
+<p class="meta">About 26 minutes · 3 interactive widgets · 5-question check</p>
+<p class="lead">On 11 December 2013 the Supreme Court restored Section 377 of the Indian Penal Code, saying that only a "minuscule fraction of the country's population" was affected and that change was for Parliament. Five years later, on 6 September 2018, a Constitution Bench overruled that decision and held that the law could not criminalise consensual sexual relations between adults. One question separated the two judgments: <em>whose</em> morality should the law enforce?</p>
+<p>The relation between law and morality is one of the oldest themes in jurisprudence and one of the most examined. This chapter takes it in three moves: what the relationship is and how it has changed through history; the two great modern debates, <strong>Hart–Devlin</strong> on enforcing morals and <strong>Hart–Fuller</strong> on whether wicked law is law; and the Indian answer, built around <strong>constitutional morality</strong>.</p>
+
+<h2 id="meaning" data-toc="Law and morals compared">Law and morals: same centre, different circumference</h2>
+<p><strong>Morality</strong> is the body of standards of right and wrong conduct that a person or a society accepts. Jurists distinguish <strong>positive morality</strong>, the morality actually accepted by a given society, from <strong>critical (ideal) morality</strong>, the standards by which actual institutions, including positive morality itself, are judged. Keep that distinction ready; Hart's whole argument against Devlin depends on it.</p>
+<p>Law and morals overlap heavily. Murder, theft, fraud and cruelty are both immoral and illegal. But they are not the same, and the classic differences are a guaranteed short question:</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Basis</th><th>Law</th><th>Morality</th></tr></thead>
+  <tbody>
+    <tr><td><span class="dot" style="--dot:var(--c1)"></span>Concern</td><td>External conduct: what you do</td><td>Inner motive as well: why you do it (Kant's legality versus morality)</td></tr>
+    <tr><td><span class="dot" style="--dot:var(--c2)"></span>Source</td><td>The State: legislature, courts, recognised custom</td><td>Conscience, religion, society, reason</td></tr>
+    <tr><td><span class="dot" style="--dot:var(--c3)"></span>Sanction</td><td>Physical and organised: fine, imprisonment, damages</td><td>Social disapproval or a guilty conscience</td></tr>
+    <tr><td><span class="dot" style="--dot:var(--c4)"></span>Certainty</td><td>Definite, written, uniform within a territory</td><td>Varies between people, groups and ages</td></tr>
+    <tr><td><span class="dot" style="--dot:var(--c5)"></span>Scope</td><td>Narrower: only what is socially necessary and enforceable</td><td>Wider: covers ingratitude, lying, unkindness</td></tr>
+    <tr><td><span class="dot" style="--dot:var(--c6)"></span>Some rules</td><td>Morally neutral rules are common (drive on the left, file returns by 31 July)</td><td>Some moral duties are never made legal (charity, gratitude)</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Bentham caught the relationship in one image: <mark>legislation has the same centre with morals, but not the same circumference</mark>. Law and morals aim at the same thing, the good of society, but morality covers a wider area, and law covers only the part that can usefully be enforced.</p>
+<p>A traditional way to organise the topic (used in many Indian textbooks) looks at morality in three roles:</p>
+<div class="etym">
+  <div><span class="w">Basis of law</span><span class="m">Much of law grew out of moral rules: the criminal law, the law of contract (promises), the neighbour principle in tort, equity and natural justice.</span></div>
+  <div><span class="w">Test of law</span><span class="m">Morality as a standard for judging law: the natural law tradition, and modern constitutional review against rights and dignity.</span></div>
+  <div class="eq"><span class="w">Limit of law</span><span class="m">Morality marks what law should not attempt: it cannot make people virtuous, and some private matters are "not the law's business".</span></div>
+</div>
+
+<h3>Where they meet in practice</h3>
+<ul>
+  <li><strong>Contract.</strong> Section 23 of the Indian Contract Act, 1872: an agreement whose object or consideration is "immoral, or opposed to public policy" is void.</li>
+  <li><strong>Tort.</strong> In <em>Donoghue v. Stevenson</em> (1932), Lord Atkin built the modern law of negligence on the biblical rule to love your neighbour: in law, you must not injure your neighbour.</li>
+  <li><strong>Equity and interpretation.</strong> In <em>Riggs v. Palmer</em> (New York, 1889) a grandson who murdered his grandfather could not inherit under the will, because no one may profit from his own wrong. Dworkin made this his leading example of moral principles inside law.</li>
+  <li><strong>The Constitution.</strong> Articles 19(2) and 25 allow restrictions in the interests of "decency or morality" and "morality". The question the Indian cases had to answer is: which morality?</li>
+</ul>
+
+<h2 id="history" data-toc="Historical development">Historical development</h2>
+<p>The relationship has swung from near identity, to sharp separation, to a qualified reconnection.</p>
+<ol class="ladder">
+  <li><span class="n">Ancient</span><b>No clear line <i>· law, morals and religion fused</i></b><p>In ancient India, <span class="latin">dharma</span> covered religious duty, morality and law alike; the Smritis mix ritual rules with rules of contract and crime. The Greeks and Romans grounded law in natural justice and right reason (Aristotle, the Stoics, Cicero).</p></li>
+  <li><span class="n">Medieval</span><b>Morality as the basis of law <i>· the Church</i></b><p>Christian theology made law a branch of morality. For Aquinas, human law that conflicts with natural law is a perversion of law. The Church claimed authority to judge rulers by moral standards.</p></li>
+  <li><span class="n">17th–19th c.</span><b>The separation <i>· Thomasius, Kant, Austin</i></b><p>Thomasius and Kant distinguished law (external conduct, enforceable) from morality (inner duty). The positivists completed the separation: Austin insisted that the existence of law is one thing, its merit another. Kelsen later made law "pure" of all morality.</p></li>
+  <li><span class="n">20th c.</span><b>Reconnection <i>· after Nuremberg</i></b><p>Nazi law forced the question back open. Radbruch held that intolerably unjust statutes are not law; Fuller found an inner morality of law; Hart, though a positivist, conceded a minimum content of natural law; Dworkin argued that moral principles are part of law itself.</p></li>
+</ol>
+<p>Austin's statement of the separation is the sentence to quote for the positivist side:</p>
+<blockquote class="defq"><p>The existence of law is one thing; its merit or demerit is another. Whether it be or be not is one enquiry; whether it be or be not conformable to an assumed standard, is a different enquiry.</p><cite>John Austin, The Province of Jurisprudence Determined, 1832, Lecture V</cite></blockquote>
+
+<h2 id="views" data-toc="Positivist and natural law views">Positivist and natural law views</h2>
+<p>Behind every debate in this chapter is the same disagreement you met in Units I and II.</p>
+<div class="contrast">
+  <div><h4>Positivist view</h4><p>Law and morality are <strong>conceptually separate</strong>. A rule is law if it is validly made, whatever its moral content. Morality may <em>influence</em> law and may be a reason to disobey it, but it does not decide whether it is law. Bentham, Austin, Kelsen, Hart.</p></div>
+  <div class="them"><h4>Natural law view</h4><p>Law and morality are <strong>necessarily connected</strong>. A grossly unjust rule lacks the full character of law (Aquinas, Radbruch), or law has a built-in morality (Fuller), or legal reasoning necessarily involves moral principles (Dworkin, Finnis).</p></div>
+</div>
+<p>Two refinements earn marks. First, <strong>Hart's minimum content of natural law</strong> (<em>The Concept of Law</em>, 1961): given five truisms about human beings (vulnerability, approximate equality, limited altruism, limited resources, and limited understanding and strength of will), every workable legal system must contain rules protecting persons, property and promises. That is a connection between law and morality, but a contingent, factual one, not a conceptual one. Second, modern positivism splits into <strong>inclusive</strong> positivists, who accept that a legal system may make moral tests part of legal validity (as a Bill of Rights does), and <strong>exclusive</strong> positivists (Joseph Raz), who say it cannot.</p>
+
+<aside class="callout trap">
+  <p class="label">Common mix-up</p>
+  <p>Positivists do <strong>not</strong> say that law and morality have nothing to do with each other, or that unjust laws must be obeyed. Hart says precisely the opposite: separating the questions lets us say clearly "this is law, but it is too wicked to obey". The separation thesis is about <em>identifying</em> law, not about whether law should be moral.</p>
+</aside>
+
+<h2 id="hart-devlin" data-toc="Hart–Devlin debate">The Hart–Devlin debate: should law enforce morality?</h2>
+<p>The question is narrow and precise: <mark>is the fact that conduct is, by common standards, immoral, enough to justify making it a crime?</mark></p>
+
+<h3>The background: Mill and Stephen</h3>
+<p>The debate had a nineteenth-century rehearsal. <strong>J.S. Mill</strong>, in <em>On Liberty</em> (1859), stated the harm principle: "the only purpose for which power can be rightfully exercised over any member of a civilised community, against his will, is to prevent harm to others. His own good, either physical or moral, is not a sufficient warrant." The judge <strong>James Fitzjames Stephen</strong> replied in <em>Liberty, Equality, Fraternity</em> (1873) that the criminal law rightly expresses society's moral hatred of vice.</p>
+
+<h3>The Wolfenden Report, 1957</h3>
+<p>In 1954 the British government appointed a committee under <strong>Sir John Wolfenden</strong> to examine the law on homosexual offences and prostitution. Its report (1957) recommended that <strong>homosexual behaviour between consenting adults in private should no longer be a crime</strong>, and that prostitution itself should remain lawful while street solicitation was penalised (done by the Street Offences Act, 1959). Its reasoning is the key passage:</p>
+<blockquote class="defq"><p>Unless a deliberate attempt is to be made by society, acting through the agency of the law, to equate the sphere of crime with that of sin, there must remain a realm of private morality and immorality which is, in brief and crude terms, not the law's business.</p><cite>Report of the Committee on Homosexual Offences and Prostitution (Wolfenden Report), 1957, para. 61</cite></blockquote>
+<p>The function of criminal law, said the committee, is to preserve public order and decency, and to protect citizens from what is offensive or injurious, especially the young and vulnerable. It is not to intervene in private lives or to enforce any particular pattern of behaviour further than necessary for those purposes.</p>
+
+<h3>Devlin: society may protect its morality</h3>
+<p><strong>Lord Patrick Devlin</strong>, a Law Lord, replied in the Maccabaean Lecture of 1959, published with later essays as <em>The Enforcement of Morals</em> (1965). His argument:</p>
+<ul>
+  <li><strong>A society is a community of ideas.</strong> It is held together by a shared morality, the "invisible bonds of common thought". Without it, society would disintegrate.</li>
+  <li><strong>The disintegration thesis.</strong> Because shared morality is essential to society's existence, society may use the law to protect it, just as it uses the law of treason to protect its government. "The suppression of vice is as much the law's business as the suppression of subversive activities."</li>
+  <li><strong>No private sphere in principle.</strong> It is not possible to set theoretical limits to the State's power to legislate against immorality.</li>
+  <li><strong>The test is the ordinary person's feeling.</strong> Morality for this purpose is the judgment of the "reasonable man", the "man in the jury box" or "man in the Clapham omnibus". Where conduct provokes genuine feelings of <strong>intolerance, indignation and disgust</strong>, that is a sign it threatens society.</li>
+  <li><strong>Limits in practice.</strong> Devlin offered elastic principles: maximum tolerance of individual freedom consistent with the integrity of society; respect for privacy as far as possible; the law should be slow to act because moral limits of tolerance shift; and law sets a minimum standard, not a maximum.</li>
+</ul>
+<p>The English courts seemed to agree. In <em>Shaw v. DPP</em> (1962), the "Ladies' Directory" case, the House of Lords upheld a conviction for "conspiracy to corrupt public morals", and Viscount Simonds said the courts retained a residual power to guard the moral welfare of the State.</p>
+
+<h3>Hart: liberty against legal moralism</h3>
+<p><strong>H.L.A. Hart</strong> replied in <em>Law, Liberty and Morality</em> (1963). His main points:</p>
+<ul>
+  <li><strong>Positive versus critical morality.</strong> Devlin treats the morality a society happens to have as if it were the morality it ought to have. The real question is a critical one: is it morally justified to enforce positive morality?</li>
+  <li><strong>No evidence for disintegration.</strong> There is no historical evidence that private deviation from sexual morality destroys societies. Devlin's argument confuses <em>change</em> in a society's morality with the destruction of society; on his logic, any society that changed its morals would "cease to exist".</li>
+  <li><strong>Feelings are not reasons.</strong> Intolerance, indignation and disgust are not a reliable guide to what should be punished; they have supported persecution throughout history. Hart called the danger "moral populism", the idea that the majority has a moral right to dictate how all should live.</li>
+  <li><strong>The cost of punishment.</strong> Criminal punishment of private conduct inflicts real suffering, on the offender and through intrusive policing, for no corresponding harm.</li>
+  <li><strong>Paternalism is different.</strong> Hart accepted some <em>legal paternalism</em> (protecting people from harming themselves, as with drugs or the rule that consent is no defence to murder). That is protection of the person, not enforcement of morality as such.</li>
+  <li><strong>Offence to public decency is different.</strong> Bigamy or public indecency may be punished as public nuisances or offences against public feeling, not because they are immoral in private.</li>
+</ul>
+
+<p>Run the two positions against concrete situations. Then check what Indian law actually does.</p>
+<div class="widget" id="hd">
+  <div class="w-head"><span class="w-tag">Compare</span><span class="w-title">Would they make it a crime?</span><span class="w-hint">Pick a situation</span></div>
+  <div class="sc-tabs" role="tablist" aria-label="Situations" id="hd-tabs"></div>
+  <div class="sc-panel" id="hd-panel" aria-live="polite">
+    <p class="sc-quote" id="hd-q"></p>
+    <div class="verdict" id="hd-v"></div>
+  </div>
+</div>
+
+<aside class="callout exam">
+  <p class="label">Exam lens</p>
+  <p>Most students write Hart–Devlin as two lists. Better: frame it as one question (is immorality alone a sufficient reason to criminalise?), give Wolfenden's "not the law's business", Devlin's disintegration thesis and his three feelings, then Hart's four replies, and end with India: <em>Navtej Singh Johar</em> (2018) is Hart and Wolfenden vindicated through constitutional morality.</p>
+</aside>
+
+<h2 id="hart-fuller" data-toc="Hart–Fuller debate">The Hart–Fuller debate: is wicked law still law?</h2>
+<p>The second debate asks a different question. Not "should law enforce morality?" but "<strong>does law have to be moral to count as law at all?</strong>"</p>
+<p>It took place in volume 71 of the <em>Harvard Law Review</em> (1958). <strong>Hart</strong>, in "Positivism and the Separation of Law and Morals" (his Holmes Lecture, delivered in 1957), defended the positivist separation thesis. <strong>Lon Fuller</strong> replied in the same issue with "Positivism and Fidelity to Law: A Reply to Professor Hart". The test case was Nazi law, and in particular the "grudge informer" cases decided by German courts after the war.</p>
+
+<div class="widget" id="grudge">
+  <div class="w-head"><span class="w-tag">Try it</span><span class="w-title">The grudge informer</span><span class="w-hint">You are the post-war court. What do you do?</span></div>
+  <p class="fact" id="g-fact">In 1944 a German woman, wishing to be rid of her husband, reported to the authorities that he had made remarks critical of Hitler while home on leave. Under Nazi statutes making such remarks an offence, he was tried and sentenced to death, though the sentence was not carried out and he was sent to the front. In 1949 the wife was prosecuted for illegally depriving her husband of his liberty. Her defence: she had only reported a crime under the law then in force.</p>
+  <div class="opts" id="g-opts"></div>
+  <div class="opt-out" id="g-out" aria-live="polite" hidden><p class="who" id="g-who"></p><p id="g-t"></p><p id="g-c"></p></div>
+</div>
+
+<h3>Hart's position</h3>
+<p>Hart insisted on separating <em>what law is</em> from <em>what it ought to be</em>. The Nazi statutes were law, wicked law. Calling them "not law" is confused and dangerous: confused, because it hides a real moral choice behind a definition; dangerous, because it encourages the idea that whatever is law must be obeyed. Clarity requires saying "<em>this is law, but it is too iniquitous to be applied or obeyed</em>". If the informer is to be punished, it should be by an openly <strong>retrospective statute</strong>, choosing frankly between two evils: leaving her unpunished, or sacrificing the principle against retroactive punishment.</p>
+
+<h3>Fuller's position: the inner morality of law</h3>
+<p>Fuller argued that law is not just any order backed by power; it is "<strong>the enterprise of subjecting human conduct to the governance of rules</strong>". That enterprise has an <strong>inner morality</strong>, and the Nazi regime abandoned it: it used secret laws, retroactive statutes, and ignored its own rules whenever convenient. A system that degenerate does not deserve the name of law, and fidelity to law cannot be owed to it. In <em>The Morality of Law</em> (1964), through the parable of King Rex (which you met in Unit I), he set out the <strong>eight desiderata</strong> of legality:</p>
+<ul class="goods">
+  <li>Generality</li><li>Promulgation</li><li>Non-retroactivity</li><li>Clarity</li><li>Non-contradiction</li><li>Possibility of compliance</li><li>Constancy over time</li><li>Congruence of official action with declared rule</li>
+</ul>
+<p>Total failure in any one of these "does not simply result in a bad system of law; it results in something that is not properly called a legal system at all". Fuller also distinguished the <strong>morality of duty</strong> (the basic rules without which ordered society is impossible) from the <strong>morality of aspiration</strong> (the pursuit of excellence). Law can enforce only the first.</p>
+
+<h3>Hart's reply and the verdict</h3>
+<p>Hart answered, in reviewing <em>The Morality of Law</em>, that Fuller's eight principles are principles of <strong>efficacy</strong>, not morality: they are like the principles of good carpentry or, in his sharpest line, of poisoning. A skilful poisoner also follows rules of craft. A wicked regime could comply with all eight and still be wicked. Fuller replied that, in practice, governments that respect publicity and generality find it harder to do great evil, because evil prefers the dark.</p>
+<p>Neither side "won". But the debate fixed the modern terms of the question, and it explains why Indian constitutional law, with its demand that laws be fair, just and reasonable (<em>Maneka Gandhi</em>, 1978), looks more Fullerian than Austinian.</p>
+
+<aside class="callout">
+  <p class="label">Sidenote</p>
+  <p>Hart relied on a published report that the post-war court had declared the Nazi statute void. Later research showed the court had actually convicted the woman on the ground that she had acted contrary to "the sound conscience and sense of justice of all decent human beings", without squarely holding the statute invalid. The philosophical argument is unaffected, but it's a nice point to mention.</p>
+</aside>
+
+<h2 id="enforcement" data-toc="Enforcement of morality">The enforcement of morality: four principles</h2>
+<p>Out of these debates came a vocabulary for <em>why</em> the State may criminalise conduct. Joel Feinberg's four-volume <em>The Moral Limits of the Criminal Law</em> (1984–88) is the standard source. Use these terms precisely.</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Principle</th><th>The State may criminalise conduct that…</th><th>Associated with</th><th>Indian example</th></tr></thead>
+  <tbody>
+    <tr><td><span class="dot" style="--dot:var(--c2)"></span>Harm principle</td><td>harms others</td><td>Mill, Hart, Wolfenden</td><td>Murder, theft, cruelty; the core of all criminal law</td></tr>
+    <tr><td><span class="dot" style="--dot:var(--c3)"></span>Offence principle</td><td>seriously offends others in public</td><td>Feinberg; Hart on public decency</td><td>Obscenity in public (s. 294 IPC, now s. 296 BNS); soliciting in public under the Immoral Traffic (Prevention) Act, 1956</td></tr>
+    <tr><td><span class="dot" style="--dot:var(--c1)"></span>Legal paternalism</td><td>harms the actor himself</td><td>Accepted in part by Hart</td><td>Consumption offences under the NDPS Act, 1985; compulsory helmets</td></tr>
+    <tr><td><span class="dot" style="--dot:var(--c4)"></span>Legal moralism</td><td>is immoral, even if harmless</td><td>Stephen, Devlin</td><td>Old s. 377 (consensual acts) and s. 497 (adultery), both struck down in 2018</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Indian courts have moved steadily away from legal moralism towards the harm principle:</p>
+<ul>
+  <li><strong>Obscenity.</strong> <em>Ranjit D. Udeshi v. State of Maharashtra</em> (1965) applied the old English Hicklin test (tendency to deprave and corrupt those whose minds are open to such immoral influences). <em>Aveek Sarkar v. State of West Bengal</em> (2014) replaced it with a <strong>contemporary community standards</strong> test.</li>
+  <li><strong>Live-in relationships.</strong> In <em>S. Khushboo v. Kanniammal</em> (2010) the Court quashed criminal complaints against an actress who had spoken in favour of pre-marital sex, holding that conduct some regard as immoral is not thereby an offence: morality and criminality are not co-extensive.</li>
+  <li><strong>Dance bars.</strong> In <em>Indian Hotel and Restaurant Association v. State of Maharashtra</em> (2019) the Court struck down several restrictive licensing conditions as arbitrary and disproportionate: a subjective notion of social morality could not justify them.</li>
+</ul>
+
+<h2 id="india" data-toc="Constitutional morality in India">India: constitutional morality versus popular morality</h2>
+<p>The Indian Supreme Court's answer to Devlin is a concept with a surprising origin. On 4 November 1948, introducing the Draft Constitution, Dr B.R. Ambedkar quoted the historian Grote:</p>
+<blockquote class="defq"><p>Constitutional morality is not a natural sentiment. It has to be cultivated. We must realise that our people have yet to learn it. Democracy in India is only a top-dressing on an Indian soil, which is essentially undemocratic.</p><cite>Dr B.R. Ambedkar, Constituent Assembly Debates, 4 November 1948</cite></blockquote>
+<p>Ambedkar meant respect for constitutional forms and restraint by those in power. The Supreme Court has since given the phrase a fuller meaning: <mark>the morality of the Constitution's own values (dignity, liberty, equality, non-discrimination and fraternity), which prevails over popular or majoritarian morality</mark>. When Articles 19(2) and 25 speak of "morality", they now mean constitutional morality, not the feelings of the "man in the Clapham omnibus". That is a direct rejection of Devlin's test.</p>
+<p>Step through the cases in order. Watch the swing in the middle.</p>
+
+<div class="widget" id="cases">
+  <div class="w-head"><span class="w-tag">Explore</span><span class="w-title">From Naz to Sabarimala</span><span class="w-hint">Step through the cases</span></div>
+  <div class="era-strip" role="tablist" aria-label="Cases" id="cs-strip"></div>
+  <div class="era-text" id="cs-text" aria-live="polite">
+    <p class="era-who"><b id="cs-name"></b><span class="chip" id="cs-when"></span><span class="chip" id="cs-won"></span></p>
+    <p class="era-quote" id="cs-hold"></p>
+    <dl class="era-dl">
+      <div><dt>The reasoning</dt><dd id="cs-why"></dd></div>
+      <div class="src"><dt>Which side of the debate</dt><dd id="cs-side"></dd></div>
+    </dl>
+  </div>
+  <div class="era-nav"><button class="btn" type="button" id="cs-prev"><span class="arrow back">←</span> Earlier</button><button class="btn primary" type="button" id="cs-next">Later <span class="arrow">→</span></button></div>
+</div>
+
+<h3>Is constitutional morality itself a problem?</h3>
+<p>The doctrine has its critics, and a balanced answer mentions them:</p>
+<ul>
+  <li><strong>Vagueness.</strong> If "constitutional morality" means whatever the judges find in the Constitution's values, it can become a blank cheque. A serving Attorney General publicly warned in 2018 that it could turn into a "dangerous weapon".</li>
+  <li><strong>Counter-majoritarian worry.</strong> Unelected judges overriding the moral views of the community and of Parliament raises the democratic objection, the mirror image of Devlin's.</li>
+  <li><strong>Religion and pluralism.</strong> Indu Malhotra J.'s dissent in <em>Sabarimala</em> argued that, in a plural society, constitutional morality also requires respecting the freedom of religious denominations to manage their own affairs. The reference to a larger bench shows the question is unsettled.</li>
+</ul>
+<p>The defence: constitutional morality is not the judges' private morality but the critical morality the Constitution itself adopts. It is exactly Hart's distinction between positive and critical morality, written into a constitutional text. Courts enforce it to protect individuals, including minorities, from the majority's positive morality, which is what fundamental rights are for.</p>
+
+<aside class="callout keep">
+  <p class="label">How to write it up</p>
+  <p>Meaning of morality (positive and critical); differences from law in a table; Bentham's same centre, different circumference. Historical development in four stages. Positivist and natural law views, with Hart's minimum content. Hart–Devlin: Mill and Stephen, Wolfenden (para. 61), Devlin's disintegration thesis, Hart's replies. Hart–Fuller: the grudge informer, retrospective statute versus inner morality, the eight desiderata, the poisoner reply. Enforcement: harm, offence, paternalism, moralism. India: Ambedkar on constitutional morality, Naz, Koushal, Navtej, Joseph Shine, Sabarimala. Conclude: law and morality are distinct but inseparable; the real question is which morality the law may enforce.</p>
+</aside>
+
+<h2 id="check" data-toc="Check yourself">Check yourself</h2>
+<div class="widget" id="quiz"><div class="w-head"><span class="w-tag">Quiz</span><span class="w-title">Law and morality</span></div></div>
+
+<div class="done-box"><p>Finished? Tick it off. Your progress shows on the unit page (saved only in this browser).</p><button class="btn" type="button" data-done="law-morality" aria-pressed="false">Mark chapter as read</button></div>
+<nav class="pager" aria-label="Chapter navigation"><a href="modernism-postmodernism.html"><span class="dir"><span class="arrow back">←</span> Previous</span><span class="t">Chapter 2 · Modernism and postmodernism</span></a><a class="next" href="exam.html"><span class="dir">Next <span class="arrow">→</span></span><span class="t">Exam kit</span></a></nav>
+</article><aside class="toc" aria-label="On this page"><p class="toc-label">On this page</p><ol></ol></aside></div><footer class="foot"><p>Juris Prudentia · a study companion to Dr N.V. Paranjape, <em>Studies in Jurisprudence &amp; Legal Theory</em>, Unit IV. Case summaries are simplified for revision; read the judgments for the full reasoning.</p></footer></main>
+<script>
+(function(){
+  var JP = window.JP = {};
+
+  JP.store = {
+    get: function(k){ try { return window.localStorage.getItem(k); } catch(e){ return null; } },
+    set: function(k,v){ try { window.localStorage.setItem(k,v); } catch(e){} },
+    del: function(k){ try { window.localStorage.removeItem(k); } catch(e){} }
+  };
+
+  JP.swap = function(el){ if(!el) return; el.classList.remove('swap'); void el.offsetWidth; el.classList.add('swap'); };
+
+  /* reading progress */
+  var bar = document.querySelector('.progress span');
+  function onScroll(){
+    if(!bar) return;
+    var h = document.documentElement, max = h.scrollHeight - h.clientHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, h.scrollTop / max) : 0) + ')';
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* heading anchors + on-this-page list */
+  var art = document.querySelector('article.prose');
+  var toc = document.querySelector('.toc ol');
+  if(art){
+    var heads = art.querySelectorAll('h2[id]');
+    var links = [];
+    heads.forEach(function(h){
+      var label = h.getAttribute('data-toc') || h.textContent;
+      var a = document.createElement('a');
+      a.href = '#' + h.id; a.className = 'anchor'; a.setAttribute('aria-label','Link to this section'); a.textContent = '#';
+      h.insertBefore(a, h.firstChild);
+      if(toc){
+        var li = document.createElement('li'), l = document.createElement('a');
+        l.href = '#' + h.id; l.textContent = label; li.appendChild(l); toc.appendChild(li); links.push(l);
+      }
+    });
+    if(toc && 'IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if(e.isIntersecting){
+            links.forEach(function(l){ l.classList.toggle('on', l.getAttribute('href') === '#' + e.target.id); });
+          }
+        });
+      }, {rootMargin:'0px 0px -70% 0px'});
+      heads.forEach(function(h){ io.observe(h); });
+    }
+  }
+
+  /* quiz */
+  JP.quiz = function(el, qs){
+    if(!el) return;
+    var letters = 'ABCD', right = 0, answered = 0;
+    var form = document.createElement('div'); form.style.display='grid'; form.style.gap='1.1rem';
+    var foot = document.createElement('div'); foot.className = 'quiz-foot';
+    var score = document.createElement('span'); score.className = 'score';
+    var reset = document.createElement('button'); reset.className = 'btn'; reset.type = 'button'; reset.textContent = 'Reset quiz';
+    foot.appendChild(score); foot.appendChild(reset);
+    function upd(){ score.textContent = answered === 0 ? qs.length + ' questions · pick an answer' : right + ' of ' + answered + ' correct' + (answered === qs.length ? (right === qs.length ? ' · full marks' : ' · reset to try again') : ''); }
+    function build(){
+      form.innerHTML = ''; right = 0; answered = 0;
+      qs.forEach(function(q, qi){
+        var fs = document.createElement('fieldset'); fs.className = 'quiz-q';
+        var lg = document.createElement('legend'); lg.textContent = (qi+1) + '. ' + q.q; fs.appendChild(lg);
+        var opts = document.createElement('div'); opts.className = 'quiz-opts';
+        var why = document.createElement('p'); why.className = 'quiz-why'; why.hidden = true;
+        var btns = [];
+        q.o.forEach(function(t, oi){
+          var b = document.createElement('button'); b.type = 'button'; b.className = 'quiz-opt';
+          b.innerHTML = '<span class="k">' + letters[oi] + '</span><span></span>';
+          b.lastChild.textContent = t;
+          b.addEventListener('click', function(){
+            btns.forEach(function(x){ x.disabled = true; });
+            btns[q.a].classList.add('right');
+            answered++;
+            if(oi === q.a){ right++; why.className = 'quiz-why'; why.innerHTML = '<b>Correct.</b> '; }
+            else { b.classList.add('wrong'); why.className = 'quiz-why miss'; why.innerHTML = '<b>Not quite.</b> '; }
+            why.appendChild(document.createTextNode(q.why)); why.hidden = false; upd();
+          });
+          btns.push(b); opts.appendChild(b);
+        });
+        fs.appendChild(opts); fs.appendChild(why); form.appendChild(fs);
+      });
+      upd();
+    }
+    reset.addEventListener('click', build);
+    el.appendChild(form); el.appendChild(foot); build();
+  };
+
+  /* chapter done toggle */
+  var done = document.querySelector('[data-done]');
+  if(done){
+    var key = 'jp-done-' + done.getAttribute('data-done');
+    function paint(){ var on = JP.store.get(key) === '1'; done.setAttribute('aria-pressed', on ? 'true' : 'false'); done.textContent = on ? 'Marked as read' : 'Mark chapter as read'; }
+    done.addEventListener('click', function(){ if(JP.store.get(key) === '1') JP.store.del(key); else JP.store.set(key,'1'); paint(); });
+    paint();
+  }
+})();
+
+</script>
+<script>
+(function(){
+
+/* Hart vs Devlin situations */
+var H = [
+ {n:'Private same-sex relations', q:'Two consenting adults in a private sexual relationship of the same sex.',
+  v:[['Devlin','mid','Society may','If right-minded people feel genuine intolerance, indignation and disgust, society has the right to legislate. Whether it should is a matter of degree.'],
+     ['Hart / Wolfenden','no','No crime','No harm to others; private morality is "not the law’s business".'],
+     ['Indian law','no','Not a crime','Navtej Singh Johar (2018): s. 377 unconstitutional so far as it covered consensual adult conduct.']]},
+ {n:'Street solicitation', q:'An adult sex worker soliciting customers in a public street.',
+  v:[['Devlin','yes','Crime','Prostitution offends shared morality; its public face especially.'],
+     ['Hart / Wolfenden','mid','Public nuisance only','Prostitution itself not a crime; public solicitation may be punished as an offence to public order and decency.'],
+     ['Indian law','mid','Soliciting punishable','Immoral Traffic (Prevention) Act, 1956 punishes soliciting in public places, not sex work as such. In Budhadev Karmaskar (2022 orders) the Court told police not to harass consenting adult sex workers.']]},
+ {n:'Adultery', q:'A married person has a consensual relationship with someone other than their spouse.',
+  v:[['Devlin','mid','Society may','The institution of marriage is part of the shared morality; how far to enforce it depends on the strength of feeling.'],
+     ['Hart','no','No crime','A private wrong between spouses. Divorce and civil remedies are the proper response.'],
+     ['Indian law','no','Not a crime','Joseph Shine (2018) struck down s. 497 IPC. Adultery remains a ground for divorce.']]},
+ {n:'Bigamy', q:'A man goes through a second marriage ceremony while his first wife is alive.',
+  v:[['Devlin','yes','Crime','Monogamy is built into the shared morality of the society.'],
+     ['Hart','yes','Crime, but why?','Hart’s own example: punish it as a public act that offends religious feeling and confuses public records, not because private cohabitation is immoral.'],
+     ['Indian law','yes','Crime','s. 494 IPC, now s. 82 Bharatiya Nyaya Sanhita, 2023; void under the Hindu Marriage Act, 1955, s. 11.']]},
+ {n:'Mercy killing', q:'A terminally ill patient asks a doctor to end her life, and the doctor does so.',
+  v:[['Devlin','yes','Crime','Devlin’s proof that law enforces morality: consent is no defence to murder.'],
+     ['Hart','mid','Paternalism','Hart agrees consent may be no defence, but on paternalist grounds (protecting the person), not to enforce morality.'],
+     ['Indian law','mid','Active: crime; passive: lawful','Aruna Shanbaug (2011) allowed passive euthanasia; Common Cause (2018) recognised living wills. Active euthanasia remains unlawful.']]},
+ {n:'Private drug use', q:'An adult smokes cannabis alone at home.',
+  v:[['Devlin','yes','Crime','A vice that society’s morality condemns.'],
+     ['Hart','mid','Paternalism possible','Not as enforcement of morality, but possibly to protect the user from himself.'],
+     ['Indian law','yes','Crime','Consumption is an offence under s. 27 of the NDPS Act, 1985: legal paternalism.']]},
+ {n:'Live-in relationship', q:'An unmarried adult couple living together.',
+  v:[['Devlin','mid','Society may','Depends on whether ordinary people feel intolerance, indignation and disgust.'],
+     ['Hart','no','No crime','No harm to anyone; pure legal moralism.'],
+     ['Indian law','no','Not a crime','S. Khushboo (2010): morality and criminality are not co-extensive. Protected in part under the Domestic Violence Act, 2005 (Indra Sarma, 2013).']]}
+];
+var hTabs = document.getElementById('hd-tabs');
+var hB = H.map(function(s, k){
+  var b = document.createElement('button'); b.type = 'button'; b.className = 'btn'; b.setAttribute('role','tab'); b.textContent = s.n;
+  b.addEventListener('click', function(){ showH(k, true); }); hTabs.appendChild(b); return b;
+});
+var DOT = {yes:'--bad', no:'--good', mid:'--warn'};
+function showH(k, user){
+  var s = H[k];
+  hB.forEach(function(b,j){ b.classList.toggle('on', j===k); b.setAttribute('aria-selected', j===k ? 'true' : 'false'); });
+  document.getElementById('hd-q').textContent = s.q;
+  var v = document.getElementById('hd-v'); v.innerHTML = '';
+  s.v.forEach(function(x){
+    var d = document.createElement('div'); d.className = x[1]; d.style.setProperty('--d', 'var(' + DOT[x[1]] + ')');
+    var h = document.createElement('span'); h.className = 'k'; h.textContent = x[0];
+    var b = document.createElement('b'); b.textContent = x[2];
+    var p = document.createElement('p'); p.textContent = x[3];
+    d.appendChild(h); d.appendChild(b); d.appendChild(p); v.appendChild(d);
+  });
+  if(user) JP.swap(document.getElementById('hd-panel'));
+}
+showH(0);
+
+/* grudge informer */
+var G = [
+ {o:'Acquit her. Under the law in force in 1944, her husband had committed an offence and she lawfully reported it.',
+  w:'The strict positivist answer',
+  t:'This takes "law is law" to its conclusion: the Nazi statute was valid, so her act was lawful. It leaves an obvious moral wrong unpunished.',
+  c:'Hart does not take this view. He agrees the statute was law, but denies that its legality settles whether she should go free.'},
+ {o:'Convict her. A statute so contrary to justice was never law, so it gave her no defence.',
+  w:'Radbruch and Fuller',
+  t:'Radbruch’s formula: statutes that are intolerably unjust lose their character as law. Fuller adds that the Nazi system so far abandoned the inner morality of law (secret and retroactive laws, official lawlessness) that it no longer counted as a legal system.',
+  c:'Hart’s objection: this hides a hard moral choice behind a definition, and it is unfair to pretend she broke a law that existed at the time.'},
+ {o:'Convict her, but only under a new statute openly made retrospective for this purpose.',
+  w:'Hart’s answer',
+  t:'The Nazi statute was law, but morally iniquitous. If she is to be punished, do it candidly, by retrospective legislation, recognising that we are choosing the lesser of two evils: leaving her unpunished, or sacrificing a precious principle of legality.',
+  c:'Fuller’s objection: retroactivity is itself a breach of the inner morality of law. Hart would cure Nazi lawlessness by a dose of the same medicine.'}
+];
+var go = document.getElementById('g-opts'), gout = document.getElementById('g-out');
+var gB = G.map(function(g, k){
+  var b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-pressed','false');
+  b.innerHTML = '<span class="k">' + 'ABC'[k] + '</span><span></span>'; b.lastChild.textContent = g.o;
+  b.addEventListener('click', function(){
+    gB.forEach(function(x, j){ x.setAttribute('aria-pressed', j === k ? 'true' : 'false'); });
+    document.getElementById('g-who').textContent = g.w;
+    document.getElementById('g-t').textContent = g.t;
+    document.getElementById('g-c').textContent = g.c;
+    gout.hidden = false; JP.swap(gout);
+  });
+  go.appendChild(b); return b;
+});
+
+/* Indian cases */
+var CS = [
+ {n:'Naz Foundation v. Govt of NCT of Delhi', w:'Delhi High Court · 2009', won:'con', wl:'Constitutional morality',
+  h:'Section 377 IPC, so far as it criminalised consensual sexual acts of adults in private, violated Articles 14, 15 and 21.',
+  r:'A.P. Shah C.J. and S. Muralidhar J. held that popular morality, however strong, cannot justify restricting fundamental rights; only constitutional morality can. They relied on Ambedkar and on dignity and privacy under Article 21.',
+  s:'Hart and Wolfenden: private consensual conduct is not the law’s business. The first Indian judgment to use "constitutional morality" in this sense.'},
+ {n:'Suresh Kumar Koushal v. Naz Foundation', w:'Supreme Court · 2013', won:'pop', wl:'Popular morality / deference',
+  h:'Reversed Naz. Section 377 did not suffer from unconstitutionality; any change was for Parliament.',
+  r:'The two-judge bench noted that only a "minuscule fraction of the country’s population" was affected and that the provision had rarely been used. It deferred to the legislature.',
+  s:'Close to Devlin in effect: the law reflects the community’s moral views, and change must come through Parliament. Widely criticised.'},
+ {n:'NALSA v. Union of India', w:'Supreme Court · 2014', won:'con', wl:'Constitutional morality',
+  h:'Transgender persons are entitled to recognition as a third gender and to the rights in Articles 14, 15, 16, 19 and 21.',
+  r:'Gender identity is integral to dignity and personality. The Court noted that s. 377 had been used to harass transgender persons.',
+  s:'A step towards dignity-based reasoning, undercutting Koushal’s logic.'},
+ {n:'K.S. Puttaswamy v. Union of India', w:'Supreme Court · 2017', won:'con', wl:'Constitutional morality',
+  h:'A nine-judge bench held privacy to be a fundamental right under Article 21.',
+  r:'The plurality said the "minuscule fraction" reasoning in Koushal was unsustainable: fundamental rights do not depend on majority approval, and sexual orientation is an essential attribute of privacy.',
+  s:'Prepared the ground for overruling Koushal.'},
+ {n:'Navtej Singh Johar v. Union of India', w:'Supreme Court · 6 Sept 2018', won:'con', wl:'Constitutional morality',
+  h:'Section 377 is unconstitutional insofar as it criminalises consensual sexual conduct between adults. Koushal overruled.',
+  r:'A five-judge bench (Misra C.J., Nariman, Khanwilkar, Chandrachud and Indu Malhotra JJ.) held that constitutional morality must prevail over social or majoritarian morality, relying on dignity, privacy, equality and transformative constitutionalism. Indu Malhotra J. wrote that history owed an apology to the community.',
+  s:'The clearest Indian rejection of Devlin: the feelings of the majority cannot justify criminalising private consensual conduct.'},
+ {n:'Joseph Shine v. Union of India', w:'Supreme Court · 27 Sept 2018', won:'con', wl:'Constitutional morality',
+  h:'Section 497 IPC (adultery) and s. 198(2) CrPC struck down. Adultery may be a ground for divorce, but not a crime.',
+  r:'The provision treated the wife as the property of her husband (no offence if he consented), and punished only men. It violated Articles 14, 15 and 21. Earlier decisions upholding it (Sowmithri Vishnu, 1985) were overruled.',
+  s:'Hart: a private moral wrong is not enough for criminal punishment; also feminist critique of law’s "neutral" categories.'},
+ {n:'Indian Young Lawyers Association v. State of Kerala', w:'Supreme Court · 28 Sept 2018 · Sabarimala', won:'mix', wl:'Contested',
+  h:'By 4:1, the exclusion of women aged 10 to 50 from the Sabarimala temple was unconstitutional; Rule 3(b) of the Kerala Hindu Places of Public Worship Rules, 1965 struck down.',
+  r:'The majority held that "morality" in Article 25 means constitutional morality, and exclusion based on menstruation violates dignity and equality. Indu Malhotra J., dissenting, held that courts should not impose their notion of rationality on matters of faith; constitutional morality in a plural society includes respect for religious diversity.',
+  s:'Constitutional morality versus religious and community morality. In Kantaru Rajeevaru (2019) a review bench referred wider questions to a larger bench, where they remain pending.'}
+];
+var ci = 0, cstrip = document.getElementById('cs-strip');
+var cB = CS.map(function(c, k){
+  var b = document.createElement('button'); b.type = 'button'; b.className = 'btn'; b.setAttribute('role','tab');
+  b.textContent = c.n.split(' v. ')[0].replace('Indian Young Lawyers Association','IYLA (Sabarimala)').replace('K.S. ','') + ' ' + c.w.match(/\d{4}/)[0];
+  b.addEventListener('click', function(){ showC(k, true); }); cstrip.appendChild(b); return b;
+});
+function showC(k, user){
+  ci = Math.max(0, Math.min(CS.length - 1, k)); var c = CS[ci];
+  cB.forEach(function(b,j){ b.setAttribute('aria-selected', j===ci ? 'true':'false'); b.classList.toggle('on', j===ci); });
+  document.getElementById('cs-name').textContent = c.n;
+  document.getElementById('cs-when').textContent = c.w;
+  var won = document.getElementById('cs-won'); won.className = 'chip ' + c.won; won.textContent = c.wl;
+  document.getElementById('cs-hold').textContent = c.h;
+  document.getElementById('cs-why').textContent = c.r;
+  document.getElementById('cs-side').textContent = c.s;
+  document.getElementById('cs-prev').disabled = ci === 0;
+  document.getElementById('cs-next').disabled = ci === CS.length - 1;
+  if(user){ JP.swap(document.getElementById('cs-text')); var sb = cB[ci]; cstrip.scrollTo({left: sb.offsetLeft - cstrip.clientWidth/2 + sb.offsetWidth/2, behavior:'smooth'}); }
+}
+document.getElementById('cs-prev').addEventListener('click', function(){ showC(ci-1, true); });
+document.getElementById('cs-next').addEventListener('click', function(){ showC(ci+1, true); });
+showC(0);
+
+JP.quiz(document.getElementById('quiz'), [
+ {q:'"There must remain a realm of private morality and immorality which is… not the law’s business." This is from…', o:['Devlin’s Maccabaean Lecture','The Wolfenden Report (1957)','Hart’s Concept of Law','Mill’s On Liberty'], a:1, why:'Paragraph 61 of the Wolfenden Report on Homosexual Offences and Prostitution, 1957. Devlin’s 1959 lecture was a reply to it.'},
+ {q:'Devlin’s test for when society may punish immoral conduct relies on…', o:['Proof of harm to others','The feelings of intolerance, indignation and disgust of the reasonable man','A vote in Parliament','The judge’s own conscience'], a:1, why:'Devlin’s "man in the jury box" or "man in the Clapham omnibus": genuine intolerance, indignation and disgust signal a threat to society’s shared morality.'},
+ {q:'In the grudge informer case, Hart preferred…', o:['Acquitting her because the Nazi law was valid','Holding the Nazi statute not to be law','Punishing her under an openly retrospective statute','Leaving the matter to the Church'], a:2, why:'Hart said the Nazi statute was law, but iniquitous; if she must be punished, do it candidly by retrospective legislation, choosing the lesser evil.'},
+ {q:'Which is NOT one of Fuller’s eight desiderata?', o:['Promulgation','Congruence','Majority approval','Non-retroactivity'], a:2, why:'The eight are generality, promulgation, non-retroactivity, clarity, non-contradiction, possibility of compliance, constancy and congruence. Majority approval is not among them.'},
+ {q:'Which case overruled Suresh Kumar Koushal and preferred constitutional morality to social morality?', o:['Joseph Shine (2018)','Navtej Singh Johar (2018)','NALSA (2014)','S. Khushboo (2010)'], a:1, why:'Navtej Singh Johar v. Union of India (2018), a five-judge bench, held s. 377 unconstitutional so far as it criminalised consensual adult conduct, overruling Koushal (2013).'}
+]);
+
+})();
+</script>
+</body>
+</html>

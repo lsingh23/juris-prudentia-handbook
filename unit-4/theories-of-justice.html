@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Theories of Justice · Juris Prudentia</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Aristotle, the utilitarians, Rawls and Nozick on justice, with their links to equality, the Directive Principles and reservations under the Indian Constitution, explained interactively.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+/* Layout: one quiet reading column on warm paper, white cards floating on a single soft shadow; contents rail on wide screens */
+:root{
+  --bg:#F2F2ED; --surface:#FFFFFF; --ink:#16211C; --ink-2:#3F4A44; --ink-3:#6B756F; --ink-4:#9AA29C;
+  --line:#E6E7E1; --line-2:#D7DAD3; --tint:#F6F6F2;
+  --violet:#6C5CE0; --violet-soft:#EFEDFC;
+  --good:#2E8B57; --good-soft:#E6F2EA; --warn:#B7791F; --warn-soft:#FAF0DE; --bad:#C0443A; --bad-soft:#FAE8E6;
+  --c1:#4774D1; --c2:#2A9187; --c3:#C08A23; --c4:#C24E78; --c5:#7A6CF0; --c6:#3E9A63;
+  --mark:#F4E3B0;
+  --shadow:0 1px 2px rgba(22,33,28,.04),0 14px 40px -16px rgba(22,33,28,.16);
+  --head-bg:rgba(242,242,237,.86);
+  /* aliases kept for page styles */
+  --muted:var(--ink-3); --accent:var(--ink); --accent-soft:var(--tint);
+  --gold:var(--warn); --gold-soft:var(--warn-soft); --rose:var(--bad); --rose-soft:var(--bad-soft);
+  --f-display:"Bricolage Grotesque","Avenir Next Condensed","Segoe UI",system-ui,sans-serif;
+  --f-body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --r-card:24px; --r-inner:16px;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+:root{color-scheme:light}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--bg)}
+img{max-width:100%}
+[hidden]{display:none!important}
+a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:.2em;text-decoration-thickness:1px;transition:text-decoration-color .2s}
+a:hover{text-decoration-color:var(--ink)}
+:focus-visible{outline:2px solid var(--violet);outline-offset:3px;border-radius:8px}
+button{font:inherit;color:inherit}
+mark{background:var(--mark);color:inherit;padding:.05em .2em;border-radius:4px}
+strong{font-weight:600}
+.ico{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.arrow{display:inline-block;transition:transform .25s var(--ease)}
+a:hover .arrow,button:hover .arrow{transform:translateX(3px)}
+a:hover .arrow.back,button:hover .arrow.back{transform:translateX(-3px)}
+
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--dot,var(--warn)) 45%,transparent)}70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.rise{animation:rise .6s var(--ease) both}
+.swap{animation:rise .4s var(--ease) both}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* ---------- top bar ---------- */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--head-bg);backdrop-filter:saturate(1.3) blur(14px);-webkit-backdrop-filter:saturate(1.3) blur(14px);border-bottom:1px solid var(--line)}
+.site-head-in{max-width:76rem;margin:0 auto;display:flex;align-items:center;gap:.75rem;padding-block:.7rem;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.brand{display:flex;align-items:center;gap:.55rem;font-family:var(--f-display);font-weight:700;font-size:1.05rem;color:var(--ink);text-decoration:none;white-space:nowrap;letter-spacing:-.02em;font-stretch:92%}
+.brand-mark{display:grid;place-items:center;width:1.85rem;height:1.85rem;border-radius:999px;background:var(--ink);color:var(--bg);font-family:var(--f-mono);font-size:.7rem;letter-spacing:.02em}
+.site-nav{display:flex;gap:.2rem;margin-left:auto;overflow-x:auto;scrollbar-width:none;min-width:0}
+.site-nav::-webkit-scrollbar{display:none}
+.site-nav a{font-size:.85rem;font-weight:500;text-decoration:none;color:var(--ink-3);padding:.4rem .8rem;border-radius:999px;white-space:nowrap;transition:background .2s,color .2s}
+.site-nav a:hover{color:var(--ink);background:var(--surface)}
+.site-nav a[aria-current="page"]{color:var(--ink);background:var(--surface);box-shadow:var(--shadow)}
+.progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;overflow:hidden}
+.progress span{display:block;height:100%;background:var(--ink);transform-origin:left;transform:scaleX(0)}
+@media (max-width:540px){.brand-text{display:none}}
+
+/* ---------- page frame ---------- */
+.wrap{max-width:76rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);gap:4rem;padding-block:3.5rem 5rem}
+@media (min-width:1100px){.layout{grid-template-columns:minmax(0,42rem) 13rem;justify-content:center}}
+.toc{display:none}
+@media (min-width:1100px){.toc{display:block;position:sticky;top:calc(env(safe-area-inset-top,0px) + 5.5rem);align-self:start;font-size:.85rem}}
+.toc-label{font-family:var(--f-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-4);margin:0 0 .9rem}
+.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:.1rem}
+.toc a{display:flex;gap:.6rem;align-items:center;padding:.35rem 0;color:var(--ink-3);text-decoration:none;line-height:1.35;transition:color .2s}
+.toc a::before{content:"";width:6px;height:6px;border-radius:999px;background:var(--line-2);flex:none;transition:background .2s,transform .2s}
+.toc a:hover{color:var(--ink)}
+.toc a.on{color:var(--ink);font-weight:500}
+.toc a.on::before{background:var(--violet);transform:scale(1.3)}
+
+/* ---------- prose ---------- */
+.prose{min-width:0}
+.prose > *{margin:0}
+.prose > * + *{margin-top:1.15em}
+.prose h1{font-family:var(--f-display);font-size:clamp(2.4rem,6.5vw,3.9rem);line-height:.98;letter-spacing:-.04em;font-weight:700;font-stretch:90%;text-wrap:balance}
+.prose h2{font-family:var(--f-display);font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.08;letter-spacing:-.035em;font-weight:700;font-stretch:90%;margin-top:3em;text-wrap:balance;scroll-margin-top:calc(env(safe-area-inset-top,0px) + 5.5rem);position:relative}
+.prose h3{font-family:var(--f-display);font-size:1.2rem;line-height:1.25;letter-spacing:-.02em;font-weight:600;margin-top:2.2em;text-wrap:balance}
+.prose h2 + *, .prose h3 + *{margin-top:.8em}
+.prose > .eyebrow + h1{margin-top:.9rem}
+.prose > h1 + .meta{margin-top:1.1rem}
+.anchor{position:absolute;left:-1.1em;top:.05em;color:var(--ink-4);text-decoration:none;font-weight:400;opacity:0;transition:opacity .2s}
+.prose h2:hover .anchor{opacity:1}
+@media (max-width:900px){.anchor{display:none}}
+.prose ul,.prose ol{padding-left:1.2em}
+.prose li + li{margin-top:.45em}
+.prose li::marker{color:var(--ink-4)}
+.eyebrow{font-family:var(--f-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);display:flex;align-items:center;gap:.55rem}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--dot,var(--violet));flex:none}
+.meta{font-family:var(--f-mono);font-size:.74rem;color:var(--ink-4);letter-spacing:.02em}
+.lead{font-size:1.18rem;line-height:1.6;color:var(--ink-2)}
+.prose code,.term{font-family:var(--f-mono);font-size:.82em;background:var(--surface);border:1px solid var(--line);padding:.08em .45em;border-radius:999px}
+.latin{font-style:italic;color:var(--ink-2)}
+.hand{font-family:var(--f-display);font-style:normal;font-weight:600;color:var(--violet);letter-spacing:-.01em}
+
+/* callouts: white cards with a coloured marker dot */
+.callout{--c:var(--good);background:var(--surface);border-radius:var(--r-card);padding:1.25rem 1.4rem 1.35rem;display:grid;gap:.55rem;box-shadow:var(--shadow)}
+.callout > *{margin:0}
+.callout .label{font-family:var(--f-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);display:flex;align-items:center;gap:.55rem}
+.callout .label::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--c)}
+.callout.exam{--c:var(--violet)}
+.callout.trap{--c:var(--bad)}
+.callout.keep{--c:var(--warn)}
+.prose > .callout{margin-top:2.2rem}
+.prose > .callout + *{margin-top:2.2rem}
+
+/* definition quote */
+.defq{margin-inline:0;padding:1.5rem 1.5rem 1.3rem;background:var(--surface);border-radius:var(--r-card);box-shadow:var(--shadow);display:grid;gap:.75rem}
+.defq p{margin:0;font-family:var(--f-display);font-size:1.3rem;line-height:1.3;font-weight:500;letter-spacing:-.02em;text-wrap:pretty}
+.defq cite{font-style:normal;font-family:var(--f-mono);font-size:.72rem;color:var(--ink-4);border-top:1px solid var(--line);padding-top:.75rem}
+
+/* big takeaway */
+.big-idea{font-family:var(--f-display);font-size:clamp(1.5rem,4vw,1.9rem);line-height:1.15;font-weight:600;letter-spacing:-.035em;font-stretch:92%;color:var(--ink);text-wrap:balance;padding-block:.75rem;border-block:1px solid var(--line-2)}
+
+/* tables */
+.table-wrap{overflow-x:auto;border-radius:var(--r-card);background:var(--surface);box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;font-size:.88rem;line-height:1.5;min-width:36rem}
+th,td{text-align:left;vertical-align:top;padding:.85rem 1rem;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-4);font-weight:500}
+td:first-child{font-weight:600}
+.dot{display:inline-block;width:7px;height:7px;border-radius:999px;background:var(--dot,var(--ink-4));margin-right:.45rem;vertical-align:.1em}
+
+/* ---------- widgets ---------- */
+.widget{background:var(--surface);border-radius:var(--r-card);padding:1.3rem;display:grid;gap:1.1rem;box-shadow:var(--shadow)}
+.prose > .widget{margin-top:2.4rem}
+.prose > .widget + *{margin-top:2.4rem}
+@media (min-width:700px){.widget{padding:1.6rem 1.7rem}}
+.widget > *{margin:0}
+.w-head{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .7rem;padding-bottom:1rem;border-bottom:1px solid var(--line)}
+.w-tag{font-family:var(--f-mono);font-size:.64rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);border:1px solid var(--line-2);padding:.18rem .55rem;border-radius:999px}
+.w-title{font-family:var(--f-display);font-weight:600;font-size:1.08rem;letter-spacing:-.02em}
+.w-hint{font-size:.82rem;color:var(--ink-4);margin-left:auto}
+.btn{appearance:none;border:1px solid var(--line-2);background:var(--surface);border-radius:999px;padding:.45rem 1rem;font-size:.85rem;font-weight:500;cursor:pointer;line-height:1.3;display:inline-flex;align-items:center;gap:.4rem;transition:border-color .2s,background .2s,color .2s}
+.btn:hover{border-color:var(--ink-3)}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:var(--surface)}
+.btn.primary:hover{background:var(--ink-2);border-color:var(--ink-2)}
+.btn[aria-pressed="true"],.btn.on{background:var(--violet-soft);border-color:var(--violet);color:var(--violet)}
+.btn:disabled{opacity:.4;cursor:default}
+.row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.chip{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.03em;padding:.22rem .6rem;border-radius:999px;background:var(--tint);color:var(--ink-3);white-space:nowrap;display:inline-flex;align-items:center;gap:.4rem}
+.chip .dot{margin:0}
+
+/* diagrams */
+.dia{width:100%;height:auto;display:block;margin-inline:auto}
+.dia .node rect{fill:var(--surface);stroke:var(--line-2);stroke-width:1;transition:opacity .35s,stroke .35s}
+.dia .code{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.08em;fill:var(--ink-4)}
+.dia .lab{font-family:var(--f-body);font-size:11px;font-weight:500;fill:var(--ink)}
+.dia .edge{fill:none;stroke:var(--line-2);stroke-width:1.2;stroke-dasharray:3 4;transition:stroke .35s,opacity .35s}
+.dia .edge.live{stroke-dasharray:none;stroke-width:1.6}
+.dia .off{opacity:.38}
+.dia .hub rect{fill:var(--ink);stroke:none}
+.dia .hub text{fill:var(--surface)}
+.dia .hub .code{fill:var(--surface);opacity:.6}
+.dia .cap{font-family:var(--f-mono);font-size:8px;letter-spacing:.12em;fill:var(--ink-4);text-transform:uppercase}
+.dia-cap{font-size:.8rem;color:var(--ink-4);line-height:1.5}
+.legend{display:flex;flex-wrap:wrap;gap:.35rem .9rem;font-size:.8rem;color:var(--ink-3)}
+.legend span{display:inline-flex;align-items:center;gap:.4rem}
+.steps{display:flex;gap:.35rem;align-items:center}
+.steps i{width:7px;height:7px;border-radius:999px;background:var(--line-2);transition:background .2s,width .25s var(--ease)}
+.steps i.on{background:var(--ink);width:20px}
+
+/* quiz */
+.quiz-q{border:0;padding:0;margin:0;display:grid;gap:.6rem}
+.quiz-q + .quiz-q{border-top:1px solid var(--line);padding-top:1.2rem}
+.quiz-q legend{font-weight:600;line-height:1.45;padding:0;margin-bottom:.6rem}
+.quiz-opts{display:grid;gap:.4rem}
+.quiz-opt{text-align:left;appearance:none;border:1px solid var(--line);background:var(--surface);border-radius:var(--r-inner);padding:.6rem .9rem;cursor:pointer;line-height:1.4;font-size:.92rem;display:flex;gap:.7rem;align-items:flex-start;transition:border-color .2s,background .2s}
+.quiz-opt:hover:not(:disabled){border-color:var(--ink-3)}
+.quiz-opt .k{font-family:var(--f-mono);font-size:.68rem;color:var(--ink-4);padding-top:.2rem}
+.quiz-opt.right{background:var(--good-soft);border-color:var(--good)}
+.quiz-opt.wrong{background:var(--bad-soft);border-color:var(--bad)}
+.quiz-opt:disabled{cursor:default}
+.quiz-why{font-size:.88rem;line-height:1.6;background:var(--tint);border-radius:var(--r-inner);padding:.75rem .95rem;display:flex;gap:.55rem;align-items:baseline}
+.quiz-why::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--good);flex:none;transform:translateY(-1px)}
+.quiz-why.miss::before{background:var(--bad)}
+.quiz-foot{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:1rem}
+.score{font-family:var(--f-mono);font-size:.74rem;color:var(--ink-3)}
+
+/* chapter end */
+.done-box{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;padding-block:1.2rem;border-block:1px solid var(--line-2)}
+.done-box p{margin:0;color:var(--ink-3);font-size:.88rem}
+.btn[data-done][aria-pressed="true"]{background:var(--good-soft);border-color:var(--good);color:var(--good)}
+.pager{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1rem}
+.prose > .pager{margin-top:3rem}
+.pager a{display:grid;gap:.25rem;padding:1.1rem 1.3rem;border-radius:var(--r-card);background:var(--surface);box-shadow:var(--shadow);text-decoration:none;color:var(--ink);transition:transform .3s var(--ease)}
+.pager a:hover{transform:translateY(-2px)}
+.pager .dir{font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-4)}
+.pager .t{font-family:var(--f-display);font-weight:600;font-size:1.1rem;letter-spacing:-.02em}
+.pager .next{text-align:right}
+.foot{border-top:1px solid var(--line);padding-block:1.6rem 2.6rem;color:var(--ink-4);font-size:.8rem}
+.foot p{margin:0;max-width:62ch}
+
+
+.contrast{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.75rem}
+.contrast > div{border-radius:var(--r-card);padding:1.15rem 1.3rem;background:var(--surface);box-shadow:var(--shadow);display:grid;gap:.45rem;align-content:start}
+.contrast h4{margin:0;font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-4);font-weight:500;display:flex;align-items:center;gap:.5rem}
+.contrast h4::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--ink-4)}
+.contrast p{margin:0;font-size:.92rem;line-height:1.6;color:var(--ink-2)}
+.contrast .them{background:var(--ink)}
+.contrast .them h4{color:var(--surface);opacity:.7}
+.contrast .them h4::before{background:var(--violet)}
+.contrast .them p{color:var(--surface)}
+.era-who{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem .7rem}
+.era-who b{font-family:var(--f-display);font-size:1.45rem;font-weight:600;letter-spacing:-.03em}
+.era-nav{display:flex;justify-content:space-between;gap:.5rem}
+.ladder{display:grid;gap:.5rem;margin:0;padding:0;list-style:none}
+.ladder li{margin:0!important;display:grid;grid-template-columns:auto 1fr;gap:.25rem 1rem;align-items:baseline;border-radius:var(--r-card);padding:1rem 1.25rem;background:var(--surface);box-shadow:var(--shadow)}
+.ladder .n{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.1em;color:var(--ink-4);text-transform:uppercase;grid-row:span 2}
+.ladder b{font-family:var(--f-display);font-weight:600;font-size:1.1rem;letter-spacing:-.02em}
+.ladder b i{font-weight:500;color:var(--ink-3);font-size:.9rem}
+.ladder p{margin:0;font-size:.9rem;line-height:1.55;color:var(--ink-2)}
+.ladder li:nth-child(1){margin-inline:0}
+.ladder li:nth-child(2){margin-left:1.2rem!important}
+.ladder li:nth-child(3){margin-left:2.4rem!important}
+.ladder li:nth-child(4){margin-left:3.6rem!important;background:var(--ink)}
+.ladder li:nth-child(4) b,.ladder li:nth-child(4) p{color:var(--surface)}
+.ladder li:nth-child(4) b i,.ladder li:nth-child(4) .n{color:var(--surface);opacity:.65}
+@media (max-width:520px){.ladder li:nth-child(n){margin-left:0!important}}
+.meter{display:grid;gap:.35rem}
+.meter .h{font-family:var(--f-mono);font-size:.64rem;text-transform:uppercase;letter-spacing:.11em;color:var(--ink-4);display:flex;justify-content:space-between}
+.meter .bar{height:8px;border-radius:999px;background:var(--tint);border:1px solid var(--line);position:relative;overflow:hidden}
+.meter .bar span{position:absolute;inset:0 auto 0 0;background:var(--violet);border-radius:999px;transition:width .6s var(--ease)}
+.goods{display:flex;flex-wrap:wrap;gap:.45rem;margin:0;padding:0;list-style:none}
+.goods li{margin:0!important;padding:.4rem .85rem;border-radius:999px;background:var(--surface);box-shadow:var(--shadow);font-size:.88rem;display:inline-flex;align-items:center;gap:.45rem}
+.goods li::before{content:"";width:6px;height:6px;border-radius:999px;background:var(--c6)}
+.case{display:grid;gap:.75rem}
+.case-card{border-radius:var(--r-card);padding:1.15rem 1.3rem;background:var(--surface);box-shadow:var(--shadow);display:grid;gap:.4rem}
+.case-card > *{margin:0}
+.case-card .cn{font-family:var(--f-display);font-weight:600;font-size:1.12rem;letter-spacing:-.025em}
+.case-card .cy{font-family:var(--f-mono);font-size:.7rem;color:var(--ink-4)}
+.case-card p{font-size:.9rem;line-height:1.65;color:var(--ink-2)}
+.case-card .tag{font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.11em;color:var(--ink-3);display:flex;align-items:center;gap:.5rem}
+.case-card .tag::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--d,var(--ink-4))}
+.etym{display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:.75rem}
+.etym > div{background:var(--surface);box-shadow:var(--shadow);border-radius:var(--r-card);padding:1.1rem 1.25rem;display:grid;gap:.3rem;align-content:start}
+.etym .w{font-family:var(--f-display);font-weight:600;font-size:1.5rem;letter-spacing:-.035em;font-style:italic;line-height:1.1}
+.etym .m{font-size:.86rem;color:var(--ink-3);line-height:1.5}
+.etym .eq{background:var(--ink)}
+.etym .eq .w{color:var(--surface);font-style:normal}
+.etym .eq .m{color:var(--surface);opacity:.65}
+.sort-list{display:grid;gap:.5rem}
+.sort-item{border:1px solid var(--line);border-radius:var(--r-inner);padding:.8rem .95rem;display:grid;gap:.55rem;transition:background .25s,border-color .25s}
+.sort-item > *{margin:0}
+.sort-item .s-q{font-size:.9rem;line-height:1.55;color:var(--ink-2)}
+.sort-item .row .btn{font-size:.8rem;padding:.3rem .85rem}
+.sort-item.ok{background:var(--good-soft);border-color:var(--good)}
+.sort-item.no{background:var(--bad-soft);border-color:var(--bad)}
+.sort-why{font-size:.84rem;line-height:1.55;color:var(--ink-3)}
+.dists{display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr));gap:.5rem}
+.dist{appearance:none;text-align:left;border:1px solid var(--line);border-radius:var(--r-inner);background:var(--surface);padding:.75rem .8rem;cursor:pointer;display:grid;gap:.5rem;transition:border-color .2s,background .2s}
+.dist:hover{border-color:var(--ink-4)}
+.dist[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.dist.win{background:var(--violet-soft);border-color:var(--violet)}
+.dist .nm{font-family:var(--f-display);font-weight:600;font-size:1rem;letter-spacing:-.02em}
+.dist .bars{display:flex;align-items:flex-end;gap:4px;height:84px;border-bottom:1px solid var(--line-2)}
+.dist .bars i{flex:1;background:var(--ink-4);border-radius:4px 4px 1px 1px;min-height:3px;transition:background .3s}
+.dist.win .bars i{background:var(--violet)}
+.dist .bars i.you{background:var(--warn)}
+.dist .st{font-family:var(--f-mono);font-size:.64rem;color:var(--ink-4);letter-spacing:.02em;line-height:1.5}
+.lens-out{background:var(--tint);border-radius:var(--r-inner);padding:.85rem 1rem;font-size:.9rem;line-height:1.6;color:var(--ink-2);margin:0}
+.lens-out b{color:var(--ink)}
+.wilt-panel{display:grid;gap:.85rem;border-top:1px solid var(--line);padding-top:1.1rem}
+.wilt-panel > *{margin:0}
+.wilt-panel b.h{font-family:var(--f-display);font-size:1.3rem;font-weight:600;letter-spacing:-.03em}
+.wilt-panel p{font-size:.92rem;line-height:1.6;color:var(--ink-2)}
+.ledger{display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:.75rem}
+.calc{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:.5rem;margin:0;padding:0;list-style:none}
+.calc li{margin:0!important;border-radius:var(--r-inner);background:var(--surface);box-shadow:var(--shadow);padding:.8rem .95rem;display:grid;gap:.15rem}
+.calc b{font-family:var(--f-display);font-weight:600;letter-spacing:-.02em}
+.calc span{font-size:.84rem;line-height:1.5;color:var(--ink-3)}
+
+</style>
+</head>
+<body>
+<header class="site-head"><div class="site-head-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">JP</span><span class="brand-text">Juris Prudentia</span></a><nav class="site-nav" aria-label="Chapters"><a href="../index.html">All units</a><a href="theories-of-justice.html" aria-current="page">Theories of justice</a><a href="modernism-postmodernism.html">Modern &amp; postmodern</a><a href="law-morality.html">Law &amp; morality</a><a href="exam.html">Exam kit</a></nav></div><div class="progress" aria-hidden="true"><span></span></div></header><main class="wrap"><div class="layout rise"><article class="prose">
+<p class="eyebrow">Chapter 1 of 3 · Theories of justice</p>
+<h1>Justice: who gets what, and why</h1>
+<p class="meta">About 26 minutes · 3 interactive widgets · 5-question check</p>
+<p class="lead">In 1992, nine judges of the Supreme Court sat to decide whether the Union could reserve 27 per cent of central government posts for "other backward classes". The case, <em>Indra Sawhney v. Union of India</em>, was argued in the language of Article 16. But underneath, the judges were asking the oldest question in legal philosophy: what does it mean to treat people <em>justly</em>?</p>
+<p>Is justice giving everyone the same? Giving each according to merit? Producing the greatest happiness? Protecting the worst-off? Or simply leaving people with what they have fairly earned? Four great answers dominate the syllabus: <strong>Aristotle</strong>, the <strong>utilitarians</strong> (Bentham and Mill), <strong>John Rawls</strong> and <strong>Robert Nozick</strong>. This chapter takes them one at a time, then lines them up against each other and against the Indian Constitution.</p>
+
+<h2 id="meaning" data-toc="What justice means">What "justice" means</h2>
+<p>The word comes from the Latin <span class="latin">justitia</span>, from <span class="latin">jus</span>, right or law. The classic definition is Ulpian's, preserved in Justinian's <em>Institutes</em>:</p>
+<blockquote class="defq"><p>Justice is the constant and perpetual will to render to every man his due.</p><cite>Ulpian, Digest 1.1.10 · <span class="latin">justitia est constans et perpetua voluntas jus suum cuique tribuendi</span></cite></blockquote>
+<p>"To each his due" is a good start, but it postpones the hard part: <em>what</em> is each person's due, and who decides? Every theory in this chapter is a different answer to that question.</p>
+<p class="big-idea">A theory of justice is a theory of fair shares: of burdens and benefits, wrongs and remedies.</p>
+<p>Before the theorists, three distinctions you'll use throughout:</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Distinction</th><th>One side</th><th>Other side</th></tr></thead>
+  <tbody>
+    <tr><td><span class="dot" style="--dot:var(--c1)"></span>Legal and moral</td><td><strong>Justice according to law</strong>: applying the rules as they stand, impartially (Salmond's "administration of justice")</td><td><strong>Justice as an ideal</strong>: the standard by which the rules themselves are judged</td></tr>
+    <tr><td><span class="dot" style="--dot:var(--c2)"></span>Procedural and substantive</td><td><strong>Procedural</strong>: was the process fair? (hearing, no bias, equal rules)</td><td><strong>Substantive</strong>: is the outcome fair? (who ends up with what)</td></tr>
+    <tr><td><span class="dot" style="--dot:var(--c3)"></span>Distributive and corrective</td><td><strong>Distributive</strong>: sharing out goods and burdens in a community</td><td><strong>Corrective</strong>: putting right a wrong between two persons</td></tr>
+  </tbody>
+</table>
+</div>
+<p>The Indian Constitution uses the word in its very first promise. The Preamble resolves to secure to all citizens "<mark>JUSTICE, social, economic and political</mark>", and Article 38 repeats that formula as the guiding goal of the State. Keep that phrase in mind; we return to it at the end.</p>
+
+<aside class="callout">
+  <p class="label">Where this fits</p>
+  <p>Unit I asked whether there is a law above the law (natural law). Unit IV asks the follow-up: if law should be just, <em>what is justice</em>? The same tension between law as it is and law as it ought to be runs through this whole unit.</p>
+</aside>
+
+<h2 id="aristotle" data-toc="Aristotle">Aristotle: distributive and corrective justice</h2>
+<p>Aristotle (384–322 BC) discusses justice in Book V of the <em>Nicomachean Ethics</em>. He begins by separating two senses of the word. <strong>General (universal) justice</strong> is complete virtue in relation to others: the just man is the law-abiding man. <strong>Particular justice</strong> is narrower: it is about fairness, about not taking more than one's share. Particular justice is where the jurisprudence is, and Aristotle divides it in two.</p>
+
+<h3>Distributive justice</h3>
+<p>Distributive justice concerns the sharing out of honours, wealth and other divisible goods among members of a community. Its rule is <strong>proportionate (geometrical) equality</strong>: equals should receive equal shares, and unequals unequal shares, <em>in proportion to merit</em>. Injustice is disproportion: when equals get unequal shares, or unequals get equal shares.</p>
+<p>Aristotle's own example, from the <em>Politics</em>: if you are distributing flutes, the best flutes should go to the best flute players, not to the richest or the best-born. The basis of desert (<span class="latin">axia</span>) is what is disputed. Democrats say free birth, oligarchs say wealth, aristocrats say virtue. Aristotle's formula tells you <em>how</em> to divide once you have chosen the criterion; it doesn't choose the criterion for you.</p>
+
+<h3>Corrective justice</h3>
+<p>Corrective (rectificatory) justice applies to <strong>transactions between individuals</strong>, which may be voluntary (sale, loan, hire, deposit) or involuntary (theft, assault, fraud). Here merit is irrelevant. It makes no difference whether a good man has defrauded a bad man or the reverse; the law looks only at the harm, and <mark>treats the parties as equals</mark>. Its rule is <strong>arithmetical equality</strong>: the judge takes away the wrongdoer's gain and restores the victim's loss, bringing both back to the mean.</p>
+<div class="contrast">
+  <div><h4>Distributive justice</h4><p>Community to members. Shares in proportion to merit. Geometrical equality: A : B = share of A : share of B. Think of public offices, honours, taxes, welfare.</p></div>
+  <div class="them"><h4>Corrective justice</h4><p>Person to person. Parties treated as equals; merit ignored. Arithmetical equality: restore what was taken. Think of contract, tort and criminal compensation.</p></div>
+</div>
+<p>This one division maps neatly onto modern law. Distributive justice lives in public law: tax, welfare, reservations, allocation of resources. Corrective justice lives in private law: damages in tort, restitution, compensation for breach of contract.</p>
+
+<div class="widget" id="sort">
+  <div class="w-head"><span class="w-tag">Try it</span><span class="w-title">Distributive or corrective?</span><span class="w-hint">Sort each situation</span></div>
+  <div class="sort-list" id="sort-list"></div>
+  <div class="quiz-foot"><span class="score" id="sort-score"></span><button class="btn" type="button" id="sort-reset">Reset</button></div>
+</div>
+
+<h3>Equity: correcting the law itself</h3>
+<p>Aristotle adds a third idea, <span class="latin">epieikeia</span>, usually translated <strong>equity</strong>. Law must speak in general terms, and no general rule can foresee every case. When a case arises that the lawgiver did not foresee, applying the rule literally would produce injustice. Equity is <mark>a correction of law where it is defective owing to its universality</mark>: the judge decides as the lawgiver would have decided had he been present. Equity is not opposed to justice; it is a higher form of it.</p>
+<p>The idea travels a long way. It is the root of the English Court of Chancery, of the maxim that equity follows the law but mitigates its rigour, and of Article 142 of the Constitution, which lets the Supreme Court pass any order "necessary for doing complete justice in any cause or matter pending before it".</p>
+
+<aside class="callout exam">
+  <p class="label">Exam lens</p>
+  <p>Aristotle's proportionate equality is the philosophical ancestor of Article 14's <strong>reasonable classification</strong> test. Equality before law does not mean identical treatment for all; it means like should be treated alike, and unlike differently, on an intelligible differentia rationally connected to the object of the law (<em>State of West Bengal v. Anwar Ali Sarkar</em>, 1952). Make this link in any Aristotle answer.</p>
+</aside>
+<p><strong>Criticism, in one line each:</strong> Aristotle tells us to distribute according to merit but gives no agreed test of merit; his scheme accepted slavery and the subordination of women as "natural"; and corrective justice, by restoring the status quo, can freeze an unjust starting point.</p>
+
+<h2 id="utility" data-toc="Bentham and Mill">The utilitarian theory: Bentham and Mill</h2>
+<p>Two thousand years later, a very different answer came from England. For the utilitarians, justice is not a separate value at all. It is a name for whatever arrangement produces the most happiness.</p>
+
+<h3>Bentham and the felicific calculus</h3>
+<p><strong>Jeremy Bentham</strong> (1748–1832) opens his <em>Introduction to the Principles of Morals and Legislation</em> (1789) with a famous sentence:</p>
+<blockquote class="defq"><p>Nature has placed mankind under the governance of two sovereign masters, pain and pleasure. It is for them alone to point out what we ought to do, as well as to determine what we shall do.</p><cite>Jeremy Bentham, An Introduction to the Principles of Morals and Legislation, 1789, ch. I</cite></blockquote>
+<p>The <strong>principle of utility</strong> approves or disapproves of every action according to its tendency to increase or diminish the happiness of the party whose interest is in question. For law, that party is the community, so the test of a good law is <mark>the greatest happiness of the greatest number</mark>. Each person's happiness counts equally: "each to count for one, and none for more than one", in the formula Mill attributes to Bentham.</p>
+<p>To make this practical, Bentham proposed the <strong>felicific (hedonic) calculus</strong>: a way of measuring the value of a pleasure or pain along seven dimensions.</p>
+<ul class="calc">
+  <li><b>Intensity</b><span>How strong is it?</span></li>
+  <li><b>Duration</b><span>How long does it last?</span></li>
+  <li><b>Certainty</b><span>How likely is it to occur?</span></li>
+  <li><b>Propinquity</b><span>How soon (near or remote)?</span></li>
+  <li><b>Fecundity</b><span>Will it be followed by more pleasures?</span></li>
+  <li><b>Purity</b><span>Will it be free of pains that follow?</span></li>
+  <li><b>Extent</b><span>How many people does it affect?</span></li>
+</ul>
+<p>Sum the pleasures, subtract the pains, for everyone affected, and the law with the best balance is the just law. Bentham himself left a rhyme to remember the first six: <span class="hand">"Intense, long, certain, speedy, fruitful, pure"</span>. The seventh, extent, is what turns private ethics into legislation.</p>
+<p>Bentham's practical aim was reform. Using utility as a test, he attacked the cruel and chaotic English criminal law, argued for punishment only so far as it prevents greater harm, called for codification (he coined the word), and dismissed natural rights as "nonsense upon stilts". He even designed a model prison, the Panopticon, which we meet again in the next chapter.</p>
+
+<h3>J.S. Mill: quality of pleasure, and justice</h3>
+<p><strong>John Stuart Mill</strong> (1806–1873), raised on Bentham's ideas, refined them in <em>Utilitarianism</em> (1861). Three changes matter:</p>
+<ul>
+  <li><strong>Quality, not just quantity.</strong> Bentham said that, quantity of pleasure being equal, pushpin is as good as poetry. Mill disagreed: some pleasures (of the intellect, the feelings, moral sentiment) are higher in kind. "<em>It is better to be a human being dissatisfied than a pig satisfied; better to be Socrates dissatisfied than a fool satisfied.</em>"</li>
+  <li><strong>Justice as the core of utility.</strong> In the last chapter of <em>Utilitarianism</em>, Mill argues that justice is the name for the most important and binding class of social utilities. Rights are things society ought to defend because security is the most vital of all interests. The feeling of justice is the natural desire to retaliate against harm, moralised by social sympathy.</li>
+  <li><strong>The harm principle.</strong> In <em>On Liberty</em> (1859), Mill limited what the majority may do in the name of utility: power may be exercised over an individual against his will only to prevent harm to others. This principle becomes the centre of the Hart–Devlin debate in Chapter 3.</li>
+</ul>
+
+<h3>Criticism of utilitarianism</h3>
+<ul>
+  <li><strong>It ignores distribution.</strong> A society where a few are very rich and many are miserable can have a higher total of happiness than an equal one. Utility looks at the sum, not at who gets it.</li>
+  <li><strong>It can sacrifice the individual.</strong> If punishing an innocent person would calm a riot and maximise happiness, pure utility seems to require it. Rights become only as strong as the next calculation.</li>
+  <li><strong>Pleasure can't be measured.</strong> There is no common unit to compare one person's pleasure with another's. The calculus is a metaphor, not a method.</li>
+  <li><strong>Mill's repair creates a new problem.</strong> If pleasures differ in quality, something other than pleasure is doing the ranking, and the theory is no longer purely hedonistic.</li>
+  <li><strong>Rawls's objection,</strong> the one to quote: utilitarianism "<mark>does not take seriously the distinction between persons</mark>". It treats society like a single person who can trade one part's pain for another part's gain.</li>
+</ul>
+
+<h2 id="rawls" data-toc="Rawls">John Rawls: justice as fairness</h2>
+<p><strong>John Rawls</strong> (1921–2002), an American philosopher at Harvard, published <em>A Theory of Justice</em> in 1971. It is the most influential work of political philosophy of the twentieth century, and it was written precisely to offer an alternative to utilitarianism. It opens with a line worth memorising:</p>
+<blockquote class="defq"><p>Justice is the first virtue of social institutions, as truth is of systems of thought.</p><cite>John Rawls, A Theory of Justice, 1971, §1</cite></blockquote>
+<p>The subject of justice, for Rawls, is the <strong>basic structure of society</strong>: the major institutions (the constitution, the economy, the family, property) that distribute rights, duties and the advantages of social cooperation. He calls his theory <strong>justice as fairness</strong>, because the principles of justice are those that would be chosen in a fair situation.</p>
+
+<h3>The original position and the veil of ignorance</h3>
+<p>Rawls revives the social contract, but as a <em>thought experiment</em>, not a historical event. Imagine free, equal and rational persons meeting to choose the principles that will govern their society. This hypothetical meeting is the <strong>original position</strong>.</p>
+<p>To make the choice fair, the parties are placed behind a <strong>veil of ignorance</strong>. They do not know:</p>
+<ul>
+  <li>their place in society, their class position or social status;</li>
+  <li>their natural talents and abilities, intelligence and strength;</li>
+  <li>their own conception of the good, or their religious beliefs;</li>
+  <li>their psychological traits, such as their attitude to risk;</li>
+  <li>even which generation they belong to.</li>
+</ul>
+<p>They <em>do</em> know general facts about human society: economics, psychology, politics. And they know they will want more rather than less of the <strong>primary goods</strong>, the things every rational person wants whatever else they want: rights and liberties, opportunities and powers, income and wealth, and the social bases of self-respect.</p>
+<p class="big-idea">If you don't know who you will be, you will choose rules that are fair to whoever you turn out to be.</p>
+
+<h3>The two principles of justice</h3>
+<p>Rawls argues that the parties would choose two principles. In their final form in <em>A Theory of Justice</em>:</p>
+<ol class="ladder">
+  <li><span class="n">First</span><b>Equal liberty <i>· the liberty principle</i></b><p>Each person is to have an equal right to the most extensive total system of equal basic liberties compatible with a similar system of liberty for all. (Political liberty, freedom of speech and assembly, liberty of conscience, freedom of the person, the right to hold property, freedom from arbitrary arrest.)</p></li>
+  <li><span class="n">Second (b)</span><b>Fair equality of opportunity <i>· open positions</i></b><p>Social and economic inequalities must be attached to offices and positions open to all under conditions of fair equality of opportunity: not just formally open, but with a genuine chance for the similarly talented.</p></li>
+  <li><span class="n">Second (a)</span><b>The difference principle <i>· benefit the least advantaged</i></b><p>Social and economic inequalities are to be arranged so that they are to the greatest benefit of the least advantaged, consistent with the just savings principle (fairness to future generations).</p></li>
+</ol>
+<p>The ladder is drawn in the order of <strong>priority</strong>, not the order in which Rawls numbers the parts.</p>
+
+<h3>Lexical priority</h3>
+<p>The principles are ranked in a <strong>lexical (serial) order</strong>, like words in a dictionary: you only move to the second letter once the first is settled. So:</p>
+<ul>
+  <li>the <strong>first principle has priority over the second</strong>. Basic liberties cannot be traded for economic gains; liberty can be restricted only for the sake of liberty itself;</li>
+  <li>within the second principle, <strong>fair equality of opportunity has priority over the difference principle</strong>.</li>
+</ul>
+<p>This is the sharpest contrast with utilitarianism. A utilitarian could accept a loss of liberty for a few if it bought enough happiness for the many. Rawls's ordering rules that out.</p>
+
+<h3>The difference principle and maximin</h3>
+<p>The difference principle is often misunderstood. It does <strong>not</strong> demand strict equality. It permits inequality, but only inequality that <mark>makes the worst-off better off than they would be under equality</mark>. Higher pay for doctors is just if it draws talent into medicine in a way that improves the position of the least advantaged; it is unjust if it merely enriches doctors.</p>
+<p>Why would the parties choose it? Rawls argues that, behind the veil, a rational person facing a once-and-for-all choice with such high stakes would follow the <strong>maximin rule</strong>: rank the alternatives by their worst possible outcome, and choose the one whose worst outcome is best (<em>max</em>imise the <em>min</em>imum). You don't gamble your whole life's prospects on landing at the top.</p>
+<p>Try it yourself. Five groups, four possible societies. Pick one from behind the veil, then lift the veil and see where you land. Then switch the lens to see which society each theory picks.</p>
+
+<div class="widget" id="veil">
+  <div class="w-head"><span class="w-tag">Try it</span><span class="w-title">Behind the veil of ignorance</span><span class="w-hint">Choose a society, then lift the veil</span></div>
+  <div class="dists" id="dists"></div>
+  <div class="row" id="lens-row" role="group" aria-label="Theory lens"></div>
+  <p class="lens-out" id="lens-out" aria-live="polite"></p>
+  <div class="row"><button class="btn primary" type="button" id="lift">Lift the veil</button><button class="btn" type="button" id="veil-reset">Put it back</button><span class="score" id="veil-score"></span></div>
+</div>
+
+<h3>Reflective equilibrium</h3>
+<p>How do we know the two principles are right? Rawls's method is <strong>reflective equilibrium</strong>. We start with our considered judgments about particular cases (slavery is unjust; religious persecution is unjust) and with candidate principles. Where they conflict, we adjust one or the other, going back and forth, until principles and judgments fit together. The original position is itself tested this way: if it produced principles that clashed with our firmest convictions, we would redesign it. Justification is a matter of overall coherence, not deduction from self-evident truths.</p>
+
+<h3>Later Rawls and the criticisms</h3>
+<p>In <em>Political Liberalism</em> (1993) Rawls recast his theory for a society of deep religious and moral disagreement: citizens with different comprehensive views can still reach an <strong>overlapping consensus</strong> on political principles. The criticisms you should know:</p>
+<ul>
+  <li><strong>The veil is artificial.</strong> Real people never choose without knowing who they are. Communitarians such as Michael Sandel (<em>Liberalism and the Limits of Justice</em>, 1982) argue that Rawls imagines an "unencumbered self", stripped of the communities and commitments that actually make us who we are.</li>
+  <li><strong>Maximin assumes extreme caution.</strong> Harsanyi argued that rational parties would maximise <em>average</em> utility, which brings back utilitarianism.</li>
+  <li><strong>It ignores desert and entitlement.</strong> This is Nozick's objection, below.</li>
+  <li><strong>It is Western and liberal.</strong> Critics say its "neutral" primary goods are the priorities of a liberal market society; Amartya Sen argues that we should look at <em>capabilities</em>, what people can actually do and be, not just the goods they hold.</li>
+</ul>
+
+<aside class="callout trap">
+  <p class="label">Common mix-up</p>
+  <p>Rawls's original position is <strong>not</strong> a historical claim, unlike Hobbes's or Locke's state of nature. Nobody ever met behind a veil. It is a device of representation: a way of modelling what fairness requires. Say so in the exam.</p>
+</aside>
+
+<h2 id="nozick" data-toc="Nozick">Robert Nozick: the entitlement theory</h2>
+<p>Three years after Rawls, his Harvard colleague <strong>Robert Nozick</strong> (1938–2002) published <em>Anarchy, State, and Utopia</em> (1974), the classic libertarian reply. Its first line sets the tone:</p>
+<blockquote class="defq"><p>Individuals have rights, and there are things no person or group may do to them (without violating their rights).</p><cite>Robert Nozick, Anarchy, State, and Utopia, 1974, Preface</cite></blockquote>
+<p>For Nozick, the question of justice is not "is this distribution the right shape?" but "<strong>how did people come to have what they have?</strong>" A distribution is just if everyone is entitled to the holdings they possess. He calls this the <strong>entitlement theory</strong>, and it has three parts.</p>
+<div class="etym">
+  <div><span class="w">Acquisition</span><span class="m">Justice in original acquisition: how unowned things (land, resources) may come to be owned. Nozick follows Locke, with a proviso: an appropriation is legitimate if it does not worsen the situation of others.</span></div>
+  <div><span class="w">Transfer</span><span class="m">Justice in transfer: how holdings may pass from one person to another. Voluntary exchange, gift and bequest are just; theft, fraud and coercion are not.</span></div>
+  <div class="eq"><span class="w">Rectification</span><span class="m">Rectification of injustice: if past holdings were acquired or transferred unjustly, the injustice must be corrected. The least developed part of the theory.</span></div>
+</div>
+<p>Put together: <mark>whatever arises from a just situation by just steps is itself just</mark>. "From each as they choose, to each as they are chosen."</p>
+
+<h3>Historical versus patterned principles</h3>
+<p>Nozick's key move is a classification of theories of justice:</p>
+<ul>
+  <li><strong>End-state principles</strong> judge a distribution by its structure at a moment in time (utilitarianism: maximum total).</li>
+  <li><strong>Patterned principles</strong> say distribution should follow some natural dimension: "to each according to their need", "merit", "effort" (Rawls's difference principle is patterned in this sense).</li>
+  <li><strong>Historical principles</strong> say whether a distribution is just depends on how it came about. The entitlement theory is historical and <em>unpatterned</em>.</li>
+</ul>
+
+<h3>The Wilt Chamberlain argument</h3>
+<p>To show why patterns fail, Nozick tells a story about the most famous basketball player of his day. Step through it.</p>
+
+<div class="widget" id="wilt">
+  <div class="w-head"><span class="w-tag">Explore</span><span class="w-title">Liberty upsets patterns</span><span class="w-hint">Step through Nozick's argument</span></div>
+  <div class="steps" id="wilt-steps" aria-hidden="true"></div>
+  <div class="wilt-panel" id="wilt-panel" aria-live="polite">
+    <p class="era-who"><b class="h" id="wilt-h"></b><span class="chip" id="wilt-chip"></span></p>
+    <p id="wilt-t"></p>
+    <div class="ledger">
+      <div class="meter"><p class="h"><span>Wilt's holding</span><span id="wilt-w"></span></p><div class="bar"><span id="wilt-wb"></span></div></div>
+      <div class="meter"><p class="h"><span>Each fan's holding</span><span id="wilt-f"></span></p><div class="bar"><span id="wilt-fb" style="background:var(--c2)"></span></div></div>
+    </div>
+  </div>
+  <div class="era-nav"><button class="btn" type="button" id="wilt-prev"><span class="arrow back">←</span> Back</button><button class="btn primary" type="button" id="wilt-next">Next <span class="arrow">→</span></button></div>
+</div>
+
+<p>The lesson Nozick draws: <mark>liberty upsets patterns</mark>. No patterned principle can be continuously realised without continuous interference with people's lives, forbidding capitalist acts between consenting adults or constantly taking from some to give to others. That is why he says <strong>taxation of earnings from labour is on a par with forced labour</strong>: taking n hours' wages is like forcing someone to work n hours for another's purpose.</p>
+
+<h3>The minimal state</h3>
+<p>Nozick starts, like Locke, from a state of nature in which people have natural rights. He argues that a <strong>minimal state</strong>, limited to the narrow functions of protection against force, theft and fraud and the enforcement of contracts, can arise without violating anyone's rights, through the growth of protective associations. This is the old "night-watchman state" of classical liberal theory. Any <strong>more extensive state</strong>, one that redistributes wealth or compels people to help others, violates rights and is unjustified. And the minimal state is not a dull compromise: it is a "framework for utopia", within which people may voluntarily form whatever communities they like.</p>
+
+<h3>Nozick's critique of Rawls</h3>
+<ul>
+  <li><strong>Goods are not manna from heaven.</strong> Rawls's parties treat the social product as if it arrived from nowhere to be shared out. But goods are produced by people who already have claims on them. Rawls asks how the cake should be cut, without asking who baked it.</li>
+  <li><strong>Natural talents are not a common asset.</strong> Rawls says no one deserves their natural abilities, and the difference principle treats their distribution as a common asset. Nozick replies that people are entitled to their talents and what they make with them, whether or not they "deserve" them; to treat talents as collective property denies <strong>self-ownership</strong> and, ironically, ignores the separateness of persons, Rawls's own complaint against utilitarianism.</li>
+  <li><strong>The original position is rigged for end-state results.</strong> Parties behind the veil, thinking only about outcomes, could never even consider a historical principle.</li>
+</ul>
+
+<h3>Criticism of Nozick</h3>
+<ul>
+  <li><strong>The past is soaked in injustice.</strong> Most present holdings trace back to conquest, colonialism, slavery or caste. If rectification is taken seriously, it could justify massive redistribution, the very thing Nozick opposes. (Nozick himself conceded that, short-term, rectification might warrant something like Rawls's principle.)</li>
+  <li><strong>The Lockean proviso is vague.</strong> When does an acquisition "worsen" others? Almost every private appropriation of land does.</li>
+  <li><strong>It ignores need.</strong> A starving person has no claim on anyone, so long as holdings were justly acquired. To many, that is a reductio of the theory.</li>
+  <li><strong>Formal liberty is not real liberty.</strong> Freedom of contract means little to someone with nothing to bargain with.</li>
+</ul>
+
+<h2 id="compare" data-toc="Comparison table">The four theories side by side</h2>
+<p>This table is worth drawing in any long answer. It takes two minutes and shows the examiner that you understand how the theories relate, not just what each says.</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th></th><th>Aristotle</th><th>Utilitarians</th><th>Rawls</th><th>Nozick</th></tr></thead>
+  <tbody>
+    <tr><td>Key work</td><td><em>Nicomachean Ethics</em>, Book V</td><td>Bentham, <em>Principles</em> (1789); Mill, <em>Utilitarianism</em> (1861)</td><td><em>A Theory of Justice</em> (1971)</td><td><em>Anarchy, State, and Utopia</em> (1974)</td></tr>
+    <tr><td>Core idea</td><td>To each in proportion to merit; restore equality after wrongs</td><td>Greatest happiness of the greatest number</td><td>Principles chosen behind a veil of ignorance</td><td>Whatever arises justly from just holdings is just</td></tr>
+    <tr><td>Equality means</td><td>Proportionate (distributive) and arithmetical (corrective)</td><td>Each counts for one in the sum</td><td>Equal liberty; inequality only if it helps the worst-off</td><td>Equal rights, not equal holdings</td></tr>
+    <tr><td>Focus</td><td>Merit and transactions</td><td>Aggregate welfare (end-state)</td><td>Least advantaged (patterned)</td><td>History of holdings (unpatterned)</td></tr>
+    <tr><td>Role of the State</td><td>Distributes honours and goods; judges correct wrongs</td><td>Legislates to maximise utility; reform</td><td>Welfare state securing liberties and fair shares</td><td>Minimal, night-watchman state</td></tr>
+    <tr><td>Main criticism</td><td>No agreed test of merit</td><td>Ignores distribution and individual rights</td><td>Veil is artificial; ignores entitlement</td><td>Ignores need and historical injustice</td></tr>
+    <tr><td>Indian echo</td><td>Art. 14 reasonable classification; Art. 142 equity</td><td>Legislative welfare reasoning; public interest</td><td>Arts. 38, 39, 46; reservations; <em>N.M. Thomas</em></td><td>Right to property, now Art. 300A; limits on 39(b)</td></tr>
+  </tbody>
+</table>
+</div>
+<aside class="callout keep">
+  <p class="label">How to write it up</p>
+  <p>Meaning of justice (Ulpian; distributive/corrective; procedural/substantive). Aristotle with the two kinds of equality and equity. Bentham with the seven dimensions, Mill's refinements, three criticisms. Rawls in full: original position, veil, primary goods, two principles, lexical priority, maximin, reflective equilibrium. Nozick: three principles, patterned versus historical, Wilt Chamberlain, minimal state, critique of Rawls. Comparison table. Indian Constitution. Conclude: the Constitution borrows from all four, but its centre of gravity is Rawlsian.</p>
+</aside>
+
+<h2 id="india" data-toc="Justice in India">Justice and the Indian Constitution</h2>
+<p>The Constitution does not adopt any one theory. But its text and case law show clear traces of each, and an exam answer that makes these links stands out.</p>
+
+<h3>The text</h3>
+<ul>
+  <li><strong>The Preamble</strong> promises "JUSTICE, social, economic and political", placing justice before liberty, equality and fraternity.</li>
+  <li><strong>Article 14</strong>: equality before the law and equal protection of the laws. Its reasonable classification test is Aristotle's proportionate equality; its later arbitrariness test (<em>E.P. Royappa v. State of Tamil Nadu</em>, 1974: "equality is antithetic to arbitrariness") brings in procedural fairness.</li>
+  <li><strong>Articles 15(4), 15(5) and 16(4)</strong>: special provisions and reservations for socially and educationally backward classes, Scheduled Castes and Scheduled Tribes.</li>
+  <li><strong>Article 38</strong>: the State shall strive to promote the welfare of the people by securing a social order in which justice, social, economic and political, shall inform all the institutions of national life; and, under clause (2) added in 1978, minimise inequalities in income, status, facilities and opportunities. This is close to Rawls's idea that justice is the virtue of the <em>basic structure</em>.</li>
+  <li><strong>Article 39</strong>: among other things, an adequate means of livelihood for all (a), distribution of the ownership and control of the material resources of the community to subserve the common good (b), and an economic system that does not result in the concentration of wealth to the common detriment (c). Article 39A adds equal justice and free legal aid.</li>
+  <li><strong>Article 46</strong>: promote with special care the educational and economic interests of the weaker sections, in particular the SCs and STs. The difference principle, in constitutional language.</li>
+</ul>
+
+<h3>Reservations: formal or substantive equality?</h3>
+<p>The reservation debate is a debate between theories of justice. A strictly formal reading of equality (everyone judged by the same merit test) sounds Aristotelian or Nozickian. A substantive reading (adjust the rules to raise the position of the historically disadvantaged) is Rawlsian, with a dose of Nozick's own rectification principle.</p>
+<div class="case">
+  <div class="case-card"><p class="tag" style="--d:var(--c1)">Substantive equality</p><p class="cn">State of Kerala v. N.M. Thomas</p><p class="cy">1976</p><p>A seven-judge bench upheld exemptions for SC/ST employees from a promotion test. The Court read Article 16(4) not as an exception to equality of opportunity in Article 16(1), but as an emphatic way of stating it: real equality may require treating the unequal unequally. This is the turn from formal to substantive equality.</p></div>
+  <div class="case-card"><p class="tag" style="--d:var(--c5)">The Mandal case</p><p class="cn">Indra Sawhney v. Union of India</p><p class="cy">1992</p><p>A nine-judge bench upheld 27 per cent reservation for OBCs in central government posts (the Mandal Commission recommendation), but excluded the <strong>creamy layer</strong>, fixed a general <strong>50 per cent ceiling</strong> save in extraordinary situations, held that caste can be a criterion of backwardness, and ruled out reservation in promotions (later restored for SC/ST by the 77th Amendment, inserting Article 16(4A)). The creamy layer rule is pure difference-principle thinking: benefits must reach the genuinely least advantaged.</p></div>
+  <div class="case-card"><p class="tag" style="--d:var(--c3)">Economic criterion</p><p class="cn">Janhit Abhiyan v. Union of India</p><p class="cy">2022</p><p>A five-judge bench, by 3:2, upheld the 103rd Amendment (2019), which added 10 per cent reservation for economically weaker sections outside the existing reserved classes. The dissent objected to the exclusion of SC, ST and OBC poor from the EWS quota. The debate is whether disadvantage should be measured by social history (rectification) or by present economic position (the least advantaged).</p></div>
+  <div class="case-card"><p class="tag" style="--d:var(--c4)">Distribution and property</p><p class="cn">Property Owners Association v. State of Maharashtra</p><p class="cy">2024</p><p>A nine-judge bench held, by majority, that not every privately owned resource is a "material resource of the community" under Article 39(b), departing from Krishna Iyer J.'s broad view in <em>Ranganatha Reddy</em> (1977). The tension between redistribution (Rawls) and entitlement (Nozick) is still live in Indian constitutional law.</p></div>
+</div>
+<p>One more link to make: the balance between Fundamental Rights and Directive Principles is itself a Rawlsian structure. In <em>Minerva Mills v. Union of India</em> (1980) the Supreme Court held that harmony and balance between Parts III and IV is part of the basic structure: liberties are not to be sacrificed wholesale for economic goals, which echoes the lexical priority of liberty, while the Directive Principles push towards fair shares.</p>
+
+<aside class="callout exam">
+  <p class="label">Exam lens</p>
+  <p>A one-paragraph conclusion that scores well: "The Indian Constitution is not utilitarian, since fundamental rights cannot be overridden by majority welfare; nor Nozickian, since it commits the State to redistribution. Its scheme of equal basic rights (Part III), substantive equality (Articles 15(4), 16(4), <em>N.M. Thomas</em>, <em>Indra Sawhney</em>) and directive goals (Articles 38, 39, 46) is closest to Rawls's justice as fairness, tempered by Aristotle's proportionate equality."</p>
+</aside>
+
+<h2 id="check" data-toc="Check yourself">Check yourself</h2>
+<div class="widget" id="quiz"><div class="w-head"><span class="w-tag">Quiz</span><span class="w-title">Theories of justice</span></div></div>
+
+<div class="done-box"><p>Finished? Tick it off. Your progress shows on the unit page (saved only in this browser).</p><button class="btn" type="button" data-done="theories-of-justice" aria-pressed="false">Mark chapter as read</button></div>
+<nav class="pager" aria-label="Chapter navigation"><a href="index.html"><span class="dir"><span class="arrow back">←</span> Previous</span><span class="t">Unit IV overview</span></a><a class="next" href="modernism-postmodernism.html"><span class="dir">Next <span class="arrow">→</span></span><span class="t">Chapter 2 · Modernism and postmodernism</span></a></nav>
+</article><aside class="toc" aria-label="On this page"><p class="toc-label">On this page</p><ol></ol></aside></div><footer class="foot"><p>Juris Prudentia · a study companion to Dr N.V. Paranjape, <em>Studies in Jurisprudence &amp; Legal Theory</em>, Unit IV. Quotations follow standard translations and editions; check against your edition.</p></footer></main>
+<script>
+(function(){
+  var JP = window.JP = {};
+
+  JP.store = {
+    get: function(k){ try { return window.localStorage.getItem(k); } catch(e){ return null; } },
+    set: function(k,v){ try { window.localStorage.setItem(k,v); } catch(e){} },
+    del: function(k){ try { window.localStorage.removeItem(k); } catch(e){} }
+  };
+
+  JP.swap = function(el){ if(!el) return; el.classList.remove('swap'); void el.offsetWidth; el.classList.add('swap'); };
+
+  /* reading progress */
+  var bar = document.querySelector('.progress span');
+  function onScroll(){
+    if(!bar) return;
+    var h = document.documentElement, max = h.scrollHeight - h.clientHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, h.scrollTop / max) : 0) + ')';
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* heading anchors + on-this-page list */
+  var art = document.querySelector('article.prose');
+  var toc = document.querySelector('.toc ol');
+  if(art){
+    var heads = art.querySelectorAll('h2[id]');
+    var links = [];
+    heads.forEach(function(h){
+      var label = h.getAttribute('data-toc') || h.textContent;
+      var a = document.createElement('a');
+      a.href = '#' + h.id; a.className = 'anchor'; a.setAttribute('aria-label','Link to this section'); a.textContent = '#';
+      h.insertBefore(a, h.firstChild);
+      if(toc){
+        var li = document.createElement('li'), l = document.createElement('a');
+        l.href = '#' + h.id; l.textContent = label; li.appendChild(l); toc.appendChild(li); links.push(l);
+      }
+    });
+    if(toc && 'IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if(e.isIntersecting){
+            links.forEach(function(l){ l.classList.toggle('on', l.getAttribute('href') === '#' + e.target.id); });
+          }
+        });
+      }, {rootMargin:'0px 0px -70% 0px'});
+      heads.forEach(function(h){ io.observe(h); });
+    }
+  }
+
+  /* quiz */
+  JP.quiz = function(el, qs){
+    if(!el) return;
+    var letters = 'ABCD', right = 0, answered = 0;
+    var form = document.createElement('div'); form.style.display='grid'; form.style.gap='1.1rem';
+    var foot = document.createElement('div'); foot.className = 'quiz-foot';
+    var score = document.createElement('span'); score.className = 'score';
+    var reset = document.createElement('button'); reset.className = 'btn'; reset.type = 'button'; reset.textContent = 'Reset quiz';
+    foot.appendChild(score); foot.appendChild(reset);
+    function upd(){ score.textContent = answered === 0 ? qs.length + ' questions · pick an answer' : right + ' of ' + answered + ' correct' + (answered === qs.length ? (right === qs.length ? ' · full marks' : ' · reset to try again') : ''); }
+    function build(){
+      form.innerHTML = ''; right = 0; answered = 0;
+      qs.forEach(function(q, qi){
+        var fs = document.createElement('fieldset'); fs.className = 'quiz-q';
+        var lg = document.createElement('legend'); lg.textContent = (qi+1) + '. ' + q.q; fs.appendChild(lg);
+        var opts = document.createElement('div'); opts.className = 'quiz-opts';
+        var why = document.createElement('p'); why.className = 'quiz-why'; why.hidden = true;
+        var btns = [];
+        q.o.forEach(function(t, oi){
+          var b = document.createElement('button'); b.type = 'button'; b.className = 'quiz-opt';
+          b.innerHTML = '<span class="k">' + letters[oi] + '</span><span></span>';
+          b.lastChild.textContent = t;
+          b.addEventListener('click', function(){
+            btns.forEach(function(x){ x.disabled = true; });
+            btns[q.a].classList.add('right');
+            answered++;
+            if(oi === q.a){ right++; why.className = 'quiz-why'; why.innerHTML = '<b>Correct.</b> '; }
+            else { b.classList.add('wrong'); why.className = 'quiz-why miss'; why.innerHTML = '<b>Not quite.</b> '; }
+            why.appendChild(document.createTextNode(q.why)); why.hidden = false; upd();
+          });
+          btns.push(b); opts.appendChild(b);
+        });
+        fs.appendChild(opts); fs.appendChild(why); form.appendChild(fs);
+      });
+      upd();
+    }
+    reset.addEventListener('click', build);
+    el.appendChild(form); el.appendChild(foot); build();
+  };
+
+  /* chapter done toggle */
+  var done = document.querySelector('[data-done]');
+  if(done){
+    var key = 'jp-done-' + done.getAttribute('data-done');
+    function paint(){ var on = JP.store.get(key) === '1'; done.setAttribute('aria-pressed', on ? 'true' : 'false'); done.textContent = on ? 'Marked as read' : 'Mark chapter as read'; }
+    done.addEventListener('click', function(){ if(JP.store.get(key) === '1') JP.store.del(key); else JP.store.set(key,'1'); paint(); });
+    paint();
+  }
+})();
+
+</script>
+<script>
+(function(){
+
+/* distributive or corrective sorter */
+var S = [
+ ['The government fills 100 medical college seats by entrance examination rank.', 0, 'Distributive: the State is sharing out a scarce good among members, by a criterion of merit.'],
+ ['A court orders a driver who negligently injured a pedestrian to pay her medical costs.', 1, 'Corrective: a person-to-person wrong (involuntary transaction) is put right by restoring the loss.'],
+ ['Parliament sets income tax slabs so that higher earners pay a larger share.', 0, 'Distributive: burdens are allocated among members in proportion to capacity.'],
+ ['A seller who took an advance and never delivered is ordered to refund it with interest.', 1, 'Corrective: a voluntary transaction gone wrong; the gain is taken back and the loss restored.'],
+ ['A State reserves 27 per cent of posts for backward classes.', 0, 'Distributive: public offices are divided among groups in the community.'],
+ ['A thief is ordered to return stolen jewellery to its owner.', 1, 'Corrective: merit is irrelevant; the parties are treated as equals and the status quo restored.'],
+ ['A university awards gold medals to its top three graduates.', 0, 'Distributive: honours shared according to merit. Aristotle’s flute example in modern dress.']
+];
+var sl = document.getElementById('sort-list'), ss = document.getElementById('sort-score'), sRight = 0, sDone = 0;
+function sBuild(){
+  sl.innerHTML = ''; sRight = 0; sDone = 0;
+  S.forEach(function(s){
+    var d = document.createElement('div'); d.className = 'sort-item';
+    var q = document.createElement('p'); q.className = 's-q'; q.textContent = s[0];
+    var r = document.createElement('div'); r.className = 'row';
+    var w = document.createElement('p'); w.className = 'sort-why'; w.hidden = true;
+    ['Distributive','Corrective'].forEach(function(lbl, k){
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'btn'; b.textContent = lbl;
+      b.addEventListener('click', function(){
+        r.querySelectorAll('button').forEach(function(x){ x.disabled = true; });
+        b.setAttribute('aria-pressed','true');
+        var ok = k === s[1]; sDone++; if(ok) sRight++;
+        d.classList.add(ok ? 'ok' : 'no');
+        w.textContent = (ok ? 'Right. ' : 'Not quite. ') + s[2]; w.hidden = false; sUpd();
+      });
+      r.appendChild(b);
+    });
+    d.appendChild(q); d.appendChild(r); d.appendChild(w); sl.appendChild(d);
+  });
+  sUpd();
+}
+function sUpd(){ ss.textContent = sDone === 0 ? S.length + ' situations · pick one' : sRight + ' of ' + sDone + ' sorted correctly' + (sDone === S.length ? ' · done' : ''); }
+document.getElementById('sort-reset').addEventListener('click', sBuild);
+sBuild();
+
+/* veil of ignorance */
+var DS = [
+ {n:'Flat', v:[20,20,20,20,20]},
+ {n:'Floor', v:[50,38,30,26,24]},
+ {n:'Boom', v:[140,50,25,12,6]},
+ {n:'Middle', v:[45,35,28,22,15]}
+];
+var LENS = [
+ {n:'Utilitarian', pick:function(d){ return sum(d.v); }, t:'<b>Bentham picks Boom.</b> It has the largest total (233). That the bottom group gets only 6 does not matter to the sum. This is the objection that utility ignores distribution.'},
+ {n:'Rawls (maximin)', pick:function(d){ return Math.min.apply(null, d.v); }, t:'<b>Rawls picks Floor.</b> Its worst-off group gets 24, more than in any other society, including Flat (20). Inequality is allowed because it raises the bottom: that is the difference principle.'},
+ {n:'Strict equality', pick:function(d){ return -(Math.max.apply(null, d.v) - Math.min.apply(null, d.v)); }, t:'<b>A strict egalitarian picks Flat.</b> No one is ahead of anyone. But everyone in Floor, even the poorest, is better off than in Flat. Rawls thinks rejecting Floor for the sake of equality would be irrational envy.'},
+ {n:'Nozick', pick:null, t:'<b>Nozick refuses to pick from the shapes.</b> You cannot tell whether any of these is just by looking at the pattern. Ask instead how people came to hold what they hold. If Boom arose by just acquisition and voluntary transfer, Boom is just; if Flat was imposed by confiscation, Flat is not.'}
+];
+function sum(a){ return a.reduce(function(x,y){ return x+y; }, 0); }
+var dw = document.getElementById('dists'), lr = document.getElementById('lens-row'), lo = document.getElementById('lens-out'), vs = document.getElementById('veil-score');
+var chosen = null, lens = null, you = null;
+var dB = DS.map(function(d, k){
+  var b = document.createElement('button'); b.type = 'button'; b.className = 'dist'; b.setAttribute('aria-pressed','false');
+  b.setAttribute('aria-label', d.n + ': groups get ' + d.v.join(', '));
+  var n = document.createElement('span'); n.className = 'nm'; n.textContent = d.n;
+  var bars = document.createElement('span'); bars.className = 'bars';
+  d.v.forEach(function(x){ var i = document.createElement('i'); i.style.height = Math.max(3, Math.round(x / 140 * 84)) + 'px'; bars.appendChild(i); });
+  var st = document.createElement('span'); st.className = 'st'; st.textContent = 'Total ' + sum(d.v) + ' · lowest ' + Math.min.apply(null, d.v);
+  b.appendChild(n); b.appendChild(bars); b.appendChild(st);
+  b.addEventListener('click', function(){ chosen = k; you = null; paintV(); });
+  dw.appendChild(b); return b;
+});
+var lB = LENS.map(function(L, k){
+  var b = document.createElement('button'); b.type = 'button'; b.className = 'btn'; b.textContent = L.n; b.setAttribute('aria-pressed','false');
+  b.addEventListener('click', function(){ lens = lens === k ? null : k; paintV(); JP.swap(lo); });
+  lr.appendChild(b); return b;
+});
+function paintV(){
+  var best = -1;
+  if(lens !== null && LENS[lens].pick){ var sc = DS.map(LENS[lens].pick); best = sc.indexOf(Math.max.apply(null, sc)); }
+  dB.forEach(function(b, k){
+    b.setAttribute('aria-pressed', k === chosen ? 'true' : 'false');
+    b.classList.toggle('win', k === best);
+    b.querySelectorAll('i').forEach(function(i, j){ i.classList.toggle('you', k === chosen && j === you); });
+  });
+  lB.forEach(function(b, k){ b.setAttribute('aria-pressed', k === lens ? 'true' : 'false'); });
+  lo.innerHTML = lens === null ? 'Pick a lens to see which society each theory would choose. The four societies have five groups each, from richest (left) to poorest (right).' : LENS[lens].t;
+  if(chosen === null){ vs.textContent = 'Choose a society first'; document.getElementById('lift').disabled = true; }
+  else if(you === null){ vs.textContent = 'You chose ' + DS[chosen].n + '. You don’t yet know which group you are in.'; document.getElementById('lift').disabled = false; }
+  else { var v = DS[chosen].v[you]; vs.textContent = 'You landed in group ' + (you + 1) + ' of 5 with ' + v + ' units' + (v === Math.min.apply(null, DS[chosen].v) ? ' · the worst-off position' : ''); }
+}
+document.getElementById('lift').addEventListener('click', function(){ if(chosen === null) return; you = Math.floor(Math.random() * 5); paintV(); });
+document.getElementById('veil-reset').addEventListener('click', function(){ you = null; paintV(); });
+paintV();
+
+/* Wilt Chamberlain */
+var W = [
+ {h:'Start with D1', c:'Any pattern you like', w:10, f:10, t:'Begin with whatever distribution you think is just: equal shares, Rawls’s difference principle, need, anything. Call it D1. Suppose everyone, including Wilt Chamberlain, holds 10 units. By hypothesis, D1 is perfectly just.'},
+ {h:'Wilt’s contract', c:'A voluntary agreement', w:10, f:10, t:'Wilt is in great demand. He signs a contract with a team: for every home game, 25 cents from each ticket goes into a box with his name on it. Nobody is forced to buy a ticket.'},
+ {h:'A million fans pay', c:'Many voluntary transfers', w:85, f:9.75, t:'During the season one million people come to his games, each dropping 25 cents into Wilt’s box because they want to see him play. Each fan gives up a tiny part of a just holding, freely.'},
+ {h:'The result is D2', c:'Wilt has $250,000', w:100, f:9.75, t:'Wilt now holds far more than anyone else: in Nozick’s numbers, $250,000. The pattern of D1 is broken. Is the new distribution, D2, unjust? If so, why? Everyone was entitled to what they had in D1, and every step was voluntary.'},
+ {h:'Nozick’s conclusion', c:'Liberty upsets patterns', w:100, f:9.75, t:'If D1 was just and people moved from it to D2 by voluntary transfers, D2 is just too. To keep D1’s pattern, the State would have to keep stopping or reversing free exchanges. So patterned theories, Rawls’s included, require continual interference with liberty.'}
+];
+var wi = 0, wsteps = document.getElementById('wilt-steps');
+var wdots = W.map(function(){ var i = document.createElement('i'); wsteps.appendChild(i); return i; });
+function showW(k, user){
+  wi = Math.max(0, Math.min(W.length - 1, k)); var s = W[wi];
+  wdots.forEach(function(d, j){ d.classList.toggle('on', j === wi); });
+  document.getElementById('wilt-h').textContent = s.h;
+  document.getElementById('wilt-chip').textContent = 'Step ' + (wi + 1) + ' of ' + W.length + ' · ' + s.c;
+  document.getElementById('wilt-t').textContent = s.t;
+  document.getElementById('wilt-w').textContent = wi >= 3 ? 'far above everyone' : (wi === 2 ? 'rising fast' : 'equal share');
+  document.getElementById('wilt-f').textContent = wi >= 2 ? 'a quarter less, by choice' : 'equal share';
+  document.getElementById('wilt-wb').style.width = s.w + '%';
+  document.getElementById('wilt-fb').style.width = s.f + '%';
+  document.getElementById('wilt-prev').disabled = wi === 0;
+  document.getElementById('wilt-next').disabled = wi === W.length - 1;
+  if(user) JP.swap(document.getElementById('wilt-panel'));
+}
+document.getElementById('wilt-prev').addEventListener('click', function(){ showW(wi - 1, true); });
+document.getElementById('wilt-next').addEventListener('click', function(){ showW(wi + 1, true); });
+showW(0);
+
+JP.quiz(document.getElementById('quiz'), [
+ {q:'Aristotle’s corrective justice is governed by…', o:['Proportionate (geometrical) equality according to merit','Arithmetical equality, treating the parties as equals','The greatest happiness of the greatest number','The difference principle'], a:1, why:'Corrective justice ignores merit: it restores the victim’s loss and removes the wrongdoer’s gain. Proportionate equality belongs to distributive justice.'},
+ {q:'Which is NOT one of the dimensions of Bentham’s felicific calculus?', o:['Propinquity','Fecundity','Quality','Extent'], a:2, why:'Bentham’s seven are intensity, duration, certainty, propinquity, fecundity, purity and extent. Quality of pleasure was J.S. Mill’s addition, and a departure from Bentham.'},
+ {q:'Under Rawls’s lexical priority…', o:['The difference principle overrides equal liberty','Equal basic liberty has priority over the second principle, and fair equality of opportunity over the difference principle','Utility has priority over liberty','All principles are weighed equally case by case'], a:1, why:'Liberty first; then fair equality of opportunity; then the difference principle. Basic liberties cannot be traded for economic gains.'},
+ {q:'Nozick’s Wilt Chamberlain example is used to show that…', o:['Sports stars deserve high pay because of merit','Liberty upsets patterns: maintaining any patterned distribution requires continual interference with voluntary transfers','Taxation is always just','Natural talents are a common asset'], a:1, why:'From a just D1, voluntary payments produce D2. If D2 is unjust, patterned theories must keep interfering with free choices. Nozick concludes D2 is just.'},
+ {q:'In Indra Sawhney v. Union of India (1992), the Supreme Court…', o:['Struck down all OBC reservation','Upheld OBC reservation, excluded the creamy layer and set a general 50% ceiling','Allowed reservation in promotions without limit','Held caste can never be a criterion of backwardness'], a:1, why:'The nine-judge bench upheld 27% OBC reservation, excluded the creamy layer, fixed a 50% ceiling save in extraordinary cases and disallowed reservation in promotions (later restored for SC/ST by Article 16(4A)).'}
+]);
+
+})();
+</script>
+</body>
+</html>

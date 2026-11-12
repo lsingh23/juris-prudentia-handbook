@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ownership and Possession · Juris Prudentia</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Ownership and possession: definitions, incidents and kinds of ownership; corpus and animus; Savigny, Ihering, Salmond and Pollock; the finders cases and Indian law, explained interactively.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+/* Layout: one quiet reading column on warm paper, white cards floating on a single soft shadow; contents rail on wide screens */
+:root{
+  --bg:#F2F2ED; --surface:#FFFFFF; --ink:#16211C; --ink-2:#3F4A44; --ink-3:#6B756F; --ink-4:#9AA29C;
+  --line:#E6E7E1; --line-2:#D7DAD3; --tint:#F6F6F2;
+  --violet:#6C5CE0; --violet-soft:#EFEDFC;
+  --good:#2E8B57; --good-soft:#E6F2EA; --warn:#B7791F; --warn-soft:#FAF0DE; --bad:#C0443A; --bad-soft:#FAE8E6;
+  --c1:#4774D1; --c2:#2A9187; --c3:#C08A23; --c4:#C24E78; --c5:#7A6CF0; --c6:#3E9A63;
+  --mark:#F4E3B0;
+  --shadow:0 1px 2px rgba(22,33,28,.04),0 14px 40px -16px rgba(22,33,28,.16);
+  --head-bg:rgba(242,242,237,.86);
+  /* aliases kept for page styles */
+  --muted:var(--ink-3); --accent:var(--ink); --accent-soft:var(--tint);
+  --gold:var(--warn); --gold-soft:var(--warn-soft); --rose:var(--bad); --rose-soft:var(--bad-soft);
+  --f-display:"Bricolage Grotesque","Avenir Next Condensed","Segoe UI",system-ui,sans-serif;
+  --f-body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --r-card:24px; --r-inner:16px;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+:root{color-scheme:light}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--bg)}
+img{max-width:100%}
+[hidden]{display:none!important}
+a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:.2em;text-decoration-thickness:1px;transition:text-decoration-color .2s}
+a:hover{text-decoration-color:var(--ink)}
+:focus-visible{outline:2px solid var(--violet);outline-offset:3px;border-radius:8px}
+button{font:inherit;color:inherit}
+mark{background:var(--mark);color:inherit;padding:.05em .2em;border-radius:4px}
+strong{font-weight:600}
+.ico{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.arrow{display:inline-block;transition:transform .25s var(--ease)}
+a:hover .arrow,button:hover .arrow{transform:translateX(3px)}
+a:hover .arrow.back,button:hover .arrow.back{transform:translateX(-3px)}
+
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--dot,var(--warn)) 45%,transparent)}70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.rise{animation:rise .6s var(--ease) both}
+.swap{animation:rise .4s var(--ease) both}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* ---------- top bar ---------- */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--head-bg);backdrop-filter:saturate(1.3) blur(14px);-webkit-backdrop-filter:saturate(1.3) blur(14px);border-bottom:1px solid var(--line)}
+.site-head-in{max-width:76rem;margin:0 auto;display:flex;align-items:center;gap:.75rem;padding-block:.7rem;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.brand{display:flex;align-items:center;gap:.55rem;font-family:var(--f-display);font-weight:700;font-size:1.05rem;color:var(--ink);text-decoration:none;white-space:nowrap;letter-spacing:-.02em;font-stretch:92%}
+.brand-mark{display:grid;place-items:center;width:1.85rem;height:1.85rem;border-radius:999px;background:var(--ink);color:var(--bg);font-family:var(--f-mono);font-size:.7rem;letter-spacing:.02em}
+.site-nav{display:flex;gap:.2rem;margin-left:auto;overflow-x:auto;scrollbar-width:none;min-width:0}
+.site-nav::-webkit-scrollbar{display:none}
+.site-nav a{font-size:.85rem;font-weight:500;text-decoration:none;color:var(--ink-3);padding:.4rem .8rem;border-radius:999px;white-space:nowrap;transition:background .2s,color .2s}
+.site-nav a:hover{color:var(--ink);background:var(--surface)}
+.site-nav a[aria-current="page"]{color:var(--ink);background:var(--surface);box-shadow:var(--shadow)}
+.progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;overflow:hidden}
+.progress span{display:block;height:100%;background:var(--ink);transform-origin:left;transform:scaleX(0)}
+@media (max-width:540px){.brand-text{display:none}}
+
+/* ---------- page frame ---------- */
+.wrap{max-width:76rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);gap:4rem;padding-block:3.5rem 5rem}
+@media (min-width:1100px){.layout{grid-template-columns:minmax(0,42rem) 13rem;justify-content:center}}
+.toc{display:none}
+@media (min-width:1100px){.toc{display:block;position:sticky;top:calc(env(safe-area-inset-top,0px) + 5.5rem);align-self:start;font-size:.85rem}}
+.toc-label{font-family:var(--f-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-4);margin:0 0 .9rem}
+.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:.1rem}
+.toc a{display:flex;gap:.6rem;align-items:center;padding:.35rem 0;color:var(--ink-3);text-decoration:none;line-height:1.35;transition:color .2s}
+.toc a::before{content:"";width:6px;height:6px;border-radius:999px;background:var(--line-2);flex:none;transition:background .2s,transform .2s}
+.toc a:hover{color:var(--ink)}
+.toc a.on{color:var(--ink);font-weight:500}
+.toc a.on::before{background:var(--violet);transform:scale(1.3)}
+
+/* ---------- prose ---------- */
+.prose{min-width:0}
+.prose > *{margin:0}
+.prose > * + *{margin-top:1.15em}
+.prose h1{font-family:var(--f-display);font-size:clamp(2.4rem,6.5vw,3.9rem);line-height:.98;letter-spacing:-.04em;font-weight:700;font-stretch:90%;text-wrap:balance}
+.prose h2{font-family:var(--f-display);font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.08;letter-spacing:-.035em;font-weight:700;font-stretch:90%;margin-top:3em;text-wrap:balance;scroll-margin-top:calc(env(safe-area-inset-top,0px) + 5.5rem);position:relative}
+.prose h3{font-family:var(--f-display);font-size:1.2rem;line-height:1.25;letter-spacing:-.02em;font-weight:600;margin-top:2.2em;text-wrap:balance}
+.prose h2 + *, .prose h3 + *{margin-top:.8em}
+.prose > .eyebrow + h1{margin-top:.9rem}
+.prose > h1 + .meta{margin-top:1.1rem}
+.anchor{position:absolute;left:-1.1em;top:.05em;color:var(--ink-4);text-decoration:none;font-weight:400;opacity:0;transition:opacity .2s}
+.prose h2:hover .anchor{opacity:1}
+@media (max-width:900px){.anchor{display:none}}
+.prose ul,.prose ol{padding-left:1.2em}
+.prose li + li{margin-top:.45em}
+.prose li::marker{color:var(--ink-4)}
+.eyebrow{font-family:var(--f-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);display:flex;align-items:center;gap:.55rem}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--dot,var(--violet));flex:none}
+.meta{font-family:var(--f-mono);font-size:.74rem;color:var(--ink-4);letter-spacing:.02em}
+.lead{font-size:1.18rem;line-height:1.6;color:var(--ink-2)}
+.prose code,.term{font-family:var(--f-mono);font-size:.82em;background:var(--surface);border:1px solid var(--line);padding:.08em .45em;border-radius:999px}
+.latin{font-style:italic;color:var(--ink-2)}
+.hand{font-family:var(--f-display);font-style:normal;font-weight:600;color:var(--violet);letter-spacing:-.01em}
+
+/* callouts: white cards with a coloured marker dot */
+.callout{--c:var(--good);background:var(--surface);border-radius:var(--r-card);padding:1.25rem 1.4rem 1.35rem;display:grid;gap:.55rem;box-shadow:var(--shadow)}
+.callout > *{margin:0}
+.callout .label{font-family:var(--f-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);display:flex;align-items:center;gap:.55rem}
+.callout .label::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--c)}
+.callout.exam{--c:var(--violet)}
+.callout.trap{--c:var(--bad)}
+.callout.keep{--c:var(--warn)}
+.prose > .callout{margin-top:2.2rem}
+.prose > .callout + *{margin-top:2.2rem}
+
+/* definition quote */
+.defq{margin-inline:0;padding:1.5rem 1.5rem 1.3rem;background:var(--surface);border-radius:var(--r-card);box-shadow:var(--shadow);display:grid;gap:.75rem}
+.defq p{margin:0;font-family:var(--f-display);font-size:1.3rem;line-height:1.3;font-weight:500;letter-spacing:-.02em;text-wrap:pretty}
+.defq cite{font-style:normal;font-family:var(--f-mono);font-size:.72rem;color:var(--ink-4);border-top:1px solid var(--line);padding-top:.75rem}
+
+/* big takeaway */
+.big-idea{font-family:var(--f-display);font-size:clamp(1.5rem,4vw,1.9rem);line-height:1.15;font-weight:600;letter-spacing:-.035em;font-stretch:92%;color:var(--ink);text-wrap:balance;padding-block:.75rem;border-block:1px solid var(--line-2)}
+
+/* tables */
+.table-wrap{overflow-x:auto;border-radius:var(--r-card);background:var(--surface);box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;font-size:.88rem;line-height:1.5;min-width:36rem}
+th,td{text-align:left;vertical-align:top;padding:.85rem 1rem;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-4);font-weight:500}
+td:first-child{font-weight:600}
+.dot{display:inline-block;width:7px;height:7px;border-radius:999px;background:var(--dot,var(--ink-4));margin-right:.45rem;vertical-align:.1em}
+
+/* ---------- widgets ---------- */
+.widget{background:var(--surface);border-radius:var(--r-card);padding:1.3rem;display:grid;gap:1.1rem;box-shadow:var(--shadow)}
+.prose > .widget{margin-top:2.4rem}
+.prose > .widget + *{margin-top:2.4rem}
+@media (min-width:700px){.widget{padding:1.6rem 1.7rem}}
+.widget > *{margin:0}
+.w-head{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .7rem;padding-bottom:1rem;border-bottom:1px solid var(--line)}
+.w-tag{font-family:var(--f-mono);font-size:.64rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);border:1px solid var(--line-2);padding:.18rem .55rem;border-radius:999px}
+.w-title{font-family:var(--f-display);font-weight:600;font-size:1.08rem;letter-spacing:-.02em}
+.w-hint{font-size:.82rem;color:var(--ink-4);margin-left:auto}
+.btn{appearance:none;border:1px solid var(--line-2);background:var(--surface);border-radius:999px;padding:.45rem 1rem;font-size:.85rem;font-weight:500;cursor:pointer;line-height:1.3;display:inline-flex;align-items:center;gap:.4rem;transition:border-color .2s,background .2s,color .2s}
+.btn:hover{border-color:var(--ink-3)}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:var(--surface)}
+.btn.primary:hover{background:var(--ink-2);border-color:var(--ink-2)}
+.btn[aria-pressed="true"],.btn.on{background:var(--violet-soft);border-color:var(--violet);color:var(--violet)}
+.btn:disabled{opacity:.4;cursor:default}
+.row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.chip{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.03em;padding:.22rem .6rem;border-radius:999px;background:var(--tint);color:var(--ink-3);white-space:nowrap;display:inline-flex;align-items:center;gap:.4rem}
+.chip .dot{margin:0}
+
+/* diagrams */
+.dia{width:100%;height:auto;display:block;margin-inline:auto}
+.dia .node rect{fill:var(--surface);stroke:var(--line-2);stroke-width:1;transition:opacity .35s,stroke .35s}
+.dia .code{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.08em;fill:var(--ink-4)}
+.dia .lab{font-family:var(--f-body);font-size:11px;font-weight:500;fill:var(--ink)}
+.dia .edge{fill:none;stroke:var(--line-2);stroke-width:1.2;stroke-dasharray:3 4;transition:stroke .35s,opacity .35s}
+.dia .edge.live{stroke-dasharray:none;stroke-width:1.6}
+.dia .off{opacity:.38}
+.dia .hub rect{fill:var(--ink);stroke:none}
+.dia .hub text{fill:var(--surface)}
+.dia .hub .code{fill:var(--surface);opacity:.6}
+.dia .cap{font-family:var(--f-mono);font-size:8px;letter-spacing:.12em;fill:var(--ink-4);text-transform:uppercase}
+.dia-cap{font-size:.8rem;color:var(--ink-4);line-height:1.5}
+.legend{display:flex;flex-wrap:wrap;gap:.35rem .9rem;font-size:.8rem;color:var(--ink-3)}
+.legend span{display:inline-flex;align-items:center;gap:.4rem}
+.steps{display:flex;gap:.35rem;align-items:center}
+.steps i{width:7px;height:7px;border-radius:999px;background:var(--line-2);transition:background .2s,width .25s var(--ease)}
+.steps i.on{background:var(--ink);width:20px}
+
+/* quiz */
+.quiz-q{border:0;padding:0;margin:0;display:grid;gap:.6rem}
+.quiz-q + .quiz-q{border-top:1px solid var(--line);padding-top:1.2rem}
+.quiz-q legend{font-weight:600;line-height:1.45;padding:0;margin-bottom:.6rem}
+.quiz-opts{display:grid;gap:.4rem}
+.quiz-opt{text-align:left;appearance:none;border:1px solid var(--line);background:var(--surface);border-radius:var(--r-inner);padding:.6rem .9rem;cursor:pointer;line-height:1.4;font-size:.92rem;display:flex;gap:.7rem;align-items:flex-start;transition:border-color .2s,background .2s}
+.quiz-opt:hover:not(:disabled){border-color:var(--ink-3)}
+.quiz-opt .k{font-family:var(--f-mono);font-size:.68rem;color:var(--ink-4);padding-top:.2rem}
+.quiz-opt.right{background:var(--good-soft);border-color:var(--good)}
+.quiz-opt.wrong{background:var(--bad-soft);border-color:var(--bad)}
+.quiz-opt:disabled{cursor:default}
+.quiz-why{font-size:.88rem;line-height:1.6;background:var(--tint);border-radius:var(--r-inner);padding:.75rem .95rem;display:flex;gap:.55rem;align-items:baseline}
+.quiz-why::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--good);flex:none;transform:translateY(-1px)}
+.quiz-why.miss::before{background:var(--bad)}
+.quiz-foot{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:1rem}
+.score{font-family:var(--f-mono);font-size:.74rem;color:var(--ink-3)}
+
+/* chapter end */
+.done-box{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;padding-block:1.2rem;border-block:1px solid var(--line-2)}
+.done-box p{margin:0;color:var(--ink-3);font-size:.88rem}
+.btn[data-done][aria-pressed="true"]{background:var(--good-soft);border-color:var(--good);color:var(--good)}
+.pager{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1rem}
+.prose > .pager{margin-top:3rem}
+.pager a{display:grid;gap:.25rem;padding:1.1rem 1.3rem;border-radius:var(--r-card);background:var(--surface);box-shadow:var(--shadow);text-decoration:none;color:var(--ink);transition:transform .3s var(--ease)}
+.pager a:hover{transform:translateY(-2px)}
+.pager .dir{font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-4)}
+.pager .t{font-family:var(--f-display);font-weight:600;font-size:1.1rem;letter-spacing:-.02em}
+.pager .next{text-align:right}
+.foot{border-top:1px solid var(--line);padding-block:1.6rem 2.6rem;color:var(--ink-4);font-size:.8rem}
+.foot p{margin:0;max-width:62ch}
+
+
+
+@media (max-width:520px){.ladder li:nth-child(n){margin-left:0!important}}
+.sc-tabs{display:flex;gap:.3rem;flex-wrap:wrap}
+.sc-panel{display:grid;gap:.85rem}
+.sc-panel > *{margin:0}
+.sc-head{display:flex;flex-wrap:wrap;gap:.3rem .7rem;align-items:center}
+.sc-head b{font-family:var(--f-display);font-size:1.45rem;font-weight:600;letter-spacing:-.03em}
+.sc-quote{font-family:var(--f-display);font-size:1.1rem;line-height:1.4;font-weight:500;letter-spacing:-.015em;padding:.9rem 1.05rem;background:var(--tint);border-radius:var(--r-inner)}
+.sc-flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));gap:.5rem}
+.sc-flow > div{border:1px solid var(--line);border-radius:var(--r-inner);padding:.75rem .85rem;display:grid;gap:.2rem;align-content:start}
+.sc-flow .k{font-family:var(--f-mono);font-size:.62rem;text-transform:uppercase;letter-spacing:.11em;color:var(--ink-4);display:flex;align-items:center;gap:.4rem}
+.sc-flow .k::before{content:"";width:6px;height:6px;border-radius:999px;background:var(--d,var(--ink-4))}
+.sc-flow p{margin:0;font-size:.86rem;line-height:1.5;color:var(--ink-2)}
+.meter{display:grid;gap:.35rem}
+.meter .h{font-family:var(--f-mono);font-size:.64rem;text-transform:uppercase;letter-spacing:.11em;color:var(--ink-4);display:flex;justify-content:space-between}
+.meter .bar{height:8px;border-radius:999px;background:var(--tint);border:1px solid var(--line);position:relative;overflow:hidden}
+.meter .bar span{position:absolute;inset:0 auto 0 0;background:var(--violet);border-radius:999px;transition:width .6s var(--ease)}
+.rex{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.5rem}
+.rex button{text-align:left;appearance:none;border:1px solid var(--line);border-radius:var(--r-inner);padding:.7rem .85rem;background:var(--surface);cursor:pointer;font-size:.86rem;line-height:1.5;color:var(--ink-2);display:grid;gap:.3rem;transition:background .2s,border-color .2s}
+.rex button:hover{border-color:var(--ink-4)}
+.rex button .n{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.1em;color:var(--ink-4);text-transform:uppercase}
+.rex button .p{display:none;font-family:var(--f-display);font-weight:600;font-size:1rem;letter-spacing:-.02em;color:var(--ink)}
+.rex button[aria-pressed="true"]{background:var(--violet-soft);border-color:var(--violet)}
+.rex button[aria-pressed="true"] .p{display:block}
+.rex-foot{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:1rem}
+.case{display:grid;gap:.75rem}
+.case-card{border-radius:var(--r-card);padding:1.15rem 1.3rem;background:var(--surface);box-shadow:var(--shadow);display:grid;gap:.4rem}
+.case-card > *{margin:0}
+.case-card .cn{font-family:var(--f-display);font-weight:600;font-size:1.12rem;letter-spacing:-.025em}
+.case-card .cy{font-family:var(--f-mono);font-size:.7rem;color:var(--ink-4)}
+.case-card p{font-size:.9rem;line-height:1.65;color:var(--ink-2)}
+.case-card .tag{font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.11em;color:var(--ink-3);display:flex;align-items:center;gap:.5rem}
+.case-card .tag::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--d,var(--ink-4))}
+.etym{display:grid;grid-template-columns:repeat(auto-fit,minmax(12rem,1fr));gap:.75rem}
+.etym > div{background:var(--surface);box-shadow:var(--shadow);border-radius:var(--r-card);padding:1.1rem 1.25rem;display:grid;gap:.3rem;align-content:start}
+.etym .w{font-family:var(--f-display);font-weight:600;font-size:1.5rem;letter-spacing:-.035em;font-style:italic;line-height:1.1}
+.etym .m{font-size:.86rem;color:var(--ink-3);line-height:1.5}
+.etym .eq{background:var(--ink)}
+.etym .eq .w{color:var(--surface);font-style:normal}
+.etym .eq .m{color:var(--surface);opacity:.65}
+.sort-card{display:grid;gap:.85rem;min-width:0}
+.sort-card > *{margin:0}
+.sort-n{font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.11em;color:var(--ink-4)}
+.sort-q{font-family:var(--f-display);font-size:1.15rem;line-height:1.4;font-weight:500;letter-spacing:-.015em;padding:.9rem 1.05rem;background:var(--tint);border-radius:var(--r-inner)}
+.sort-card .btn.right{background:var(--good-soft);border-color:var(--good);color:var(--good)}
+.sort-card .btn.wrong{background:var(--bad-soft);border-color:var(--bad);color:var(--bad)}
+.sort-card .btn:disabled{opacity:1}
+.sort-card .btn:disabled:not(.right):not(.wrong){opacity:.45}
+.bd-wrap{box-shadow:none;border:1px solid var(--line);border-radius:var(--r-inner)}
+.bd-table{min-width:0}
+.bd-table td{padding:.6rem .85rem}
+.bd-table td:last-child{font-weight:400}
+.bd-who{display:inline-flex;align-items:center;gap:.45rem;font-size:.86rem;color:var(--ink-2);transition:color .25s}
+.bd-who::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--d,var(--ink-4));flex:none}
+.bd-who.moved{color:var(--ink);font-weight:600}
+
+
+</style>
+</head>
+<body>
+<header class="site-head"><div class="site-head-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">JP</span><span class="brand-text">Juris Prudentia</span></a><nav class="site-nav" aria-label="Chapters"><a href="../index.html">All units</a><a href="rights-duties.html">Rights &amp; duties</a><a href="ownership-possession.html" aria-current="page">Ownership &amp; possession</a><a href="legal-personality.html">Legal personality</a><a href="exam.html">Exam kit</a></nav></div><div class="progress" aria-hidden="true"><span></span></div></header><main class="wrap"><div class="layout rise"><article class="prose">
+<p class="eyebrow">Chapter 2 of 3 · Ownership and possession</p>
+<h1>Ownership and possession: having and holding</h1>
+<p class="meta">About 26 minutes · 3 interactive widgets · 5-question check</p>
+<p class="lead">In 1980 a passenger waiting in the executive lounge at Heathrow found a gold bracelet on the floor. He handed it to British Airways staff, with his name, asking for it back if nobody claimed it. Nobody did, and the airline sold it for £850. Who was entitled to the money: the airline that occupied the lounge, or the passenger who picked the bracelet up?</p>
+<p>The Court of Appeal said the passenger. To see why, you need the two concepts this chapter is about. <strong>Ownership</strong> is a matter of right: who the law says the thing belongs to. <strong>Possession</strong> is a matter of fact: who actually holds it, and with what intention. Most of the time they coincide. When they come apart, as with every lost bracelet, leased flat and stolen bicycle, the law needs rules for both.</p>
+
+<h2 id="ownership" data-toc="What ownership is">What ownership is</h2>
+<p>Ownership is the fullest relation a person can have with a thing, and it is the idea on which the whole law of property rests. The definitions below differ mainly on one point: is ownership a relation to a <em>thing</em>, or to a <em>right</em>?</p>
+<blockquote class="defq"><p>A right indefinite in point of user, unrestricted in point of disposition, and unlimited in point of duration over a determinate thing.</p><cite>John Austin, Lectures on Jurisprudence</cite></blockquote>
+<p><strong>Austin</strong> picks out three features: the owner may use the thing in any way (<em>indefinite user</em>), dispose of it as he likes (<em>unrestricted disposition</em>), and hold it without limit of time (<em>unlimited duration</em>). Criticism: no modern owner has unrestricted rights. Zoning rules, rent control, environmental law and the law of nuisance all limit what you may do with your own land.</p>
+<blockquote class="defq"><p>Ownership is a plenary control over an object.</p><cite>T.E. Holland, The Elements of Jurisprudence</cite></blockquote>
+<p><strong>Holland</strong> says the owner has three rights over the object: <strong>possession</strong>, <strong>enjoyment</strong> and <strong>disposition</strong>. "Plenary" (full) control is again an ideal rather than a description of real ownership.</p>
+<blockquote class="defq"><p>Ownership, in its most comprehensive signification, denotes the relation between a person and any right that is vested in him. That which a man owns is in all cases a right.</p><cite>Sir John Salmond, Jurisprudence</cite></blockquote>
+<p><strong>Salmond</strong> shifts the focus. In law, you never own a thing directly; you own <em>rights</em>. When we say "I own this pen", we really mean "I own the right of ownership of this pen". This is what lets Salmond fit incorporeal property (a debt, a patent, a share) into the same scheme as land and chattels. For material things he gives a narrower sense too: ownership of a material object is the right to its general use. Criticism (Dias and others): treating ownership as "owning a right" is circular, and ordinary language and law both talk about owning things.</p>
+<p>Two later accounts are worth a line each in a long answer. <strong>Dias</strong> describes ownership as a <em>bundle of rights</em> (claims, liberties, powers and immunities, in Hohfeld's terms). <strong>A.M. Honoré</strong>, in his essay "Ownership" (1961), lists eleven standard incidents that together make up "full liberal ownership". Neither insists that every owner has all of them.</p>
+
+<aside class="callout exam">
+  <p class="label">Exam lens</p>
+  <p>Austin and Holland describe ownership as a relation to a <em>thing</em>; Salmond as a relation to a <em>right</em>. Say that in one sentence before you quote the definitions, and the answer reads as analysis rather than a list.</p>
+</aside>
+
+<h2 id="incidents" data-toc="Incidents of ownership">The incidents of ownership</h2>
+<p>The "incidents" are the rights and features that come with ownership. Salmond and Paranjape give these:</p>
+<ol>
+  <li><strong>The right to possess</strong> the thing. The owner may not always have possession (a landlord does not), but he has the right to it once any lesser right ends.</li>
+  <li><strong>The right to use and enjoy</strong> it, including the right to its fruits and income.</li>
+  <li><strong>The right to exclude others</strong> from it.</li>
+  <li><strong>The right to consume, destroy or alter</strong> it.</li>
+  <li><strong>The right to alienate</strong>: to sell, gift, mortgage, lease or bequeath it.</li>
+  <li><strong>Indeterminate duration</strong>: ownership is not for a fixed time, and passes on death to heirs.</li>
+  <li><strong>Residuary character</strong>: when lesser rights (a lease, an easement, a mortgage) are carved out of ownership, the owner keeps whatever is left, and the lesser rights fall back to him when they end.</li>
+</ol>
+<p>The last incident is the key to the whole idea. <mark>An owner can give away almost every one of his rights and still be the owner, because ownership is the residue that remains.</mark> A landlord who has leased his house for 99 years, mortgaged it to a bank and granted his neighbour a right of way still owns it. See for yourself.</p>
+
+<div class="widget" id="bundle">
+  <div class="w-head"><span class="w-tag">Try it</span><span class="w-title">Split the bundle</span><span class="w-hint">Grant rights over Asha's house</span></div>
+  <div class="row" id="bd-acts"></div>
+  <div class="table-wrap bd-wrap"><table class="bd-table"><thead><tr><th>Incident</th><th>Who holds it now</th></tr></thead><tbody id="bd-body"></tbody></table></div>
+  <p class="sc-quote" id="bd-say" aria-live="polite"></p>
+</div>
+
+<h3>Honoré's eleven incidents</h3>
+<p>If your teacher covers Honoré, these are his eleven: the right to <strong>possess</strong>, to <strong>use</strong>, to <strong>manage</strong>, to the <strong>income</strong>, to the <strong>capital</strong> (consume, destroy, alienate), to <strong>security</strong> (freedom from expropriation), <strong>transmissibility</strong>, <strong>absence of term</strong>, the <strong>prohibition of harmful use</strong>, <strong>liability to execution</strong> for debts, and <strong>residuary character</strong>. Notice that two of them are duties or liabilities, not rights: ownership has its burdens too.</p>
+
+<aside class="callout trap">
+  <p class="label">Common mix-up</p>
+  <p>Ownership is not the same as having every incident at once. A minor owns property he cannot sell; a mortgagor owns land he cannot freely alienate; a landlord owns a house he cannot enter. The residuary character is what makes each of them the owner.</p>
+</aside>
+
+<h2 id="kinds-own" data-toc="Kinds of ownership">Kinds of ownership</h2>
+<p>Like rights, kinds of ownership come in pairs. Salmond's list:</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Pair</th><th>Meaning</th><th>Example</th></tr></thead>
+  <tbody>
+    <tr><td><span class="dot" style="--dot:var(--c1)"></span>Corporeal / incorporeal</td><td>Ownership of a material thing / of a right or an immaterial thing</td><td>A car / a patent, a debt, goodwill, copyright</td></tr>
+    <tr><td><span class="dot" style="--dot:var(--c2)"></span>Sole / co-ownership</td><td>One owner / two or more owners of the same thing at once</td><td>A house in one name / a flat bought jointly by a couple</td></tr>
+    <tr><td><span class="dot" style="--dot:var(--c3)"></span>Co-ownership / joint ownership</td><td>Tenancy in common (shares pass to heirs) / joint tenancy (right of survivorship)</td><td>Brothers inheriting land in shares / joint tenants, a Mitakshara coparcenary</td></tr>
+    <tr><td><span class="dot" style="--dot:var(--c4)"></span>Trust / beneficial</td><td>Ownership held for another's benefit / ownership for one's own benefit</td><td>Trustees of a temple fund / the beneficiaries</td></tr>
+    <tr><td><span class="dot" style="--dot:var(--c5)"></span>Legal / equitable</td><td>Recognised by common law / recognised by equity</td><td>Trustee's legal title / beneficiary's equitable interest (English law)</td></tr>
+    <tr><td><span class="dot" style="--dot:var(--c6)"></span>Vested / contingent</td><td>Title complete / depends on an uncertain future event</td><td>Owner of land today / a gift "to A if he reaches 25"</td></tr>
+    <tr><td><span class="dot" style="--dot:var(--c1)"></span>Absolute / limited</td><td>All the incidents / restricted in use, duration or disposal</td><td>Freehold owner / a life estate, a Hindu widow's limited estate before 1956</td></tr>
+  </tbody>
+</table>
+</div>
+<h3>Trust and beneficial ownership</h3>
+<p>Where property is held on trust, the <strong>trustee</strong> is the owner as far as the outside world is concerned: he can sue, sell (within the trust's terms) and give a good title. But he must use the property for the <strong>beneficiary</strong>, who has the beneficial ownership. Salmond calls the trustee's ownership "nominal" and the beneficiary's "real". In India there is no separate system of equity courts. The <strong>Indian Trusts Act, 1882, section 3</strong>, defines a trust as "an obligation annexed to the ownership of property", so the trustee is the owner and the beneficiary has a right against him.</p>
+<h3>Vested and contingent ownership</h3>
+<p>Ownership is <strong>vested</strong> when the owner's title is already complete; it is <strong>contingent</strong> when the title is incomplete and will become complete only on some uncertain event. Indian law codifies the distinction in the <strong>Transfer of Property Act, 1882</strong>: section 19 (vested interest) and section 21 (contingent interest). A vested interest is not defeated by the owner's death before possession; a contingent interest may never vest at all.</p>
+<h3>Joint ownership and the coparcenary</h3>
+<p>In joint ownership, there is a <strong>right of survivorship</strong>: when one joint owner dies, his interest passes to the survivors, not to his heirs. The Mitakshara coparcenary was the classic Indian example. The Hindu Succession (Amendment) Act, 2005 made daughters coparceners by birth (confirmed in <em>Vineeta Sharma v. Rakesh Sharma</em>, 2020) and replaced survivorship with succession for interests of coparceners who die after the amendment.</p>
+
+<aside class="callout note">
+  <p class="label">Sidenote</p>
+  <p>Ownership in India is a constitutional right but no longer a fundamental one. The 44th Amendment (1978) deleted Articles 19(1)(f) and 31 and inserted <strong>Article 300A</strong>: "No person shall be deprived of his property save by authority of law." In <em>Vidya Devi v. State of Himachal Pradesh</em> (2020) the Supreme Court described the right to property as both a constitutional right and a human right, and held that the State cannot take land without following the law.</p>
+</aside>
+
+<h2 id="possession" data-toc="What possession is">What possession is</h2>
+<p>Possession is harder to define than ownership, and Salmond warned that it is one of the most difficult concepts in law. It matters for three reasons: it is <strong>evidence of ownership</strong>; it is <strong>protected in its own right</strong>, even against the owner; and it is the way most rights in things are <strong>acquired and transferred</strong> (by taking, by delivery).</p>
+<blockquote class="defq"><p>The possession of a material object is the continuing exercise of a claim to the exclusive use of it.</p><cite>Sir John Salmond, Jurisprudence</cite></blockquote>
+<p>Every theory analyses possession into two elements, using the Roman terms:</p>
+<div class="etym">
+  <div><span class="w">corpus possessionis</span><span class="m">The physical element: actual control over the thing, and the outward appearance of that control.</span></div>
+  <div><span class="w">animus possidendi</span><span class="m">The mental element: the intention to possess, to appropriate the thing's exclusive use.</span></div>
+  <div class="eq"><span class="w">possession</span><span class="m">Both together. Corpus without animus is mere custody; animus without corpus is a mere wish.</span></div>
+</div>
+<h3>Salmond's corpus: two relations</h3>
+<p>For Salmond the corpus is not literally physical contact. It involves two relations. First, <strong>a relation to the thing</strong>: the possessor must be able to use it. Second, <strong>a relation to the rest of the world</strong>: there must be a reasonable expectation that others will not interfere. That expectation can come from personal presence, from secrecy (a hidden purse), from the protection of others (servants, locks, the police), or from the general respect people show for apparent possession. This is why you still possess your parked car, and the contents of your locked house while you are on holiday.</p>
+<h3>Salmond's animus: four features</h3>
+<ul>
+  <li><strong>It need not be a rightful claim.</strong> A thief possesses the stolen bicycle.</li>
+  <li><strong>It need not be a claim of ownership.</strong> A tenant, a pledgee or a borrower possesses without claiming to own.</li>
+  <li><strong>It need not be a claim on one's own behalf.</strong> A servant or agent may hold a thing for his master.</li>
+  <li><strong>It need not be specific; it may be general.</strong> You possess the letters in your letterbox before you know they are there; a shopkeeper possesses all the goods in his shop.</li>
+</ul>
+
+<h2 id="theories" data-toc="Theories of possession">Theories of possession: Savigny, Ihering, Salmond, Pollock</h2>
+<p>The jurists disagree mainly about the <em>animus</em>: what intention is needed, and whether it is a separate element at all. Compare them.</p>
+
+<div class="widget" id="th">
+  <div class="w-head"><span class="w-tag">Compare</span><span class="w-title">Four theories of possession</span><span class="w-hint">Pick a jurist</span></div>
+  <div class="sc-tabs" role="tablist" aria-label="Jurists" id="th-tabs"></div>
+  <div class="sc-panel" id="th-panel" aria-live="polite">
+    <p class="sc-head"><b id="th-name"></b><span class="chip" id="th-book"></span></p>
+    <p class="sc-quote" id="th-quote"></p>
+    <div class="sc-flow" id="th-flow"></div>
+    <div class="meter"><p class="h"><span>Emphasis on corpus</span><span>Emphasis on animus</span></p><div class="bar"><span id="th-bar"></span></div></div>
+  </div>
+</div>
+
+<h3>Savigny: the subjective theory</h3>
+<p><strong>Friedrich Carl von Savigny</strong>, in <em>Das Recht des Besitzes</em> (The Law of Possession, 1803), built his theory on Roman law. Possession needs <strong>corpus</strong>, the physical power to deal with the thing and exclude others, and <strong>animus domini</strong>, the intention to hold it <em>as owner</em>. The emphasis on intention makes it the "subjective" theory. Criticism: it cannot explain why a tenant, a pledgee or a bailee is treated as a possessor, since none of them intends to hold as owner. Savigny had to call these "derivative possession", an exception that swallows much of the rule.</p>
+<h3>Ihering: the objective theory</h3>
+<p><strong>Rudolf von Ihering</strong> attacked Savigny directly. For him, possession is <mark>the outward visibility of ownership</mark>: a person possesses a thing when he deals with it in the way an owner ordinarily would. The corpus is that outward relation; the animus is simply the intention implicit in such conduct, not a separate mental state to be proved. And possession is protected because it is the <strong>outwork of ownership</strong>: protecting the possessor usually protects the owner without making him prove title. The theory is "objective" because it looks at conduct. It easily covers tenants and bailees. Criticism: it makes possession too dependent on ownership, though the two can be quite separate (a thief is a possessor).</p>
+<h3>Salmond: animus possidendi</h3>
+<p>Salmond takes the middle path. The animus needed is not animus domini but <strong>animus possidendi</strong>, the intention to exclude others from the thing, which a tenant, pledgee or thief all have. His careful account of corpus (the two relations) and of animus (the four features above) is the one most Indian examiners expect.</p>
+<h3>Pollock and Wright: physical control</h3>
+<p><strong>Sir Frederick Pollock</strong> and <strong>R.S. Wright</strong>, in <em>An Essay on Possession in the Common Law</em> (1888), argued from English cases rather than Roman texts. Possession in fact is <strong>effective physical control</strong>: such control as enables the holder to deal with the thing as he wishes, to the exclusion of others. They gave the animus little independent role, and distinguished three things: <strong>possession in fact</strong>, <strong>possession in law</strong>, and the <strong>right to possess</strong>. Criticism: physical control alone cannot explain why the law treats an employer, not his servant, as possessor of goods the servant holds.</p>
+
+<aside class="callout keep">
+  <p class="label">How to write it up</p>
+  <p>Define possession (Salmond); explain corpus and animus. Then the theories in a table: Savigny (corpus + animus domini; subjective), Ihering (outward visibility of ownership; objective; outwork of ownership), Salmond (animus possidendi; two relations), Pollock (effective physical control; possession in fact, in law, right to possess). One criticism each. Conclude with Salmond's balance.</p>
+</aside>
+
+<h2 id="kinds-poss" data-toc="Kinds of possession">Kinds of possession</h2>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Kind</th><th>Meaning</th><th>Example</th></tr></thead>
+  <tbody>
+    <tr><td><span class="dot" style="--dot:var(--c1)"></span>Corporeal / incorporeal</td><td>Possession of a material thing / of a right (quasi-possession)</td><td>A book / the continuing use of a right of way</td></tr>
+    <tr><td><span class="dot" style="--dot:var(--c2)"></span>Immediate / mediate</td><td>Held personally / held through another who holds on one's behalf</td><td>Reading your own book / a book lent to a friend</td></tr>
+    <tr><td><span class="dot" style="--dot:var(--c3)"></span>Actual / constructive</td><td>Physical control / control the law attributes without physical holding</td><td>Goods in your hand / goods in a warehouse whose key you hold</td></tr>
+    <tr><td><span class="dot" style="--dot:var(--c4)"></span>In fact / in law</td><td>De facto control / possession recognised by law (they may not coincide)</td><td>A servant holding his master's goods / the master</td></tr>
+    <tr><td><span class="dot" style="--dot:var(--c5)"></span>Concurrent (duplicate)</td><td>Two or more persons possessing the same thing at once in different capacities</td><td>Mediate and immediate possessors; co-owners in joint possession</td></tr>
+    <tr><td><span class="dot" style="--dot:var(--c6)"></span>Adverse possession</td><td>Possession hostile to the true owner, which may ripen into title</td><td>Open, continuous occupation of land for 12 years</td></tr>
+  </tbody>
+</table>
+</div>
+<h3>Mediate possession: Salmond's three cases</h3>
+<p>Salmond identifies three situations in which one person possesses <em>through</em> another:</p>
+<ol>
+  <li><strong>Through a servant or agent</strong> who holds solely for the possessor (a shop assistant holding the till).</li>
+  <li><strong>Through a borrower or bailee</strong> who holds for himself and for the possessor, but must return the thing on demand (a friend who borrowed your bicycle).</li>
+  <li><strong>Through someone who holds for himself until a term ends or a condition is met</strong>, and only then for the other (a pledgee until the debt is paid, a lessee until the lease ends).</li>
+</ol>
+<h3>Adverse possession in India</h3>
+<p>Adverse possession is possession <span class="latin">nec vi, nec clam, nec precario</span>: without force, without secrecy, without permission. It must be open, continuous and hostile to the true owner. Under the <strong>Limitation Act, 1963</strong>, a suit for possession of immovable property based on title must be filed within <strong>12 years</strong> from when the defendant's possession becomes adverse (Article 65), or <strong>30 years</strong> where the plaintiff is the Government (Article 112). When the period runs out, section 27 extinguishes the owner's right, and the possessor's title becomes good.</p>
+<div class="case">
+  <div class="case-card"><p class="tag" style="--d:var(--c4)">A harsh doctrine</p><p class="cn">Hemaji Waghaji Jat v. Bhikhabhai Khengarbhai Harijan</p><p class="cy">2009</p><p>The Court called the law of adverse possession "irrational, illogical and wholly disproportionate" in rewarding a wrongdoer, held the claimant had not proved the required hostile possession, and asked Parliament to reconsider the law.</p></div>
+  <div class="case-card"><p class="tag" style="--d:var(--c1)">A sword as well as a shield</p><p class="cn">Ravinder Kaur Grewal v. Manjit Kaur</p><p class="cy">2019</p><p>A three-judge bench held that a person who has perfected title by adverse possession can sue as plaintiff to protect it, not merely raise it as a defence. It overruled the contrary view in <em>Gurdwara Sahib v. Gram Panchayat Village Sirthala</em> (2014).</p></div>
+</div>
+
+<h2 id="acquire" data-toc="Acquisition and the nine points">Acquiring possession, and "nine points of the law"</h2>
+<h3>Three modes of acquisition</h3>
+<ul>
+  <li><strong>Taking</strong> (original acquisition). Possession acquired without the consent of any previous possessor. It may be rightful (catching a wild fish, which is <span class="latin">res nullius</span>; picking up a lost thing) or wrongful (theft).</li>
+  <li><strong>Delivery</strong> (derivative acquisition). Possession transferred with the consent of the previous possessor. Delivery may be <strong>actual</strong> (handing over the thing) or <strong>constructive</strong>, of which Salmond gives three forms: <span class="latin">traditio brevi manu</span> (the transferee already holds the thing, say as a borrower, and now buys it), <span class="latin">constitutum possessorium</span> (the seller keeps the thing but now holds it as the buyer's bailee), and <strong>attornment</strong> (a warehouseman who held for the seller agrees to hold for the buyer).</li>
+  <li><strong>Operation of law</strong>. Possession passes on death, on insolvency, or by order of a court.</li>
+</ul>
+<h3>"Possession is nine points of the law"</h3>
+<p>The proverb is an exaggeration with a real core: <mark>the possessor starts with a strong advantage, and whoever wants to dislodge him must prove a better title</mark>. In Indian law that advantage comes from several rules:</p>
+<ul>
+  <li><strong>Possession is prima facie evidence of ownership.</strong> Under section 110 of the Indian Evidence Act, 1872 (carried into the Bharatiya Sakshya Adhiniyam, 2023), when a person is shown to be in possession, the burden of proving that he is not the owner is on whoever says so.</li>
+  <li><strong>A possessor has title against everyone except the true owner.</strong> In <em>Armory v. Delamirie</em> (1722), a chimney sweep's boy found a jewel and took it to a goldsmith, who kept the stones. The boy won: a finder has a good title against all but the rightful owner.</li>
+  <li><strong>Possession is protected even against the owner.</strong> Under <strong>section 6 of the Specific Relief Act, 1963</strong>, a person dispossessed of immovable property without his consent, otherwise than in due course of law, may recover possession by a suit within six months, without having to prove title. In <em>Rame Gowda v. M. Varadappa Naidu</em> (2004) the Supreme Court held that even a true owner may not forcibly evict a person in settled possession; he must go to court.</li>
+  <li><strong>Criminal courts protect peaceful possession</strong> to prevent breaches of the peace (section 145 of the Code of Criminal Procedure, 1973, now carried into the BNSS, 2023).</li>
+  <li><strong>Long possession becomes ownership</strong> through adverse possession and prescription.</li>
+</ul>
+
+<h2 id="finders" data-toc="The finders cases">Finders, keepers? The finders cases</h2>
+<p>When something is lost and found, three people may claim it: the <strong>true owner</strong> (who always wins if he turns up), the <strong>finder</strong>, and the <strong>occupier of the place</strong> where it was found. The cases on finder versus occupier are the best test of whether you understand possession, because they turn entirely on who had corpus and animus first.</p>
+<div class="case">
+  <div class="case-card"><p class="tag" style="--d:var(--c1)">Finder wins</p><p class="cn">Bridges v. Hawkesworth</p><p class="cy">1851</p><p>A customer found a bundle of banknotes on the floor of the public part of a shop. The shopkeeper did not know they were there. The finder won: the notes were never in the shopkeeper's custody, and the public part of a shop is open to all.</p></div>
+  <div class="case-card"><p class="tag" style="--d:var(--c4)">Occupier wins</p><p class="cn">Elwes v. Brigg Gas Co.</p><p class="cy">1886</p><p>A company leasing land dug foundations for a gasholder and found a prehistoric boat buried six feet down. The landowner won. The possessor of land possesses everything in or under it, even things he does not know exist.</p></div>
+  <div class="case-card"><p class="tag" style="--d:var(--c4)">Occupier wins</p><p class="cn">South Staffordshire Water Co. v. Sharman</p><p class="cy">1896</p><p>A worker cleaning out the company's pool found two gold rings in the mud at the bottom. The company won. Things lying in or attached to land belong to the occupier, who has the manifest intention to control it; and an employee finding in the course of employment finds for the employer.</p></div>
+  <div class="case-card"><p class="tag" style="--d:var(--c1)">Finder wins</p><p class="cn">Hannah v. Peel</p><p class="cy">1945</p><p>A soldier billeted in a requisitioned house found a brooch in a crevice on top of a window frame. The owner of the house, Major Peel, had never lived there. The finder won: the owner had never been in physical possession of the house, so had no possession of the brooch.</p></div>
+  <div class="case-card"><p class="tag" style="--d:var(--c1)">Finder wins</p><p class="cn">Parker v. British Airways Board</p><p class="cy">1982</p><p>The Heathrow bracelet. The Court of Appeal (Donaldson LJ) held for the passenger. An occupier of a building has a better claim than a finder to things <em>on</em> the premises only if, before the finding, he manifested an intention to exercise control over the building and the things in it. The airline had not done enough.</p></div>
+  <div class="case-card"><p class="tag" style="--d:var(--c4)">Occupier wins</p><p class="cn">Waverley Borough Council v. Fletcher</p><p class="cy">1996</p><p>A man using a metal detector in a public park dug up a gold brooch nine inches below the surface. The council won: an object found <em>in</em> land belongs to the owner or occupier, and digging was not a use of the park the public was licensed to make.</p></div>
+</div>
+
+<p>Out of these cases Donaldson LJ in <em>Parker</em> drew a set of rules. Learn the shape of them:</p>
+<ul>
+  <li>Things <strong>in or attached to land</strong>: the occupier wins, whether or not he knew of them (<em>Elwes</em>, <em>Sharman</em>, <em>Waverley</em>).</li>
+  <li>Things <strong>lying loose on the surface</strong>: the finder wins, unless the occupier had <strong>manifested an intention to control</strong> the place and things in it before the finding (<em>Bridges</em>, <em>Parker</em>). A bank vault: occupier. A shop floor or airport lounge: finder.</li>
+  <li>A finder who is a <strong>trespasser</strong>, or finds <strong>in the course of employment</strong>, does not acquire rights against the occupier or employer.</li>
+  <li>A finder who takes charge of the thing must take <strong>reasonable steps to find the owner</strong>.</li>
+</ul>
+
+<div class="widget" id="fk">
+  <div class="w-head"><span class="w-tag">Try it</span><span class="w-title">Who keeps it?</span><span class="w-hint">Finder or occupier</span></div>
+  <div class="sort-card" id="fk-card" aria-live="polite">
+    <p class="sort-n" id="fk-n"></p>
+    <p class="sort-q" id="fk-q"></p>
+    <div class="row" id="fk-opts"></div>
+    <p class="quiz-why" id="fk-why" hidden></p>
+  </div>
+  <div class="rex-foot"><span class="score" id="fk-score"></span><div class="row"><button class="btn" type="button" id="fk-reset">Start again</button><button class="btn primary" type="button" id="fk-next">Next <span class="arrow">→</span></button></div></div>
+</div>
+
+<h3>The finder in Indian law</h3>
+<p>Indian law has no general statute on finder versus occupier; courts follow the English principles. But a finder's duties are statutory. Under <strong>section 71 of the Indian Contract Act, 1872</strong>, a person who finds goods belonging to another and takes them into his custody is subject to the same responsibility as a <strong>bailee</strong>. He may retain the goods until he is compensated for his trouble and expenses (section 168) and may sell them in certain cases (section 169). Keeping found property dishonestly is the offence of <strong>dishonest misappropriation</strong> (section 403 IPC, Explanation 2; now section 314 of the BNS, 2023). And the <strong>Indian Treasure Trove Act, 1878</strong> requires a finder of treasure hidden in the soil to give notice to the Collector, who decides who is entitled to it.</p>
+
+<h2 id="relation" data-toc="Ownership and possession compared">Ownership and possession compared</h2>
+<p>Salmond's phrase sums it up: <strong>possession is the de facto counterpart of ownership</strong>. Ownership is the right; possession is the fact. Ihering put it the other way round: possession is the outwork, the defence line in front, of ownership.</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th></th><th>Ownership</th><th>Possession</th></tr></thead>
+  <tbody>
+    <tr><td>Nature</td><td>De jure: a matter of right</td><td>De facto: a matter of fact (protected by law)</td></tr>
+    <tr><td>Question</td><td>Whose is it?</td><td>Who holds it, intending to exclude others?</td></tr>
+    <tr><td>Duration</td><td>Indeterminate; passes to heirs</td><td>May be brief or temporary</td></tr>
+    <tr><td>Can exist without the other?</td><td>Yes: a landlord owns but does not possess</td><td>Yes: a thief or a tenant possesses but does not own</td></tr>
+    <tr><td>Acquired by wrong?</td><td>Not directly (except through adverse possession)</td><td>Yes: a thief acquires possession</td></tr>
+    <tr><td>Transfer</td><td>By conveyance, sale, gift, will</td><td>By taking or delivery, actual or constructive</td></tr>
+    <tr><td>Remedy</td><td>A title suit; the owner must prove title</td><td>A possessory suit (s. 6 SRA) without proving title</td></tr>
+  </tbody>
+</table>
+</div>
+<p>And the two keep feeding into each other: possession is <strong>evidence</strong> of ownership (s. 110 IEA); long possession <strong>becomes</strong> ownership (adverse possession); and ownership usually carries the <strong>right</strong> to possess. That two-way link is the best conclusion for any long answer on this topic.</p>
+<p class="big-idea">Ownership is what the law says is yours. Possession is what you hold, and the law protects that too.</p>
+
+<h2 id="check" data-toc="Check yourself">Check yourself</h2>
+<div class="widget" id="quiz"><div class="w-head"><span class="w-tag">Quiz</span><span class="w-title">Ownership and possession</span></div></div>
+
+<div class="done-box"><p>Finished? Tick it off. Your progress shows on the unit page (saved only in this browser).</p><button class="btn" type="button" data-done="ownership-possession" aria-pressed="false">Mark chapter as read</button></div>
+<nav class="pager" aria-label="Chapter navigation"><a href="rights-duties.html"><span class="dir"><span class="arrow back">←</span> Previous</span><span class="t">Chapter 1 · Rights &amp; duties</span></a><a class="next" href="legal-personality.html"><span class="dir">Next <span class="arrow">→</span></span><span class="t">Chapter 3 · Legal personality</span></a></nav></article><aside class="toc" aria-label="On this page"><p class="toc-label">On this page</p><ol></ol></aside></div><footer class="foot"><p>Juris Prudentia · a study companion to Dr N.V. Paranjape, <em>Studies in Jurisprudence &amp; Legal Theory</em>, Unit III. Definitions follow standard textbook wording; case facts are summarised; check against your edition.</p></footer></main>
+
+<script>
+(function(){
+  var JP = window.JP = {};
+
+  JP.store = {
+    get: function(k){ try { return window.localStorage.getItem(k); } catch(e){ return null; } },
+    set: function(k,v){ try { window.localStorage.setItem(k,v); } catch(e){} },
+    del: function(k){ try { window.localStorage.removeItem(k); } catch(e){} }
+  };
+
+  JP.swap = function(el){ if(!el) return; el.classList.remove('swap'); void el.offsetWidth; el.classList.add('swap'); };
+
+  /* reading progress */
+  var bar = document.querySelector('.progress span');
+  function onScroll(){
+    if(!bar) return;
+    var h = document.documentElement, max = h.scrollHeight - h.clientHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, h.scrollTop / max) : 0) + ')';
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* heading anchors + on-this-page list */
+  var art = document.querySelector('article.prose');
+  var toc = document.querySelector('.toc ol');
+  if(art){
+    var heads = art.querySelectorAll('h2[id]');
+    var links = [];
+    heads.forEach(function(h){
+      var label = h.getAttribute('data-toc') || h.textContent;
+      var a = document.createElement('a');
+      a.href = '#' + h.id; a.className = 'anchor'; a.setAttribute('aria-label','Link to this section'); a.textContent = '#';
+      h.insertBefore(a, h.firstChild);
+      if(toc){
+        var li = document.createElement('li'), l = document.createElement('a');
+        l.href = '#' + h.id; l.textContent = label; li.appendChild(l); toc.appendChild(li); links.push(l);
+      }
+    });
+    if(toc && 'IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if(e.isIntersecting){
+            links.forEach(function(l){ l.classList.toggle('on', l.getAttribute('href') === '#' + e.target.id); });
+          }
+        });
+      }, {rootMargin:'0px 0px -70% 0px'});
+      heads.forEach(function(h){ io.observe(h); });
+    }
+  }
+
+  /* quiz */
+  JP.quiz = function(el, qs){
+    if(!el) return;
+    var letters = 'ABCD', right = 0, answered = 0;
+    var form = document.createElement('div'); form.style.display='grid'; form.style.gap='1.1rem';
+    var foot = document.createElement('div'); foot.className = 'quiz-foot';
+    var score = document.createElement('span'); score.className = 'score';
+    var reset = document.createElement('button'); reset.className = 'btn'; reset.type = 'button'; reset.textContent = 'Reset quiz';
+    foot.appendChild(score); foot.appendChild(reset);
+    function upd(){ score.textContent = answered === 0 ? qs.length + ' questions · pick an answer' : right + ' of ' + answered + ' correct' + (answered === qs.length ? (right === qs.length ? ' · full marks' : ' · reset to try again') : ''); }
+    function build(){
+      form.innerHTML = ''; right = 0; answered = 0;
+      qs.forEach(function(q, qi){
+        var fs = document.createElement('fieldset'); fs.className = 'quiz-q';
+        var lg = document.createElement('legend'); lg.textContent = (qi+1) + '. ' + q.q; fs.appendChild(lg);
+        var opts = document.createElement('div'); opts.className = 'quiz-opts';
+        var why = document.createElement('p'); why.className = 'quiz-why'; why.hidden = true;
+        var btns = [];
+        q.o.forEach(function(t, oi){
+          var b = document.createElement('button'); b.type = 'button'; b.className = 'quiz-opt';
+          b.innerHTML = '<span class="k">' + letters[oi] + '</span><span></span>';
+          b.lastChild.textContent = t;
+          b.addEventListener('click', function(){
+            btns.forEach(function(x){ x.disabled = true; });
+            btns[q.a].classList.add('right');
+            answered++;
+            if(oi === q.a){ right++; why.className = 'quiz-why'; why.innerHTML = '<b>Correct.</b> '; }
+            else { b.classList.add('wrong'); why.className = 'quiz-why miss'; why.innerHTML = '<b>Not quite.</b> '; }
+            why.appendChild(document.createTextNode(q.why)); why.hidden = false; upd();
+          });
+          btns.push(b); opts.appendChild(b);
+        });
+        fs.appendChild(opts); fs.appendChild(why); form.appendChild(fs);
+      });
+      upd();
+    }
+    reset.addEventListener('click', build);
+    el.appendChild(form); el.appendChild(foot); build();
+  };
+
+  /* chapter done toggle */
+  var done = document.querySelector('[data-done]');
+  if(done){
+    var key = 'jp-done-' + done.getAttribute('data-done');
+    function paint(){ var on = JP.store.get(key) === '1'; done.setAttribute('aria-pressed', on ? 'true' : 'false'); done.textContent = on ? 'Marked as read' : 'Mark chapter as read'; }
+    done.addEventListener('click', function(){ if(JP.store.get(key) === '1') JP.store.del(key); else JP.store.set(key,'1'); paint(); });
+    paint();
+  }
+})();
+
+</script>
+<script>
+(function(){
+/* generic one-at-a-time sorter */
+function sorter(pfx, items, labels){
+  var i = 0, right = 0, done = 0;
+  var n = document.getElementById(pfx+'-n'), q = document.getElementById(pfx+'-q'), opts = document.getElementById(pfx+'-opts'), why = document.getElementById(pfx+'-why'), sc = document.getElementById(pfx+'-score'), nx = document.getElementById(pfx+'-next');
+  function paint(){
+    var it = items[i], ls = it.l || labels;
+    n.textContent = 'Statement ' + (i+1) + ' of ' + items.length;
+    q.textContent = it.s; why.hidden = true; opts.innerHTML = '';
+    ls.forEach(function(lb, k){
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'btn'; b.textContent = lb;
+      b.addEventListener('click', function(){
+        Array.prototype.forEach.call(opts.children, function(x){ x.disabled = true; });
+        opts.children[it.a].classList.add('right'); done++;
+        if(k === it.a){ right++; why.className = 'quiz-why'; why.innerHTML = '<b>Yes.</b> '; }
+        else { b.classList.add('wrong'); why.className = 'quiz-why miss'; why.innerHTML = '<b>Not quite.</b> '; }
+        why.appendChild(document.createTextNode(it.w)); why.hidden = false; upd();
+      });
+      opts.appendChild(b);
+    });
+    nx.disabled = i === items.length - 1; upd();
+  }
+  function upd(){ sc.textContent = right + ' of ' + done + ' right' + (done === items.length ? ' · all done' : ' · ' + (items.length - done) + ' to go'); }
+  nx.addEventListener('click', function(){ if(i < items.length - 1){ i++; paint(); JP.swap(document.getElementById(pfx+'-card')); } });
+  document.getElementById(pfx+'-reset').addEventListener('click', function(){ i = 0; right = 0; done = 0; paint(); JP.swap(document.getElementById(pfx+'-card')); });
+  paint();
+}
+
+/* split the bundle */
+var INC = ['Right to possess','Right to use and enjoy','Right to the income','Right to exclude others','Right to alienate freely','Right to destroy or alter','Indeterminate duration','Residuary right'];
+var ACTS = [
+ {id:'lease', t:'Lease to Bilal (11 years)', m:{0:'Bilal, the tenant (for the term)',1:'Bilal, the tenant (for the term)',3:'Bilal, the tenant, even against Asha'}, c:'--c2'},
+ {id:'mort', t:'Mortgage to the bank', m:{4:'Asha, subject to the bank’s mortgage',5:'Asha, but she must not impair the bank’s security'}, c:'--c4'},
+ {id:'ease', t:'Right of way to neighbour', m:{3:'Asha, except over the path her neighbour may use'}, c:'--c3'},
+ {id:'sell', t:'Sell the house to Chitra', all:'Chitra, the new owner', c:'--c5'}
+];
+var on = {}, bdB = {}, acts = document.getElementById('bd-acts'), tb = document.getElementById('bd-body');
+ACTS.forEach(function(a){
+  var b = document.createElement('button'); b.type = 'button'; b.className = 'btn'; b.setAttribute('aria-pressed','false'); b.textContent = a.t;
+  b.addEventListener('click', function(){
+    if(a.id === 'sell'){ var s = !on.sell; on = {}; on.sell = s; }
+    else { on.sell = false; on[a.id] = !on[a.id]; }
+    paintB();
+  });
+  acts.appendChild(b); bdB[a.id] = b;
+});
+var rowsB = INC.map(function(t){
+  var tr = document.createElement('tr'), a = document.createElement('td'), b = document.createElement('td'), w = document.createElement('span');
+  a.textContent = t; w.className = 'bd-who'; b.appendChild(w); tr.appendChild(a); tr.appendChild(b); tb.appendChild(tr); return w;
+});
+function paintB(){
+  ACTS.forEach(function(a){ bdB[a.id].setAttribute('aria-pressed', on[a.id] ? 'true' : 'false'); });
+  rowsB.forEach(function(w, k){
+    var who = 'Asha', col = '--c1';
+    if(k === 2 && on.lease){ who = 'Asha, now as rent from Bilal'; }
+    ACTS.forEach(function(a){ if(on[a.id]){ if(a.all){ who = a.all; col = a.c; } else if(a.m[k]){ who = a.m[k]; col = a.c; } } });
+    if(k === 3 && on.lease && on.ease){ who = 'Bilal, the tenant (for the term), subject to the neighbour’s right of way'; col = '--c2'; }
+    w.textContent = who; w.style.setProperty('--d','var(' + col + ')'); w.classList.toggle('moved', who !== 'Asha');
+  });
+  var say = document.getElementById('bd-say'), n = ['lease','mort','ease'].filter(function(x){ return on[x]; }).length;
+  if(on.sell) say.textContent = 'A sale transfers the ownership itself, residue and all. Chitra is now the owner; Asha has nothing left.';
+  else if(n === 0) say.textContent = 'Asha holds every incident. Grant some rights to others and watch what she keeps.';
+  else say.textContent = 'Asha has given away ' + (n === 1 ? 'one encumbrance' : n === 2 ? 'two encumbrances' : 'three encumbrances') + ', yet she is still the owner. Each right granted is a right in re aliena; when it ends, it falls back into her residuary ownership.';
+  JP.swap(say);
+}
+paintB();
+
+/* theories of possession */
+var TH = [
+ {n:'Savigny', b:'Das Recht des Besitzes · 1803', p:85,
+  q:'Possession requires the physical power to deal with the thing, together with the intention to hold it as owner (animus domini).',
+  f:[['Corpus','Physical power to deal with the thing and to exclude others.','--c1'],['Animus','Animus domini: the intention to hold the thing as its owner.','--c5'],['Label','The subjective theory: intention decides.','--c3'],['Weak spot','Tenants, pledgees and bailees have no animus domini; Savigny must call them “derivative” possessors.','--c4']]},
+ {n:'Ihering', b:'Der Besitzwille · 1889', p:30,
+  q:'Possession is the outward visibility of ownership. Whoever deals with a thing as an owner normally would, possesses it.',
+  f:[['Corpus','The outward, visible relation of a person to a thing, as an owner ordinarily deals with it.','--c1'],['Animus','Not a separate element: the intention is implied by the conduct.','--c5'],['Label','The objective theory: conduct decides. Possession is the outwork of ownership.','--c3'],['Weak spot','Ties possession too closely to ownership, though a thief possesses without any trace of title.','--c4']]},
+ {n:'Salmond', b:'Jurisprudence · 1902', p:55,
+  q:'The possession of a material object is the continuing exercise of a claim to the exclusive use of it.',
+  f:[['Corpus','Two relations: to the thing (power of use) and to the world (expectation of non-interference).','--c1'],['Animus','Animus possidendi: intent to exclude others. Need not be rightful, nor a claim of ownership, nor on one’s own behalf, nor specific.','--c5'],['Label','The balanced theory most Indian examiners expect.','--c3'],['Weak spot','“Claim” is vague, and the definition fits incorporeal possession only loosely.','--c4']]},
+ {n:'Pollock', b:'An Essay on Possession in the Common Law · 1888 (with R.S. Wright)', p:15,
+  q:'Possession in fact is effective physical control: such control as enables the holder to deal with the thing to the exclusion of others.',
+  f:[['Corpus','Effective physical control, judged by the circumstances and the nature of the thing.','--c1'],['Animus','Given little independent weight.','--c5'],['Label','Possession in fact, possession in law, and the right to possess are three distinct ideas.','--c3'],['Weak spot','Cannot explain why the master, not the servant, possesses goods in the servant’s hands.','--c4']]}
+];
+var thT = document.getElementById('th-tabs');
+var thB = TH.map(function(s, k){
+  var b = document.createElement('button'); b.type = 'button'; b.className = 'btn'; b.setAttribute('role','tab'); b.textContent = s.n;
+  b.addEventListener('click', function(){ showT(k, true); }); thT.appendChild(b); return b;
+});
+function showT(k, user){
+  var s = TH[k];
+  thB.forEach(function(b,j){ b.classList.toggle('on', j===k); b.setAttribute('aria-selected', j===k ? 'true' : 'false'); });
+  document.getElementById('th-name').textContent = s.n;
+  document.getElementById('th-book').textContent = s.b;
+  document.getElementById('th-quote').textContent = s.q;
+  var fl = document.getElementById('th-flow'); fl.innerHTML = '';
+  s.f.forEach(function(x){
+    var d = document.createElement('div'); d.style.setProperty('--d', 'var(' + x[2] + ')');
+    var h = document.createElement('span'); h.className = 'k'; h.textContent = x[0];
+    var p = document.createElement('p'); p.textContent = x[1];
+    d.appendChild(h); d.appendChild(p); fl.appendChild(d);
+  });
+  document.getElementById('th-bar').style.width = s.p + '%';
+  if(user) JP.swap(document.getElementById('th-panel'));
+}
+showT(0);
+
+/* finders */
+sorter('fk', [
+ {s:'A customer finds a bundle of banknotes on the floor of the public part of a shop. The shopkeeper never knew they were there.', a:0, w:'Bridges v. Hawkesworth (1851). Loose on the surface of a place open to the public; the shopkeeper had not manifested control over lost things.'},
+ {s:'A lessee company digging foundations finds a prehistoric boat six feet below the surface.', a:1, w:'Elwes v. Brigg Gas Co. (1886). Things in or under the land belong to its possessor, even without knowledge.'},
+ {s:'A worker cleaning a company’s pool finds two gold rings in the mud at the bottom.', a:1, w:'South Staffordshire Water Co. v. Sharman (1896). In the land, and found by an employee in the course of employment.'},
+ {s:'A soldier billeted in a requisitioned house finds a brooch on top of a window frame. The owner has never lived in the house.', a:0, w:'Hannah v. Peel (1945). The owner had never had physical possession of the house, so not of the brooch.'},
+ {s:'A passenger finds a gold bracelet on the floor of an airline’s executive lounge.', a:0, w:'Parker v. British Airways Board (1982). The airline had not manifested a sufficient intention to control lost articles in the lounge.'},
+ {s:'A metal-detectorist digs a brooch out of the ground in a public park owned by the council.', a:1, w:'Waverley BC v. Fletcher (1996). Found in, not on, the land; and digging went beyond the public’s licence.'},
+ {s:'A bank clerk finds a diamond ring in the bank’s locked vault room, where only staff may go.', a:1, w:'Applying Parker: the bank clearly manifests an intention to control the vault and everything in it, and the clerk is an employee.'},
+ {s:'A chimney sweep’s boy finds a jewel. A goldsmith he shows it to keeps the stones. The true owner is unknown.', l:['Finder (the boy)','The goldsmith'], a:0, w:'Armory v. Delamirie (1722). A finder has a good title against everyone except the true owner.'}
+], ['Finder','Occupier']);
+
+JP.quiz(document.getElementById('quiz'), [
+ {q:'“A right indefinite in point of user, unrestricted in point of disposition, and unlimited in point of duration.” This defines ownership according to…', o:['Salmond','Holland','Austin','Ihering'], a:2, why:'Austin. Holland called ownership “plenary control over an object”; Salmond treated it as the relation between a person and a right.'},
+ {q:'Savigny’s theory of possession requires corpus plus…', o:['Animus possidendi','Animus domini','Effective physical control only','The outward visibility of ownership'], a:1, why:'Animus domini, the intention to hold as owner. Salmond needs only animus possidendi; Ihering makes possession the outward visibility of ownership.'},
+ {q:'Which feature of ownership explains why a landlord who has leased his house still owns it?', o:['Its residuary character','Indefinite user','The right to destroy','Possession'], a:0, why:'Ownership is residuary: lesser rights carved out of it fall back to the owner when they end.'},
+ {q:'In Parker v. British Airways Board (1982), the passenger won because…', o:['The bracelet was buried in the floor','The airline had not manifested an intention to control lost things in the lounge','A finder always defeats an occupier','The passenger was an employee'], a:1, why:'For things loose on the surface, the occupier wins only if it manifested an intention to control the premises and the things in them before the find.'},
+ {q:'Under the Limitation Act, 1963, the period for a private owner’s suit for possession of immovable property based on title (Article 65) is…', o:['3 years','6 months','12 years','30 years'], a:2, why:'12 years from when possession becomes adverse; 30 years for the Government (Article 112). Six months is the period under s. 6 of the Specific Relief Act.'}
+]);
+
+})();
+</script>
+</body>
+</html>

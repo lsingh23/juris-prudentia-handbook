@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nature of Jurisprudence · Juris Prudentia</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Definition, nature and scope of jurisprudence, explained interactively.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+/* Layout: one quiet reading column on warm paper, white cards floating on a single soft shadow; contents rail on wide screens */
+:root{
+  --bg:#F2F2ED; --surface:#FFFFFF; --ink:#16211C; --ink-2:#3F4A44; --ink-3:#6B756F; --ink-4:#9AA29C;
+  --line:#E6E7E1; --line-2:#D7DAD3; --tint:#F6F6F2;
+  --violet:#6C5CE0; --violet-soft:#EFEDFC;
+  --good:#2E8B57; --good-soft:#E6F2EA; --warn:#B7791F; --warn-soft:#FAF0DE; --bad:#C0443A; --bad-soft:#FAE8E6;
+  --c1:#4774D1; --c2:#2A9187; --c3:#C08A23; --c4:#C24E78; --c5:#7A6CF0; --c6:#3E9A63;
+  --mark:#F4E3B0;
+  --shadow:0 1px 2px rgba(22,33,28,.04),0 14px 40px -16px rgba(22,33,28,.16);
+  --head-bg:rgba(242,242,237,.86);
+  /* aliases kept for page styles */
+  --muted:var(--ink-3); --accent:var(--ink); --accent-soft:var(--tint);
+  --gold:var(--warn); --gold-soft:var(--warn-soft); --rose:var(--bad); --rose-soft:var(--bad-soft);
+  --f-display:"Bricolage Grotesque","Avenir Next Condensed","Segoe UI",system-ui,sans-serif;
+  --f-body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --r-card:24px; --r-inner:16px;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+:root{color-scheme:light}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--bg)}
+img{max-width:100%}
+[hidden]{display:none!important}
+a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:.2em;text-decoration-thickness:1px;transition:text-decoration-color .2s}
+a:hover{text-decoration-color:var(--ink)}
+:focus-visible{outline:2px solid var(--violet);outline-offset:3px;border-radius:8px}
+button{font:inherit;color:inherit}
+mark{background:var(--mark);color:inherit;padding:.05em .2em;border-radius:4px}
+strong{font-weight:600}
+.ico{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.arrow{display:inline-block;transition:transform .25s var(--ease)}
+a:hover .arrow,button:hover .arrow{transform:translateX(3px)}
+a:hover .arrow.back,button:hover .arrow.back{transform:translateX(-3px)}
+
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--dot,var(--warn)) 45%,transparent)}70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.rise{animation:rise .6s var(--ease) both}
+.swap{animation:rise .4s var(--ease) both}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* ---------- top bar ---------- */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--head-bg);backdrop-filter:saturate(1.3) blur(14px);-webkit-backdrop-filter:saturate(1.3) blur(14px);border-bottom:1px solid var(--line)}
+.site-head-in{max-width:76rem;margin:0 auto;display:flex;align-items:center;gap:.75rem;padding-block:.7rem;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.brand{display:flex;align-items:center;gap:.55rem;font-family:var(--f-display);font-weight:700;font-size:1.05rem;color:var(--ink);text-decoration:none;white-space:nowrap;letter-spacing:-.02em;font-stretch:92%}
+.brand-mark{display:grid;place-items:center;width:1.85rem;height:1.85rem;border-radius:999px;background:var(--ink);color:var(--bg);font-family:var(--f-mono);font-size:.7rem;letter-spacing:.02em}
+.site-nav{display:flex;gap:.2rem;margin-left:auto;overflow-x:auto;scrollbar-width:none;min-width:0}
+.site-nav::-webkit-scrollbar{display:none}
+.site-nav a{font-size:.85rem;font-weight:500;text-decoration:none;color:var(--ink-3);padding:.4rem .8rem;border-radius:999px;white-space:nowrap;transition:background .2s,color .2s}
+.site-nav a:hover{color:var(--ink);background:var(--surface)}
+.site-nav a[aria-current="page"]{color:var(--ink);background:var(--surface);box-shadow:var(--shadow)}
+.progress{position:absolute;left:0;right:0;bottom:-1px;height:2px;overflow:hidden}
+.progress span{display:block;height:100%;background:var(--ink);transform-origin:left;transform:scaleX(0)}
+@media (max-width:540px){.brand-text{display:none}}
+
+/* ---------- page frame ---------- */
+.wrap{max-width:76rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);gap:4rem;padding-block:3.5rem 5rem}
+@media (min-width:1100px){.layout{grid-template-columns:minmax(0,42rem) 13rem;justify-content:center}}
+.toc{display:none}
+@media (min-width:1100px){.toc{display:block;position:sticky;top:calc(env(safe-area-inset-top,0px) + 5.5rem);align-self:start;font-size:.85rem}}
+.toc-label{font-family:var(--f-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-4);margin:0 0 .9rem}
+.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:.1rem}
+.toc a{display:flex;gap:.6rem;align-items:center;padding:.35rem 0;color:var(--ink-3);text-decoration:none;line-height:1.35;transition:color .2s}
+.toc a::before{content:"";width:6px;height:6px;border-radius:999px;background:var(--line-2);flex:none;transition:background .2s,transform .2s}
+.toc a:hover{color:var(--ink)}
+.toc a.on{color:var(--ink);font-weight:500}
+.toc a.on::before{background:var(--violet);transform:scale(1.3)}
+
+/* ---------- prose ---------- */
+.prose{min-width:0}
+.prose > *{margin:0}
+.prose > * + *{margin-top:1.15em}
+.prose h1{font-family:var(--f-display);font-size:clamp(2.4rem,6.5vw,3.9rem);line-height:.98;letter-spacing:-.04em;font-weight:700;font-stretch:90%;text-wrap:balance}
+.prose h2{font-family:var(--f-display);font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.08;letter-spacing:-.035em;font-weight:700;font-stretch:90%;margin-top:3em;text-wrap:balance;scroll-margin-top:calc(env(safe-area-inset-top,0px) + 5.5rem);position:relative}
+.prose h3{font-family:var(--f-display);font-size:1.2rem;line-height:1.25;letter-spacing:-.02em;font-weight:600;margin-top:2.2em;text-wrap:balance}
+.prose h2 + *, .prose h3 + *{margin-top:.8em}
+.prose > .eyebrow + h1{margin-top:.9rem}
+.prose > h1 + .meta{margin-top:1.1rem}
+.anchor{position:absolute;left:-1.1em;top:.05em;color:var(--ink-4);text-decoration:none;font-weight:400;opacity:0;transition:opacity .2s}
+.prose h2:hover .anchor{opacity:1}
+@media (max-width:900px){.anchor{display:none}}
+.prose ul,.prose ol{padding-left:1.2em}
+.prose li + li{margin-top:.45em}
+.prose li::marker{color:var(--ink-4)}
+.eyebrow{font-family:var(--f-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);display:flex;align-items:center;gap:.55rem}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--dot,var(--violet));flex:none}
+.meta{font-family:var(--f-mono);font-size:.74rem;color:var(--ink-4);letter-spacing:.02em}
+.lead{font-size:1.18rem;line-height:1.6;color:var(--ink-2)}
+.prose code,.term{font-family:var(--f-mono);font-size:.82em;background:var(--surface);border:1px solid var(--line);padding:.08em .45em;border-radius:999px}
+.latin{font-style:italic;color:var(--ink-2)}
+.hand{font-family:var(--f-display);font-style:normal;font-weight:600;color:var(--violet);letter-spacing:-.01em}
+
+/* callouts: white cards with a coloured marker dot */
+.callout{--c:var(--good);background:var(--surface);border-radius:var(--r-card);padding:1.25rem 1.4rem 1.35rem;display:grid;gap:.55rem;box-shadow:var(--shadow)}
+.callout > *{margin:0}
+.callout .label{font-family:var(--f-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);display:flex;align-items:center;gap:.55rem}
+.callout .label::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--c)}
+.callout.exam{--c:var(--violet)}
+.callout.trap{--c:var(--bad)}
+.callout.keep{--c:var(--warn)}
+.prose > .callout{margin-top:2.2rem}
+.prose > .callout + *{margin-top:2.2rem}
+
+/* definition quote */
+.defq{margin-inline:0;padding:1.5rem 1.5rem 1.3rem;background:var(--surface);border-radius:var(--r-card);box-shadow:var(--shadow);display:grid;gap:.75rem}
+.defq p{margin:0;font-family:var(--f-display);font-size:1.3rem;line-height:1.3;font-weight:500;letter-spacing:-.02em;text-wrap:pretty}
+.defq cite{font-style:normal;font-family:var(--f-mono);font-size:.72rem;color:var(--ink-4);border-top:1px solid var(--line);padding-top:.75rem}
+
+/* big takeaway */
+.big-idea{font-family:var(--f-display);font-size:clamp(1.5rem,4vw,1.9rem);line-height:1.15;font-weight:600;letter-spacing:-.035em;font-stretch:92%;color:var(--ink);text-wrap:balance;padding-block:.75rem;border-block:1px solid var(--line-2)}
+
+/* tables */
+.table-wrap{overflow-x:auto;border-radius:var(--r-card);background:var(--surface);box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;font-size:.88rem;line-height:1.5;min-width:36rem}
+th,td{text-align:left;vertical-align:top;padding:.85rem 1rem;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}
+th{font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-4);font-weight:500}
+td:first-child{font-weight:600}
+.dot{display:inline-block;width:7px;height:7px;border-radius:999px;background:var(--dot,var(--ink-4));margin-right:.45rem;vertical-align:.1em}
+
+/* ---------- widgets ---------- */
+.widget{background:var(--surface);border-radius:var(--r-card);padding:1.3rem;display:grid;gap:1.1rem;box-shadow:var(--shadow)}
+.prose > .widget{margin-top:2.4rem}
+.prose > .widget + *{margin-top:2.4rem}
+@media (min-width:700px){.widget{padding:1.6rem 1.7rem}}
+.widget > *{margin:0}
+.w-head{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .7rem;padding-bottom:1rem;border-bottom:1px solid var(--line)}
+.w-tag{font-family:var(--f-mono);font-size:.64rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);border:1px solid var(--line-2);padding:.18rem .55rem;border-radius:999px}
+.w-title{font-family:var(--f-display);font-weight:600;font-size:1.08rem;letter-spacing:-.02em}
+.w-hint{font-size:.82rem;color:var(--ink-4);margin-left:auto}
+.btn{appearance:none;border:1px solid var(--line-2);background:var(--surface);border-radius:999px;padding:.45rem 1rem;font-size:.85rem;font-weight:500;cursor:pointer;line-height:1.3;display:inline-flex;align-items:center;gap:.4rem;transition:border-color .2s,background .2s,color .2s}
+.btn:hover{border-color:var(--ink-3)}
+.btn.primary{background:var(--ink);border-color:var(--ink);color:var(--surface)}
+.btn.primary:hover{background:var(--ink-2);border-color:var(--ink-2)}
+.btn[aria-pressed="true"],.btn.on{background:var(--violet-soft);border-color:var(--violet);color:var(--violet)}
+.btn:disabled{opacity:.4;cursor:default}
+.row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.chip{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.03em;padding:.22rem .6rem;border-radius:999px;background:var(--tint);color:var(--ink-3);white-space:nowrap;display:inline-flex;align-items:center;gap:.4rem}
+.chip .dot{margin:0}
+
+/* diagrams */
+.dia{width:100%;height:auto;display:block;margin-inline:auto}
+.dia .node rect{fill:var(--surface);stroke:var(--line-2);stroke-width:1;transition:opacity .35s,stroke .35s}
+.dia .code{font-family:var(--f-mono);font-size:8.5px;letter-spacing:.08em;fill:var(--ink-4)}
+.dia .lab{font-family:var(--f-body);font-size:11px;font-weight:500;fill:var(--ink)}
+.dia .edge{fill:none;stroke:var(--line-2);stroke-width:1.2;stroke-dasharray:3 4;transition:stroke .35s,opacity .35s}
+.dia .edge.live{stroke-dasharray:none;stroke-width:1.6}
+.dia .off{opacity:.38}
+.dia .hub rect{fill:var(--ink);stroke:none}
+.dia .hub text{fill:var(--surface)}
+.dia .hub .code{fill:var(--surface);opacity:.6}
+.dia .cap{font-family:var(--f-mono);font-size:8px;letter-spacing:.12em;fill:var(--ink-4);text-transform:uppercase}
+.dia-cap{font-size:.8rem;color:var(--ink-4);line-height:1.5}
+.legend{display:flex;flex-wrap:wrap;gap:.35rem .9rem;font-size:.8rem;color:var(--ink-3)}
+.legend span{display:inline-flex;align-items:center;gap:.4rem}
+.steps{display:flex;gap:.35rem;align-items:center}
+.steps i{width:7px;height:7px;border-radius:999px;background:var(--line-2);transition:background .2s,width .25s var(--ease)}
+.steps i.on{background:var(--ink);width:20px}
+
+/* quiz */
+.quiz-q{border:0;padding:0;margin:0;display:grid;gap:.6rem}
+.quiz-q + .quiz-q{border-top:1px solid var(--line);padding-top:1.2rem}
+.quiz-q legend{font-weight:600;line-height:1.45;padding:0;margin-bottom:.6rem}
+.quiz-opts{display:grid;gap:.4rem}
+.quiz-opt{text-align:left;appearance:none;border:1px solid var(--line);background:var(--surface);border-radius:var(--r-inner);padding:.6rem .9rem;cursor:pointer;line-height:1.4;font-size:.92rem;display:flex;gap:.7rem;align-items:flex-start;transition:border-color .2s,background .2s}
+.quiz-opt:hover:not(:disabled){border-color:var(--ink-3)}
+.quiz-opt .k{font-family:var(--f-mono);font-size:.68rem;color:var(--ink-4);padding-top:.2rem}
+.quiz-opt.right{background:var(--good-soft);border-color:var(--good)}
+.quiz-opt.wrong{background:var(--bad-soft);border-color:var(--bad)}
+.quiz-opt:disabled{cursor:default}
+.quiz-why{font-size:.88rem;line-height:1.6;background:var(--tint);border-radius:var(--r-inner);padding:.75rem .95rem;display:flex;gap:.55rem;align-items:baseline}
+.quiz-why::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--good);flex:none;transform:translateY(-1px)}
+.quiz-why.miss::before{background:var(--bad)}
+.quiz-foot{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:1rem}
+.score{font-family:var(--f-mono);font-size:.74rem;color:var(--ink-3)}
+
+/* chapter end */
+.done-box{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;padding-block:1.2rem;border-block:1px solid var(--line-2)}
+.done-box p{margin:0;color:var(--ink-3);font-size:.88rem}
+.btn[data-done][aria-pressed="true"]{background:var(--good-soft);border-color:var(--good);color:var(--good)}
+.pager{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1rem}
+.prose > .pager{margin-top:3rem}
+.pager a{display:grid;gap:.25rem;padding:1.1rem 1.3rem;border-radius:var(--r-card);background:var(--surface);box-shadow:var(--shadow);text-decoration:none;color:var(--ink);transition:transform .3s var(--ease)}
+.pager a:hover{transform:translateY(-2px)}
+.pager .dir{font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-4)}
+.pager .t{font-family:var(--f-display);font-weight:600;font-size:1.1rem;letter-spacing:-.02em}
+.pager .next{text-align:right}
+.foot{border-top:1px solid var(--line);padding-block:1.6rem 2.6rem;color:var(--ink-4);font-size:.8rem}
+.foot p{margin:0;max-width:62ch}
+
+
+.contrast{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.75rem}
+.contrast > div{border-radius:var(--r-card);padding:1.15rem 1.3rem;background:var(--surface);box-shadow:var(--shadow);display:grid;gap:.45rem;align-content:start}
+.contrast h4{margin:0;font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-4);font-weight:500;display:flex;align-items:center;gap:.5rem}
+.contrast h4::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--ink-4)}
+.contrast p{margin:0;font-size:.92rem;line-height:1.6;color:var(--ink-2)}
+.contrast .them{background:var(--ink)}
+.contrast .them h4{color:var(--surface);opacity:.7}
+.contrast .them h4::before{background:var(--violet)}
+.contrast .them p{color:var(--surface)}
+.sort-list{display:grid;margin:0;padding:0;list-style:none}
+.sort-item{padding-block:1rem;border-top:1px solid var(--line);display:grid;gap:.6rem}
+.sort-item:first-child{border-top:0;padding-top:0}
+.sort-list li + li{margin-top:0}
+.sort-item p{margin:0}
+.sort-item .st{font-weight:500;line-height:1.5;display:flex;gap:.6rem;align-items:baseline}
+.sort-item .st::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--line-2);flex:none;transform:translateY(-1px);transition:background .2s}
+.sort-item.ok .st::before{background:var(--good)}
+.sort-item.no .st::before{background:var(--bad)}
+.sort-item .fb{font-size:.86rem;line-height:1.55;color:var(--ink-2);background:var(--tint);border-radius:var(--r-inner);padding:.6rem .85rem}
+.sort-item.ok .btn.on{background:var(--good-soft);border-color:var(--good);color:var(--good)}
+.sort-item.no .btn.on{background:var(--bad-soft);border-color:var(--bad);color:var(--bad)}
+.scale{width:100%;max-width:24rem;margin-inline:auto;display:block}
+.scale .post{fill:var(--line-2)}
+.scale .beam{transition:transform .7s cubic-bezier(.3,1.5,.5,1);transform-origin:160px 60px}
+.scale .beam-bar{fill:var(--ink)}
+.scale .pan{fill:var(--tint);stroke:var(--line-2);stroke-width:1}
+.scale .string{stroke:var(--ink-4);stroke-width:1}
+.scale .lbl{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.08em;fill:var(--ink-4)}
+.scale .cnt{font-family:var(--f-display);font-weight:600;font-size:18px}
+.scale .for{fill:var(--good)} .scale .against{fill:var(--bad)}
+.args{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.2rem}
+.args > div{display:grid;gap:.4rem;align-content:start}
+.args h4{margin:0 0 .2rem;font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.12em;font-weight:500;color:var(--ink-3);display:flex;align-items:center;gap:.5rem}
+.args h4::before{content:"";width:7px;height:7px;border-radius:999px}
+.args .f h4::before{background:var(--good)} .args .a h4::before{background:var(--bad)}
+.arg{text-align:left;appearance:none;border:1px solid var(--line);border-radius:var(--r-inner);padding:.6rem .85rem;background:var(--surface);cursor:pointer;font-size:.86rem;line-height:1.5;color:var(--ink-2);transition:background .2s,border-color .2s}
+.arg:hover{border-color:var(--ink-4)}
+.args .f .arg[aria-pressed="true"]{background:var(--good-soft);border-color:var(--good);color:var(--ink)}
+.args .a .arg[aria-pressed="true"]{background:var(--bad-soft);border-color:var(--bad);color:var(--ink)}
+.verdict{background:var(--tint);border-radius:var(--r-inner);padding:1rem 1.1rem;display:grid;gap:.4rem}
+.verdict p{margin:0;font-size:.92rem;line-height:1.6}
+.verdict .vh{font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);display:flex;align-items:center;gap:.5rem}
+.verdict .vh::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--warn)}
+.loop-map{max-width:25rem}
+.loop-map .elab{font-family:var(--f-mono);font-size:8px;letter-spacing:.06em;fill:var(--ink-4);transition:fill .3s}
+.loop-map .elab.live{fill:var(--ink);font-weight:500}
+.loop-text{border-top:1px solid var(--line);padding-top:1rem;display:grid;gap:.45rem;min-height:7.5rem;align-content:start}
+.loop-text > *{margin:0}
+.loop-text .tg{display:flex;align-items:center;gap:.5rem;font-family:var(--f-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3)}
+.loop-text .tg i{width:7px;height:7px;border-radius:999px;background:var(--tg,var(--ink-4))}
+.loop-text .bd{font-size:.95rem;line-height:1.6;color:var(--ink-2)}
+.loop-nav{display:flex;justify-content:space-between;align-items:center;gap:.5rem;flex-wrap:wrap}
+.eye{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:.75rem}
+.eye > div{border-radius:var(--r-card);padding:1.15rem 1.3rem;display:grid;gap:.35rem;align-content:start;background:var(--surface);box-shadow:var(--shadow)}
+.eye p{margin:0;font-size:.92rem;line-height:1.6;color:var(--ink-2)}
+.eye b{font-family:var(--f-display);font-weight:600;font-size:1.1rem;letter-spacing:-.02em;display:flex;align-items:center;gap:.5rem}
+.eye b::before{content:"";width:7px;height:7px;border-radius:999px;background:var(--d)}
+.eye .in{--d:var(--c1)} .eye .out{--d:var(--c6)}
+.recap{display:grid;margin:0;padding:.4rem 1.3rem;list-style:none;background:var(--surface);border-radius:var(--r-card);box-shadow:var(--shadow)}
+.recap li{display:grid;grid-template-columns:8.5rem 1fr;gap:.75rem;align-items:baseline;padding:.75rem 0;border-top:1px solid var(--line);font-size:.92rem}
+.recap li:first-child{border-top:0}
+.recap li + li{margin-top:0}
+.recap .k{font-family:var(--f-mono);font-size:.68rem;color:var(--ink-3);text-transform:uppercase;letter-spacing:.09em}
+@media (max-width:480px){.recap li{grid-template-columns:1fr;gap:.15rem}}
+
+</style>
+</head>
+<body>
+<header class="site-head"><div class="site-head-in"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">JP</span><span class="brand-text">Juris Prudentia</span></a><nav class="site-nav" aria-label="Chapters"><a href="../index.html">All units</a><a href="definition.html">Definition</a><a href="nature.html" aria-current="page">Nature</a><a href="scope.html">Scope</a><a href="sources.html">Sources</a><a href="natural-law.html">Natural law</a><a href="exam.html">Exam kit</a></nav></div><div class="progress" aria-hidden="true"><span></span></div></header><main class="wrap"><div class="layout rise"><article class="prose">
+<p class="eyebrow">Chapter 2 of 5 · Nature</p>
+<h1>What kind of subject is jurisprudence?</h1>
+<p class="meta">About 16 minutes · 2 interactive widgets · 4-question check</p>
+<p class="lead">Open any other paper on your timetable and you know what you're getting. Contract has the Indian Contract Act. Criminal law has the Bharatiya Nyaya Sanhita. There are sections, illustrations, leading cases. Then you open jurisprudence, and there's… none of that.</p>
+<p>No bare act. No "Section 7 of Jurisprudence". It can feel slippery, like there's nothing solid to hold on to. This chapter is about exactly that feeling: <strong>what kind of subject is this, and how is it different from the rest of your law degree?</strong> That's what examiners mean by its "nature".</p>
+
+<h2 id="about-law" data-toc="Law vs about law">Law, versus thinking about law</h2>
+<p>Here's the mental model I'd like you to carry through this chapter. Every other subject you study is <em>law</em>. Jurisprudence is <em>about</em> law.</p>
+<div class="contrast">
+  <div><h4>Contract, Torts, BNS, CPC</h4><p>A map of one city. It tells you where the roads go: which agreement is void, which act is an offence, which court has jurisdiction.</p></div>
+  <div class="them"><h4>Jurisprudence</h4><p>The study of maps. What makes something a map at all? Who has the authority to draw one? Is this road in the right place? Should it exist?</p></div>
+</div>
+<p>Once you see it this way, most of the "features" listed in textbooks fall out naturally. Let's go through them.</p>
+
+<h2 id="features" data-toc="Six features">Six features of its nature</h2>
+
+<h3>1. It isn't codified</h3>
+<p>Paranjape stresses this point: jurisprudence is not a codified subject. There is no statute to quote, so your answers are judged on the quality of your reasoning and your command of the jurists, not on recalling a section number. That's freeing, once you get used to it.</p>
+
+<h3>2. It studies law in general, not one country's law</h3>
+<p>Remember Paton from Chapter 1? Jurisprudence studies "the general notion of law itself". Concepts like <span class="term">right</span>, <span class="term">duty</span>, <span class="term">ownership</span>, <span class="term">possession</span> and <span class="term">legal personality</span> exist in every legal system. Jurisprudence studies them as ideas, not as they happen to appear in one statute.</p>
+
+<h3>3. It asks both "what is" and "what ought to be"</h3>
+<p>This one comes from Bentham, and it's worth getting really comfortable with, because it shows up in the nature, the scope <em>and</em> the schools of jurisprudence.</p>
+<ul>
+  <li><strong>Expository jurisprudence</strong> describes law <em>as it is</em>. It's a statement of fact you could check.</li>
+  <li><strong>Censorial jurisprudence</strong> evaluates law <em>as it ought to be</em>. Bentham also called it the science of legislation, because it's about what lawmakers should do.</li>
+</ul>
+<p>Sounds simple. But in practice, students blur the two all the time. Try sorting these statements.</p>
+
+<div class="widget" id="sorter">
+  <div class="w-head"><span class="w-tag">Try it</span><span class="w-title">Is, or ought?</span><span class="w-hint">Is each statement describing the law, or judging it?</span></div>
+  <ul class="sort-list" id="sort-list"></ul>
+  <div class="quiz-foot"><span class="score" id="sort-score"></span><button class="btn" type="button" id="sort-reset">Reset</button></div>
+</div>
+
+<p>The trick is to look for words like <em>should</em>, <em>ought</em>, <em>must be changed</em>, <em>unfair</em>. Those signal a judgment. A statement about what the law currently says, even a surprising one, is still expository.</p>
+
+<h3>4. It's abstract, but not useless</h3>
+<p>Jurisprudence deals in abstractions. But those abstractions decide real cases. Whether a judge reads "procedure established by law" as <em>any</em> procedure Parliament enacts, or as a <em>fair</em> procedure, is a jurisprudential choice. We'll see exactly that in the Scope chapter, with real Supreme Court judgments.</p>
+
+<h3>5. It's interdisciplinary</h3>
+<p>To understand why a law exists and whether it works, jurisprudence borrows from sociology, economics, history, ethics, psychology and political science. Julius Stone's phrase for this was "the lawyer's extraversion": the lawyer turning to look outward.</p>
+
+<h3>6. It's dynamic</h3>
+<p>Because it's about law in society, jurisprudence keeps growing as society changes. Questions about privacy, environmental rights, or who is responsible when software makes a decision weren't on the syllabus a century ago. The subject has no fixed edge, which is a theme we'll pick up in Scope.</p>
+
+<h2 id="science" data-toc="Is it a science?">The big question: is jurisprudence a science?</h2>
+<p>Austin, Holland, Salmond, Gray and Pound all use the word "science" in their definitions. So is it one? This is a favourite exam question, and the answer is a careful "yes, in one sense".</p>
+<p>First, what do we mean by science? In the broad sense, a science is <strong>a systematic, organised body of knowledge, built by observation and reasoning, that yields general principles</strong>. Physics fits. Does jurisprudence?</p>
+<p>Rather than tell you, let's weigh it. Click each argument to put it on the scale.</p>
+
+<div class="widget scale-wrap" id="scalebox">
+  <div class="w-head"><span class="w-tag">Try it</span><span class="w-title">Weigh the arguments</span><span class="w-hint">Click arguments on either side.</span></div>
+  <svg class="scale" viewBox="0 0 320 170" role="img" aria-label="A balance scale showing arguments for and against jurisprudence being a science">
+    <rect class="post" x="157" y="60" width="6" height="92" rx="2"></rect>
+    <rect class="post" x="120" y="150" width="80" height="8" rx="3"></rect>
+    <g class="beam" id="beam">
+      <rect class="beam-bar" x="40" y="56" width="240" height="8" rx="4"></rect>
+      <circle class="post" cx="160" cy="60" r="7"></circle>
+      <line class="string" x1="52" y1="60" x2="30" y2="112"></line><line class="string" x1="52" y1="60" x2="74" y2="112"></line>
+      <line class="string" x1="268" y1="60" x2="246" y2="112"></line><line class="string" x1="268" y1="60" x2="290" y2="112"></line>
+      <ellipse class="pan" cx="52" cy="114" rx="30" ry="8"></ellipse>
+      <ellipse class="pan" cx="268" cy="114" rx="30" ry="8"></ellipse>
+      <text class="cnt for" x="52" y="100" text-anchor="middle" id="cnt-f">0</text>
+      <text class="cnt against" x="268" y="100" text-anchor="middle" id="cnt-a">0</text>
+    </g>
+    <text class="lbl" x="52" y="20" text-anchor="middle">It IS a science</text>
+    <text class="lbl" x="268" y="20" text-anchor="middle">It is NOT</text>
+  </svg>
+  <div class="args">
+    <div class="f"><h4>For</h4>
+      <button type="button" class="arg" data-side="f" aria-pressed="false">It is a systematic, organised study, not a random collection of opinions.</button>
+      <button type="button" class="arg" data-side="f" aria-pressed="false">It draws general principles out of many legal systems.</button>
+      <button type="button" class="arg" data-side="f" aria-pressed="false">It uses method: observation, classification and comparison of legal institutions.</button>
+      <button type="button" class="arg" data-side="f" aria-pressed="false">Major jurists (Austin, Holland, Salmond, Gray) call it a science.</button>
+    </div>
+    <div class="a"><h4>Against</h4>
+      <button type="button" class="arg" data-side="a" aria-pressed="false">It has no universal, unchanging laws like gravity. Legal rules differ by country and era.</button>
+      <button type="button" class="arg" data-side="a" aria-pressed="false">You cannot run controlled experiments on a legal system.</button>
+      <button type="button" class="arg" data-side="a" aria-pressed="false">Value judgments (the "ought") run all through it.</button>
+      <button type="button" class="arg" data-side="a" aria-pressed="false">Its predictions are unreliable; courts can and do surprise us.</button>
+    </div>
+  </div>
+  <div class="row"><button type="button" class="btn primary" id="verdict-btn">Show the verdict</button><button type="button" class="btn" id="scale-reset">Clear the scale</button></div>
+  <div class="verdict" id="verdict" hidden>
+    <p class="vh">Verdict</p>
+    <p>Both sides are right about different things. Jurisprudence is <strong>not an exact or natural science</strong>. But it <strong>is a science in the older, broader sense</strong>: a systematic body of knowledge (Latin <span class="latin">scientia</span> simply means knowledge). Because it studies human conduct and institutions in society, the most accurate label is a <strong>social science</strong>.</p>
+  </div>
+</div>
+
+<p>Notice the scale ends roughly level if you place everything. That's the honest answer, and it's what makes for a strong exam conclusion: <mark>jurisprudence is a science in the sense of systematic knowledge, and more precisely a social science, but not an exact science like physics.</mark></p>
+
+<aside class="callout note">
+  <p class="label">Sidenote</p>
+  <p>When Austin and Salmond called jurisprudence a "science", they were using the older meaning of the word: any organised body of knowledge, from <span class="latin">scientia</span>. They weren't claiming it works like chemistry. Pointing this out in an answer shows you've understood the debate rather than picked a side blindly.</p>
+</aside>
+
+<h2 id="eye" data-toc="The eye of law">"Jurisprudence is the eye of law"</h2>
+<p>You'll meet this phrase in Indian textbooks and question papers, often as a "discuss" question. It sounds poetic, so let's make it concrete by following a single idea around a loop. Step through it.</p>
+<div class="widget" id="loop">
+  <div class="w-head"><span class="w-tag">Step through</span><span class="w-title">How the eye of law works</span><span class="w-hint" id="loop-count"></span></div>
+  <svg class="dia loop-map" id="loop-map" viewBox="0 0 360 252" role="img" aria-label="A loop between society, law and jurisprudence: society's needs become law; jurisprudence looks inward at law and outward at society, then feeds reform back into law."></svg>
+  <div class="loop-text" id="loop-text" aria-live="polite"><p class="tg" id="loop-tag"><i></i><span></span></p><p class="bd" id="loop-body"></p></div>
+  <div class="loop-nav"><div class="steps" id="loop-steps"></div><div class="row"><button class="btn" type="button" id="loop-prev"><span class="arrow back">←</span> Back</button><button class="btn primary" type="button" id="loop-next">Next <span class="arrow">→</span></button></div></div>
+</div>
+<p>So, in two directions, an eye lets a body see:</p>
+<div class="eye">
+  <div class="in"><b>Inward</b><p>Jurisprudence lets law see its own foundations: what a right is, what makes a rule valid, where law comes from. The basic concepts every other subject quietly relies on.</p></div>
+  <div class="out"><b>Outward</b><p>It lets law see its surroundings: society, morality, economics, the people it governs. Whether it's achieving its purpose. This is Stone's "extraversion".</p></div>
+</div>
+<p>Without the eye, law still functions, but blindly. Courts would apply rules without understanding why, and legislators would make rules without asking whether they're just. That's your answer in miniature.</p>
+
+<h2 id="legal-theory" data-toc="Jurisprudence vs legal theory">Jurisprudence or legal theory?</h2>
+<p>Paranjape's title uses both terms, so it's fair to ask whether they differ. The term "legal theory" was popularised by W. Friedmann. Most Indian writers, including V.D. Mahajan, treat the two as near-synonyms, with jurisprudence as the slightly wider term: legal theory concentrates on the theories of what law is, while jurisprudence also covers legal concepts and the working of law. Two sentences on this is plenty in an exam.</p>
+
+<h2 id="recap" data-toc="Recap">Recap: the nature in one glance</h2>
+<ul class="recap">
+  <li><span class="k">Uncodified</span><span>No bare act; answers are reasoned, not recited.</span></li>
+  <li><span class="k">General</span><span>Studies law as an idea, not one country's statutes (Paton).</span></li>
+  <li><span class="k">Is + ought</span><span>Expository and censorial, both (Bentham).</span></li>
+  <li><span class="k">Abstract</span><span>Theoretical, yet decides real cases.</span></li>
+  <li><span class="k">Interdisciplinary</span><span>Borrows from sociology, ethics, economics (Stone).</span></li>
+  <li><span class="k">Dynamic</span><span>Grows as society changes.</span></li>
+  <li><span class="k">Science?</span><span>Systematic knowledge, a social science, not an exact one.</span></li>
+</ul>
+
+<h2 id="check" data-toc="Check yourself">Check yourself</h2>
+<div class="widget" id="quiz"><div class="w-head"><span class="w-tag">Quiz</span><span class="w-title">Nature of jurisprudence</span></div></div>
+
+<div class="done-box"><p>Finished? Tick it off. Your progress shows on the unit page (saved only in this browser).</p><button class="btn" type="button" data-done="nature" aria-pressed="false">Mark chapter as read</button></div>
+<nav class="pager" aria-label="Chapter navigation"><a href="definition.html"><span class="dir"><span class="arrow back">←</span> Previous</span><span class="t">Chapter 1 · Definition</span></a><a class="next" href="scope.html"><span class="dir">Next <span class="arrow">→</span></span><span class="t">Chapter 3 · Scope</span></a></nav></article><aside class="toc" aria-label="On this page"><p class="toc-label">On this page</p><ol></ol></aside></div><footer class="foot"><p>Juris Prudentia · a study companion to Dr N.V. Paranjape, <em>Studies in Jurisprudence &amp; Legal Theory</em>, Unit I. Definitions follow standard textbook wording; check against your edition.</p></footer></main>
+<script>
+(function(){
+  var JP = window.JP = {};
+
+  JP.store = {
+    get: function(k){ try { return window.localStorage.getItem(k); } catch(e){ return null; } },
+    set: function(k,v){ try { window.localStorage.setItem(k,v); } catch(e){} },
+    del: function(k){ try { window.localStorage.removeItem(k); } catch(e){} }
+  };
+
+  JP.swap = function(el){ if(!el) return; el.classList.remove('swap'); void el.offsetWidth; el.classList.add('swap'); };
+
+  /* reading progress */
+  var bar = document.querySelector('.progress span');
+  function onScroll(){
+    if(!bar) return;
+    var h = document.documentElement, max = h.scrollHeight - h.clientHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, h.scrollTop / max) : 0) + ')';
+  }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* heading anchors + on-this-page list */
+  var art = document.querySelector('article.prose');
+  var toc = document.querySelector('.toc ol');
+  if(art){
+    var heads = art.querySelectorAll('h2[id]');
+    var links = [];
+    heads.forEach(function(h){
+      var label = h.getAttribute('data-toc') || h.textContent;
+      var a = document.createElement('a');
+      a.href = '#' + h.id; a.className = 'anchor'; a.setAttribute('aria-label','Link to this section'); a.textContent = '#';
+      h.insertBefore(a, h.firstChild);
+      if(toc){
+        var li = document.createElement('li'), l = document.createElement('a');
+        l.href = '#' + h.id; l.textContent = label; li.appendChild(l); toc.appendChild(li); links.push(l);
+      }
+    });
+    if(toc && 'IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if(e.isIntersecting){
+            links.forEach(function(l){ l.classList.toggle('on', l.getAttribute('href') === '#' + e.target.id); });
+          }
+        });
+      }, {rootMargin:'0px 0px -70% 0px'});
+      heads.forEach(function(h){ io.observe(h); });
+    }
+  }
+
+  /* quiz */
+  JP.quiz = function(el, qs){
+    if(!el) return;
+    var letters = 'ABCD', right = 0, answered = 0;
+    var form = document.createElement('div'); form.style.display='grid'; form.style.gap='1.1rem';
+    var foot = document.createElement('div'); foot.className = 'quiz-foot';
+    var score = document.createElement('span'); score.className = 'score';
+    var reset = document.createElement('button'); reset.className = 'btn'; reset.type = 'button'; reset.textContent = 'Reset quiz';
+    foot.appendChild(score); foot.appendChild(reset);
+    function upd(){ score.textContent = answered === 0 ? qs.length + ' questions · pick an answer' : right + ' of ' + answered + ' correct' + (answered === qs.length ? (right === qs.length ? ' · full marks' : ' · reset to try again') : ''); }
+    function build(){
+      form.innerHTML = ''; right = 0; answered = 0;
+      qs.forEach(function(q, qi){
+        var fs = document.createElement('fieldset'); fs.className = 'quiz-q';
+        var lg = document.createElement('legend'); lg.textContent = (qi+1) + '. ' + q.q; fs.appendChild(lg);
+        var opts = document.createElement('div'); opts.className = 'quiz-opts';
+        var why = document.createElement('p'); why.className = 'quiz-why'; why.hidden = true;
+        var btns = [];
+        q.o.forEach(function(t, oi){
+          var b = document.createElement('button'); b.type = 'button'; b.className = 'quiz-opt';
+          b.innerHTML = '<span class="k">' + letters[oi] + '</span><span></span>';
+          b.lastChild.textContent = t;
+          b.addEventListener('click', function(){
+            btns.forEach(function(x){ x.disabled = true; });
+            btns[q.a].classList.add('right');
+            answered++;
+            if(oi === q.a){ right++; why.className = 'quiz-why'; why.innerHTML = '<b>Correct.</b> '; }
+            else { b.classList.add('wrong'); why.className = 'quiz-why miss'; why.innerHTML = '<b>Not quite.</b> '; }
+            why.appendChild(document.createTextNode(q.why)); why.hidden = false; upd();
+          });
+          btns.push(b); opts.appendChild(b);
+        });
+        fs.appendChild(opts); fs.appendChild(why); form.appendChild(fs);
+      });
+      upd();
+    }
+    reset.addEventListener('click', build);
+    el.appendChild(form); el.appendChild(foot); build();
+  };
+
+  /* chapter done toggle */
+  var done = document.querySelector('[data-done]');
+  if(done){
+    var key = 'jp-done-' + done.getAttribute('data-done');
+    function paint(){ var on = JP.store.get(key) === '1'; done.setAttribute('aria-pressed', on ? 'true' : 'false'); done.textContent = on ? 'Marked as read' : 'Mark chapter as read'; }
+    done.addEventListener('click', function(){ if(JP.store.get(key) === '1') JP.store.del(key); else JP.store.set(key,'1'); paint(); });
+    paint();
+  }
+})();
+
+</script>
+<script>
+(function(){
+
+var S = [
+ {t:'Under the Indian Contract Act, an agreement without consideration is generally void.', a:'is', f:'Expository. It reports what the Act currently provides, which you could check in the statute.'},
+ {t:'Marital rape should be made a criminal offence in India.', a:'ought', f:'Censorial. "Should be" is a judgment about what the law ought to be.'},
+ {t:'Article 21 protects the right to life and personal liberty.', a:'is', f:'Expository. It describes the existing Constitution.'},
+ {t:'Capital punishment ought to be abolished.', a:'ought', f:'Censorial. It evaluates the law and proposes reform, which is Bentham’s science of legislation.'},
+ {t:'A minor’s agreement is void from the beginning (Mohori Bibee v. Dharmodas Ghose, 1903).', a:'is', f:'Expository. Citing a case doesn’t make it a judgment; it’s still a statement of what the law is.'},
+ {t:'Judges should be free to make new law when a statute is silent.', a:'ought', f:'Censorial. It’s an argument about how the legal system ought to work.'}
+];
+var list = document.getElementById('sort-list'), sc = document.getElementById('sort-score');
+var got = 0, done = 0;
+function sScore(){ sc.textContent = done === 0 ? S.length + ' statements' : got + ' of ' + done + ' sorted correctly'; }
+function buildSort(){
+  list.innerHTML = ''; got = 0; done = 0;
+  S.forEach(function(s){
+    var li = document.createElement('li'); li.className = 'sort-item';
+    var p = document.createElement('p'); p.className = 'st'; p.textContent = s.t; li.appendChild(p);
+    var row = document.createElement('div'); row.className = 'row';
+    var fb = document.createElement('p'); fb.className = 'fb'; fb.hidden = true;
+    [['is','Is · expository'],['ought','Ought · censorial']].forEach(function(o){
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'btn'; b.textContent = o[1];
+      b.addEventListener('click', function(){
+        row.querySelectorAll('button').forEach(function(x){ x.disabled = true; });
+        b.classList.add('on'); done++;
+        if(o[0] === s.a){ got++; li.classList.add('ok'); fb.textContent = 'Correct. ' + s.f; }
+        else { li.classList.add('no'); fb.textContent = 'Not quite. ' + s.f; }
+        fb.hidden = false; sScore();
+      });
+      row.appendChild(b);
+    });
+    li.appendChild(row); li.appendChild(fb); list.appendChild(li);
+  });
+  sScore();
+}
+document.getElementById('sort-reset').addEventListener('click', buildSort);
+buildSort();
+
+var beam = document.getElementById('beam'), args = document.querySelectorAll('.arg');
+function tilt(){
+  var f = 0, a = 0;
+  args.forEach(function(b){ if(b.getAttribute('aria-pressed') === 'true'){ if(b.dataset.side === 'f') f++; else a++; } });
+  document.getElementById('cnt-f').textContent = f; document.getElementById('cnt-a').textContent = a;
+  beam.style.transform = 'rotate(' + ((a - f) * 4.5) + 'deg)';
+}
+args.forEach(function(b){ b.addEventListener('click', function(){ b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); tilt(); }); });
+document.getElementById('verdict-btn').addEventListener('click', function(){ var v = document.getElementById('verdict'); v.hidden = !v.hidden; this.textContent = v.hidden ? 'Show the verdict' : 'Hide the verdict'; });
+document.getElementById('scale-reset').addEventListener('click', function(){ args.forEach(function(b){ b.setAttribute('aria-pressed','false'); }); tilt(); });
+tilt();
+
+/* eye-of-law loop */
+(function(){
+  var NS = 'http://www.w3.org/2000/svg', XL = 'http://www.w3.org/1999/xlink';
+  function el(t, a, p){ var e = document.createElementNS(NS, t); for(var k in a) e.setAttribute(k, a[k]); if(p) p.appendChild(e); return e; }
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var m = document.getElementById('loop-map');
+  var N = {
+    JUR:{x:180,y:40,w:156,l:'Jurisprudence',hub:true},
+    LAW:{x:70,y:206,w:120,l:'Law',c:'--c2'},
+    SOC:{x:290,y:206,w:120,l:'Society',c:'--c3'}
+  };
+  var E = [
+    {id:'l1', d:'M230 206 L130 206', c:'--c3', lab:'NEEDS BECOME RULES', lx:180, ly:226,
+     tag:'Starting point', body:'Society has needs and disputes. Law answers them with rules: a Contract Act, a criminal code, a Constitution. Nothing jurisprudential has happened yet.'},
+    {id:'l2', d:'M58 182 C58 110 80 40 102 40', c:'--c1', lab:'INWARD', lx:28, ly:118,
+     tag:'Inward look \u00B7 expository', body:'Jurisprudence turns to law itself. What is a right? What makes this rule valid? Where did it come from? This is describing law as it is: Bentham’s expository jurisprudence.'},
+    {id:'l3', d:'M258 40 C292 40 302 110 302 182', c:'--c6', lab:'OUTWARD', lx:334, ly:118,
+     tag:'Outward look', body:'It then looks at society. Is the rule working? What do people actually do? This is Stone’s "lawyer’s extraversion", drawing on sociology, economics and ethics.'},
+    {id:'l4', d:'M150 66 C150 112 116 150 96 182', c:'--c5', lab:'OUGHT: REFORM', lx:200, ly:128,
+     tag:'Ought \u00B7 censorial', body:'Finally it judges: what ought the law to be? That judgment flows back into law as reform. This is censorial jurisprudence, and it closes the loop.'}
+  ];
+  var gE = el('g',{},m), gP = el('g',{},m), gN = el('g',{},m), labs = {}, paths = {};
+  E.forEach(function(e){
+    paths[e.id] = el('path',{id:'lp-' + e.id, d:e.d, class:'edge'}, gE);
+    var t = el('text',{x:e.lx, y:e.ly, 'text-anchor':'middle', class:'elab'}, gE); t.textContent = e.lab; labs[e.id] = t;
+  });
+  Object.keys(N).forEach(function(k){
+    var n = N[k], g = el('g',{class:n.hub ? 'hub' : 'node'}, gN), x0 = n.x - n.w/2;
+    el('rect',{x:x0, y:n.y - 24, width:n.w, height:48, rx:16}, g);
+    if(!n.hub) el('circle',{cx:x0 + 14, cy:n.y - 7, r:3.5, style:'fill:var(' + n.c + ')'}, g);
+    var c = el('text',{x:n.hub ? n.x : x0 + 22, y:n.y - 4, 'text-anchor':n.hub ? 'middle' : 'start', class:'code'}, g); c.textContent = k;
+    var t = el('text',{x:n.hub ? n.x : x0 + 11, y:n.y + 12, 'text-anchor':n.hub ? 'middle' : 'start', class:'lab', style:n.hub ? 'font-weight:600;font-size:12.5px' : ''}, g); t.textContent = n.l;
+  });
+  var step = 0, dotsBox = document.getElementById('loop-steps');
+  var sd = E.map(function(){ var i = document.createElement('i'); dotsBox.appendChild(i); return i; });
+  function go(k, user){
+    step = (k + E.length) % E.length; var e = E[step];
+    E.forEach(function(x, j){
+      var on = j === step, past = j < step;
+      paths[x.id].classList.toggle('live', on || past);
+      paths[x.id].style.stroke = (on || past) ? 'var(' + x.c + ')' : '';
+      paths[x.id].style.opacity = on ? '1' : (past ? '.45' : '.7');
+      labs[x.id].classList.toggle('live', on);
+    });
+    while(gP.firstChild) gP.removeChild(gP.firstChild);
+    if(!reduce){ [0, 0.8].forEach(function(off){ var c = el('circle',{r:3.6, style:'fill:var(' + e.c + ')'}, gP); var am = el('animateMotion',{dur:'1.6s', repeatCount:'indefinite', begin:(-off) + 's'}, c); var mp = el('mpath',{}, am); mp.setAttribute('href','#lp-' + e.id); mp.setAttributeNS(XL,'xlink:href','#lp-' + e.id); }); }
+    var tg = document.getElementById('loop-tag'); tg.style.setProperty('--tg','var(' + e.c + ')'); tg.lastChild.textContent = e.tag;
+    document.getElementById('loop-body').textContent = e.body;
+    document.getElementById('loop-count').textContent = 'Step ' + (step + 1) + ' of ' + E.length;
+    sd.forEach(function(d, j){ d.classList.toggle('on', j === step); });
+    document.getElementById('loop-next').lastChild.previousSibling.textContent = step === E.length - 1 ? 'Start again ' : 'Next ';
+    if(user) JP.swap(document.getElementById('loop-text'));
+  }
+  document.getElementById('loop-next').addEventListener('click', function(){ go(step + 1, true); });
+  document.getElementById('loop-prev').addEventListener('click', function(){ go(step - 1, true); });
+  go(0);
+})();
+
+JP.quiz(document.getElementById('quiz'), [
+ {q:'Bentham’s "censorial jurisprudence" deals with…', o:['Law as it is','Law as it ought to be','The history of law','Court procedure'], a:1, why:'Censorial jurisprudence judges law as it ought to be; Bentham also called it the science of legislation. Expository jurisprudence describes law as it is.'},
+ {q:'Which statement best captures the textbook position on whether jurisprudence is a science?', o:['It is an exact science, like physics','It is not a science at all, only opinion','It is a science in the sense of systematic knowledge, best called a social science','It is an art, not a science'], a:2, why:'It lacks the universal laws and experiments of a natural science, but it is a systematic body of knowledge about human institutions: a social science.'},
+ {q:'"The lawyer’s extraversion" is a description of jurisprudence by…', o:['Julius Stone','John Austin','Savigny','Holland'], a:0, why:'Julius Stone, describing the lawyer looking outward to other disciplines to understand law.'},
+ {q:'Which feature explains why there is no "Section 7 of Jurisprudence"?', o:['It is dynamic','It is uncodified','It is censorial','It is particular'], a:1, why:'Jurisprudence is not a codified subject. It has no statute; its content is principles, concepts and theories.'}
+]);
+
+})();
+</script>
+</body>
+</html>
